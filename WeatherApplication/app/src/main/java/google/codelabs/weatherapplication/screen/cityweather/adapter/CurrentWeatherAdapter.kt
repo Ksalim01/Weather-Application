@@ -1,10 +1,12 @@
 package google.codelabs.weatherapplication.screen.cityweather.adapter
 
 import android.content.Context
+import android.widget.Toast
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCityWeatherBinding
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
-import google.codelabs.weatherapplication.utils.*
+import google.codelabs.weatherapplication.screen.cityweather.utils.*
+import okhttp3.internal.applyConnectionSpec
 
 
 class CurrentWeatherAdapter(
@@ -15,22 +17,22 @@ class CurrentWeatherAdapter(
     var data: CurrentWeatherEntity? = null
     set(value) {
         field = value
-        onCreateLayout()
+        onUpdateLayout()
     }
 
-    private fun onCreateLayout() {
-        if (data != null ) {
-            with(binding.nestedScroll.uvWindHumidity) {
-                humidityValue.text = data!!.humidity.toString() + "%"
-                windRate.text = data!!.wind_speed.toInt().toString() + " км/ч"
-            }
-            with(binding) {
-                currentTemperature.text = kelvinToCelsius(data!!.temp).toString() + "\u00B0"
-                feelsLike.text = context.getString(R.string.feels_like) + " " + kelvinToCelsius(data!!.feels_like).toString() + "\u00B0"
-                currentTime.timeZone = data!!.timezone
-                root.setBackgroundResource(mapBackground(data!!.icon))
-                currentWeatherIcon.setImageResource(map(data!!.icon))
-            }
+    private fun onUpdateLayout() {
+        if (data == null ) return
+
+        with(binding.nestedScroll.uvWindHumidity) {
+            humidityValue.text = toHumidity(data!!.humidity)
+            windRate.text = toSpeed(data!!.wind_speed)
+        }
+        with(binding) {
+            currentTemperature.text = toTemperature(data!!.temp)
+            feelsLike.text = context.getString(R.string.feels_like) + " " + toTemperature(data!!.feels_like)
+            currentTime.timeZone = offsetToGMT(data!!.timezone_offset)
+            root.setBackgroundResource(mapBackground(data!!.icon))
+            currentWeatherIcon.setImageResource(map(data!!.icon))
         }
     }
 }

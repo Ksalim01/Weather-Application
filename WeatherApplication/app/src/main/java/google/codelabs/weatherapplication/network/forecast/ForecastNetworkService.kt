@@ -10,22 +10,25 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 
-class ForecastNetworkService {
+class ForecastNetworkService : BaseRetrofitService() {
 
     private val retrofit = buildRetrofit()
    // private val defaultDispatcher = Dispatchers.IO
 
-    suspend fun fetchOneCallData(lat: Float, long: Float) : OneCallData?  {
-        return try {
-            Log.d("NetworkService", "fetching...")
-            val response = retrofit.oneCallApi(lat, long, WEATHER_TOKEN)
-            Log.d("NetworkService", "done")
-            if (response.isSuccessful) {
-                response.body()
-            } else {
-                null
-            }
-        } catch (e: Exception) {
+    suspend fun fetchOneCallData(lat: Float, long: Float) : OneCallData? = try {
+        fetchOneCallDataWithException(lat, long)
+    } catch (e: Exception) {
+        null
+    }
+
+    suspend fun fetchOneCallDataWithException(lat: Float, long: Float) : OneCallData? = wrapRetrofitExceptions {
+
+        Log.d("NetworkService", "fetching...")
+        val response = retrofit.oneCallApi(lat, long, WEATHER_TOKEN)
+        Log.d("NetworkService", "done")
+        if (response.isSuccessful) {
+            response.body()
+        } else {
             null
         }
     }

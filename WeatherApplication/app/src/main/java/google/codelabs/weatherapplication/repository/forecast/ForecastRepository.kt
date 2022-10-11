@@ -1,7 +1,6 @@
 package google.codelabs.weatherapplication.repository.forecast
 
 import android.util.Log
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import google.codelabs.weatherapplication.database.forecast.daily.dao.DailyForecastDao
 import google.codelabs.weatherapplication.database.forecast.daily.entities.DailyForecastEntity
@@ -13,9 +12,10 @@ import google.codelabs.weatherapplication.network.forecast.entities.OneCallData
 import google.codelabs.weatherapplication.repository.utils.toCurrentWeatherEntity
 import google.codelabs.weatherapplication.repository.utils.toDailyForecastEntity
 import google.codelabs.weatherapplication.repository.utils.toHourlyForecastEntity
+import google.codelabs.weatherapplication.screen.cityweather.utils.currentTimeZoneOffset
+import google.codelabs.weatherapplication.screen.cityweather.utils.currentUnixTime
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 
 class ForecastRepository private constructor(
     private val dailyForecastDao: DailyForecastDao,
@@ -33,46 +33,59 @@ class ForecastRepository private constructor(
     val currentForecastData: MutableLiveData<CurrentWeatherEntity> =
         MutableLiveData()
 
+    private var propertiesFromDB = false
+
     suspend fun updateData(lat: Float, long: Float) {
-        Log.d("repository", "updateData")
         if (isCurrentData()) fetchForecast(lat, long)
     }
 
     private suspend fun fetchForecast(lat: Float, long: Float) {
-        Log.d("repository", "fetching")
         val oneCallData = forecastNetworkService.fetchOneCallData(lat, long)
         if (oneCallData == null) {
             Log.d("repository", "no response")
+            updatePropertiesFromDB(lat, long)
+        } else {
+            updateAllFromResponse(oneCallData)
         }
-        updateDB(oneCallData)
-        updateCurrentData(oneCallData)
     }
 
-    private suspend fun updateDB(oneCallData: OneCallData?) {
+    private suspend fun updateAllFromResponse(oneCallData: OneCallData) {
+        updateDB(oneCallData)
+        updateProperties(oneCallData)
+    }
+
+    private suspend fun updateDB(oneCallData: OneCallData) {
         Log.d("repository", "updateDB")
-        oneCallData?.let {
-            dailyForecastDao.insert(toDailyForecastEntity(it))
-            hourlyForecastDao.insert(toHourlyForecastEntity(it))
-        }
+        dailyForecastDao.insert(toDailyForecastEntity(oneCallData))
+        hourlyForecastDao.insert(toHourlyForecastEntity(oneCallData))
         Log.d("repository", "DB updated")
     }
 
-    private suspend fun updateCurrentData(oneCallData: OneCallData?) {
+    private fun updateProperties(oneCallData: OneCallData) {
         Log.d("repository", "updateCurrentData")
-        oneCallData?.let {
-            Log.d("repository", "set properties")
-            dailyForecastData.postValue(toDailyForecastEntity(it))
-            Log.d("repository", "dailyForecast")
-            hourlyForecastData.postValue(toHourlyForecastEntity(it))
-            Log.d("repository", "hourlyForecast")
-            currentForecastData.postValue(toCurrentWeatherEntity(it))
-            Log.d("repository", "currentForecast")
+        dailyForecastData.postValue(toDailyForecastEntity(oneCallData))
+        hourlyForecastData.postValue(toHourlyForecastEntity(oneCallData))
+        currentForecastData.postValue(toCurrentWeatherEntity(oneCallData))
+        Log.d("repository", "properties updated")
+    }
+
+    private suspend fun updatePropertiesFromDB(lat: Float, long: Float) {
+        if (!propertiesFromDB) {
+            dailyForecastData.postValue(dailyForecastDao.cityForecast(lat, long))
+            hourlyForecastData.postValue(hourlyForecastDao.cityForecast(lat, long))
+            val currentWeather = hourlyForecastDao.currentWeather(lat, long, currentUnixTime()) // currentUnixTime() - currentTimeZoneOffset()
+            if (currentWeather.isNotEmpty()) {
+                Log.d("repository", "found current weather")
+                currentForecastData.postValue(currentWeather[0])
+            } else {
+                Log.d("repository", "current weather not found")
+            }
+            propertiesFromDB = true
         }
-        Log.d("repository", "properties are updated")
     }
 
     private fun isCurrentData() : Boolean {
-        // TODO should be implemented
+        // TODO check data from DB on relevance
         return true
     }
 

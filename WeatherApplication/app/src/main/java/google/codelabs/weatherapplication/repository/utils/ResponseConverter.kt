@@ -22,7 +22,7 @@ fun toHourlyForecastEntity(response: OneCallData) = response.hourly.map {
         )
     }.toList()
 
-fun     toDailyForecastEntity(response: OneCallData) = response.daily.map {
+fun toDailyForecastEntity(response: OneCallData) = response.daily.map {
     DailyForecastEntity(
         lat = response.lat,
         lon = response.lon,
@@ -50,19 +50,11 @@ fun     toDailyForecastEntity(response: OneCallData) = response.daily.map {
 
 fun toCurrentWeatherEntity(response: OneCallData) = response.let {
     CurrentWeatherEntity(
-        lat = it.lat,
-        long = it.lon,
-        timezone = it.timezone,
-        sunrise = it.current.sunrise,
-        sunset = it.current.sunset,
+        timezone_offset = it.timezone_offset,
         temp = it.current.temp,
-        temp_min = it.daily[0].temp.min,
-        temp_max = it.daily[0].temp.max,
         feels_like = it.current.feels_like,
         humidity = it.current.humidity,
         wind_speed = it.current.wind_speed,
-        wind_deg = it.current.wind_deg,
-        uvi = it.current.uvi,
         icon = it.current.weather[0].icon
     )
 }

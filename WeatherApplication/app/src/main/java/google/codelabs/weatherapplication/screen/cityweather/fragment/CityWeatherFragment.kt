@@ -107,7 +107,7 @@ class CityWeatherFragment : Fragment() {
 
     private fun initWeekForecastLinerLayout() {
         val layoutInflater = LayoutInflater.from(requireContext())
-        weekAdapter = WeekForecastAdapter(binding, layoutInflater)
+        weekAdapter = WeekForecastAdapter(requireContext(), binding, layoutInflater)
         viewModel.dailyForecastData.observe(viewLifecycleOwner, Observer {
             weekAdapter.data = it
         })

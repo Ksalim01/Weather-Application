@@ -1,23 +1,14 @@
 package google.codelabs.weatherapplication.network.forecast.entities
 
+import androidx.room.ColumnInfo
+
 data class CurrentWeatherEntity (
-    val lat: Float,
-    val long: Float,
-
-    val timezone: String,
-    val sunrise: Long,
-    val sunset: Long,
-
-    val temp: Float,
-    val temp_min: Float,
-    val temp_max: Float,
-    val feels_like: Float,
-
-    val humidity: Long,
-    val wind_speed: Float,
-    val wind_deg: Long,
-    val uvi: Float,
-    val icon: String,
+    @ColumnInfo(name = "timezone_offset") val timezone_offset: Long,
+    @ColumnInfo(name = "temp") val temp: Float,
+    @ColumnInfo(name = "feels_like") val feels_like: Float,
+    @ColumnInfo(name = "humidity") val humidity: Long,
+    @ColumnInfo(name = "wind_speed") val wind_speed: Float,
+    @ColumnInfo(name = "icon") val icon: String,
 )
 //
 //import com.squareup.moshi.Json

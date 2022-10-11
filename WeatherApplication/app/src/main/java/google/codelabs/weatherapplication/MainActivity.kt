@@ -16,7 +16,7 @@ import google.codelabs.weatherapplication.databinding.ActivityMainBinding
 import google.codelabs.weatherapplication.screen.cityweather.fragment.CityParameters
 import google.codelabs.weatherapplication.screen.cityweather.fragment.CityWeatherFragment
 import google.codelabs.weatherapplication.screen.cityweather.fragment.DefaultCityParameters
-import google.codelabs.weatherapplication.utils.currentCity
+import google.codelabs.weatherapplication.screen.cityweather.utils.currentCity
 import java.util.*
 
 
@@ -87,6 +87,11 @@ class MainActivity : AppCompatActivity() {
             citySharedPreferences.getFloat(CURRENT_CITY_LONG, DefaultCityParameters.long)
         )
 
+        val TEST_CITY = CityParameters (
+            city = "Лондон",
+            lat = 51.5085F,
+            long = -0.1257F
+        )
         onStartCityWeatherFragment(city)
     }
 
@@ -97,6 +102,7 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragment_container, CityWeatherFragment.newInstance(cityParameters))
             .commit()
     }
+
 
     private companion object {
         @JvmStatic

@@ -1,4 +1,4 @@
-package google.codelabs.weatherapplication.utils
+package google.codelabs.weatherapplication.screen.cityweather.utils
 
 import android.location.Geocoder
 import google.codelabs.weatherapplication.R
@@ -32,17 +32,25 @@ fun currentCity(geocoder: Geocoder, lat: Double, long: Double) : CityParameters 
     )
 }
 
-fun currentDay() : String {
-    return dateToDay(LocalDateTime.now().toString())
+fun currentUnixTime() : Long {
+    var time = System.currentTimeMillis() / 1000
+    time -= unixToDate(time).subSequence(14, 16).toString().toLong() * 60 +
+            unixToDate(time).subSequence(17, 19).toString().toLong()
+    return time
 }
 
-fun currentDayOfWeek() : String {
-    return unixToDayOfWeek(Calendar.getInstance().timeInMillis / 1000)
+fun currentDay(offset: Long) : String {
+    val time = Calendar.getInstance().timeInMillis / 1000 - currentTimeZoneOffset() + offset
+    return dateToDay(unixToDate(time))
 }
 
-fun currentTime() : Long {
+fun currentDayOfWeek(offset: Long = currentTimeZoneOffset()) : String {
+    return unixToDayOfWeek(Calendar.getInstance().timeInMillis / 1000 - currentTimeZoneOffset() + offset)
+}
+
+fun currentTime(offset: Long = currentTimeZoneOffset()) : Long {
     val current = Calendar.getInstance().time
-    return current.time / 1000
+    return current.time / 1000 - currentTimeZoneOffset() + offset
 }
 
 fun currentTimeZoneOffset() : Long {
@@ -101,25 +109,33 @@ fun kelvinToCelsius(temp: Float) : Int {
     return (temp - 273.15F).toInt()
 }
 
-fun toTempMinMaxFormat(temp_max: Float, temp_min: Float) : String {
-    return kelvinToCelsius(temp_max).toString() + "\u00B0/" + kelvinToCelsius(temp_min).toString() + "\u00B0"
-}
-
-fun unixToDate(time: Long) : String {
+fun unixToDate(time: Long, offset: Long = currentTimeZoneOffset()) : String {
     val sdf = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
-    val date = java.util.Date(time * 1000)
+    val date = java.util.Date((time - currentTimeZoneOffset() + offset) * 1000)
     return sdf.format(date)
 }
 
-fun unixToDayOfWeek(time: Long) : String {
+fun unixToDayOfWeek(time: Long, offset: Long = currentTimeZoneOffset()) : String {
     val sdf = java.text.SimpleDateFormat("EEEE")
-    val date = java.util.Date(time * 1000)
+    val date = java.util.Date((time - currentTimeZoneOffset() + offset) * 1000)
     return sdf.format(date)
 }
 
 fun unixToHours(date: Long) : String {
-    return unixToDate(date).toString().substring(11, 16)
+    return unixToDate(date).substring(11, 16)
 }
+
+fun unixToCurrentTime(time: Long, offset: Long) : String {
+    return unixToHours(time - currentTimeZoneOffset() + offset)
+}
+
+fun offsetToGMT(seconds : Long) =
+    if (seconds >= 0)
+        "GMT+${seconds/3600}"
+    else
+        "GMT${seconds/3600}"
+
+
 
 fun uvToString(uv: Float) : String {
     if (uv < 2.5F) {
