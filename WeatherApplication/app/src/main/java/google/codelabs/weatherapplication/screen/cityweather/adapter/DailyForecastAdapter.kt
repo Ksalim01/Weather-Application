@@ -13,7 +13,7 @@ import google.codelabs.weatherapplication.screen.cityweather.utils.*
 import java.lang.Integer.min
 
 
-class WeekForecastAdapter(
+class DailyForecastAdapter(
     private val context: Context,
     private val binding: FragmentCityWeatherBinding,
     private val layoutInflater: LayoutInflater
@@ -43,7 +43,7 @@ class WeekForecastAdapter(
 
             item.findViewById<TextView>(R.id.day).text = unixToDayOfWeek(day.dt, day.timezone_offset)
             item.findViewById<TextView>(R.id.daily_humidity).text = toHumidity(day.humidity)
-            item.findViewById<ImageView>(R.id.daily_icon).setImageResource(map(day.icon))
+            item.findViewById<ImageView>(R.id.daily_icon).setImageResource(mapIcon(day.icon))
             item.findViewById<TextView>(R.id.max_min_temp).text = toTempMaxMin(day.temp_max, day.temp_min)
 
             if (dateToDay(unixToDate(day.dt, day.timezone_offset)) == currentDay(day.timezone_offset)) {

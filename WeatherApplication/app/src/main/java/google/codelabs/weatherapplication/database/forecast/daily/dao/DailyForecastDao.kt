@@ -9,11 +9,11 @@ import google.codelabs.weatherapplication.database.forecast.daily.entities.Daily
 
 @Dao
 interface DailyForecastDao {
-    @Query("DELETE FROM daily_forecast WHERE ABS(lat - :lat) < 0.0001 and ABS(lon - :lon) < 0.0001")
-    suspend fun deleteCity(lat: Float, lon: Float)
+    @Query("DELETE FROM daily_forecast WHERE city_name = :city")
+    suspend fun deleteCity(city: String)
 
-    @Query("SELECT * FROM daily_forecast WHERE ABS(lat - :lat) < 0.0001 and ABS(lon - :lon) < 0.0001 ORDER BY dt")
-    suspend fun cityForecast(lat: Float, lon: Float) : List<DailyForecastEntity>
+    @Query("SELECT * FROM daily_forecast WHERE city_name = :city ORDER BY dt")
+    suspend fun cityForecast(city: String) : List<DailyForecastEntity>
 
     @Query("SELECT * FROM daily_forecast ORDER BY dt")
     suspend fun allCityForecast() : List<DailyForecastEntity>

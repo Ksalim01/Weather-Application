@@ -6,8 +6,8 @@ import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import google.codelabs.weatherapplication.R
 
-class ImageBechavior(context: Context?, attrs: AttributeSet?) :
-    CommonBechavior(context, attrs) {
+class ImageBehaviour(context: Context?, attrs: AttributeSet?) :
+    CommonBehaviour(context, attrs) {
 
     override fun calculatePosition(avatar: View, progress: Float, parent: CoordinatorLayout) {
         val startXPosition = parent.resources.getDimension(R.dimen.image_start_x)

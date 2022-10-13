@@ -5,10 +5,9 @@ import android.util.AttributeSet
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import google.codelabs.weatherapplication.R
-import kotlin.math.pow
 
-class CityBechavior (context: Context?, attrs: AttributeSet?) :
-    CommonBechavior(context, attrs) {
+class CityBehaviour (context: Context?, attrs: AttributeSet?) :
+    CommonBehaviour(context, attrs) {
 
     init {}
 

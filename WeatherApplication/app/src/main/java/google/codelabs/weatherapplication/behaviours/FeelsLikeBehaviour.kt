@@ -2,14 +2,12 @@ package google.codelabs.weatherapplication.behaviours
 
 import android.content.Context
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
-import android.widget.TextView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import google.codelabs.weatherapplication.R
 
-class FeelsLikeBechavior(context: Context?, attrs: AttributeSet?) :
-    CommonBechavior(context, attrs) {
+class FeelsLikeBehaviour(context: Context?, attrs: AttributeSet?) :
+    CommonBehaviour(context, attrs) {
 
     override fun calculatePosition(avatar: View, progress: Float, parent: CoordinatorLayout) {
 

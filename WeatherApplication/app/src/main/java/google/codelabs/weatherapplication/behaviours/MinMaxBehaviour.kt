@@ -1,19 +1,15 @@
 package google.codelabs.weatherapplication.behaviours
 
 import android.content.Context
-import android.content.res.Resources
-import android.graphics.Color
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import android.widget.TextView
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import google.codelabs.weatherapplication.R
-import kotlin.math.abs
 
 
-class MinMaxBechavior(context: Context?, attrs: AttributeSet?) :
-    CommonBechavior(context, attrs) {
+class MinMaxBehaviour(context: Context?, attrs: AttributeSet?) :
+    CommonBehaviour(context, attrs) {
 
     override fun calculatePosition(avatar: View, progress: Float, parent: CoordinatorLayout) {
         val startXPosition = parent.resources.getDimension(R.dimen.min_max_start_x)

@@ -11,6 +11,7 @@ data class OneCallData(
     @field:Json(name = "current") val current: Current,
     @field:Json(name = "hourly") val hourly: List<Hourly>,
     @field:Json(name = "daily") val daily: List<Daily>,
+    var city: String = ""
 )
 
 data class Current(

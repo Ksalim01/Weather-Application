@@ -4,12 +4,12 @@ import google.codelabs.weatherapplication.database.forecast.daily.entities.Daily
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.HourlyForecastEntity
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 import google.codelabs.weatherapplication.network.forecast.entities.OneCallData
+import google.codelabs.weatherapplication.screen.cityweather.utils.cityName
 
 
 fun toHourlyForecastEntity(response: OneCallData) = response.hourly.map {
         HourlyForecastEntity(
-            lat = response.lat,
-            lon = response.lon,
+            city = response.city,
             dt = it.dt,
             timezone_offset = response.timezone_offset,
             temp = it.temp,
@@ -18,14 +18,13 @@ fun toHourlyForecastEntity(response: OneCallData) = response.hourly.map {
             wind_speed = it.wind_speed,
             wind_deg = it.wind_deg,
             uvi = it.uvi,
-            icon = it.weather[0].icon
+            icon = it.weather[0].icon,
         )
     }.toList()
 
 fun toDailyForecastEntity(response: OneCallData) = response.daily.map {
     DailyForecastEntity(
-        lat = response.lat,
-        lon = response.lon,
+        city = response.city,
         dt = it.dt,
         timezone_offset = response.timezone_offset,
         sunrise = it.sunrise,
@@ -44,7 +43,7 @@ fun toDailyForecastEntity(response: OneCallData) = response.daily.map {
         wind_speed = it.wind_speed,
         wind_deg = it.wind_deg,
         uvi = it.uvi,
-        icon = it.weather[0].icon
+        icon = it.weather[0].icon,
     )
 }.toList()
 
@@ -55,6 +54,7 @@ fun toCurrentWeatherEntity(response: OneCallData) = response.let {
         feels_like = it.current.feels_like,
         humidity = it.current.humidity,
         wind_speed = it.current.wind_speed,
-        icon = it.current.weather[0].icon
+        icon = it.current.weather[0].icon,
+        city = it.city
     )
 }

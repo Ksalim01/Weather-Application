@@ -1,7 +1,6 @@
 package google.codelabs.weatherapplication.behaviours
 
 import android.content.Context
-import android.content.res.Resources
 import android.graphics.Color
 import android.util.AttributeSet
 import android.util.Log
@@ -10,8 +9,8 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.graphics.drawable.toDrawable
 import google.codelabs.weatherapplication.R
 
-class HolderBechavior(context: Context?, attrs: AttributeSet?) :
-    CommonBechavior(context, attrs) {
+class HolderBehaviour(context: Context?, attrs: AttributeSet?) :
+    CommonBehaviour(context, attrs) {
 
     override fun calculatePosition(avatar: View, progress: Float, parent: CoordinatorLayout) {
         Log.e("aboao", "Background")
@@ -20,7 +19,7 @@ class HolderBechavior(context: Context?, attrs: AttributeSet?) :
 }
 
 class SecondHolderBechavior(context: Context?, attrs: AttributeSet?) :
-    CommonBechavior(context, attrs) {
+    CommonBehaviour(context, attrs) {
 
     init {}
 

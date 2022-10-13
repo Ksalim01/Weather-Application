@@ -1,24 +1,14 @@
 package google.codelabs.weatherapplication.behaviours
 
 import android.content.Context
-import android.content.res.Resources
-import android.graphics.Color
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
-import android.widget.TextView
-import androidx.compose.ui.unit.Dp
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import google.codelabs.weatherapplication.R
-import kotlin.math.abs
-import kotlin.properties.Delegates
 
 
-class TemperatureBehavior(context: Context?, attrs: AttributeSet?) :
-    CommonBechavior(context, attrs) {
-
-    init {}
-
+class TemperatureBehaviour(context: Context?, attrs: AttributeSet?) :
+    CommonBehaviour(context, attrs) {
 
     override fun calculatePosition(avatar: View, progress: Float, parent: CoordinatorLayout) {
         val startXPosition = parent.resources.getDimension(R.dimen.temperature_start_x)

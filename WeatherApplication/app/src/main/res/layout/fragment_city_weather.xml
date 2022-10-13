@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="56dp"
         app:layout_anchor="@id/app_bar"
-        app:layout_behavior=".behaviours.ToolbarBechavior"
+        app:layout_behavior=".behaviours.ToolbarBehaviour"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -63,7 +63,7 @@
         android:layout_height="wrap_content"
         style="@style/CurrentWeatherTextView"
         app:layout_anchor="@id/app_bar"
-        app:layout_behavior=".behaviours.TemperatureBehavior" />
+        app:layout_behavior=".behaviours.TemperatureBehaviour" />
 
     <TextView
         android:id="@+id/city_name"
@@ -72,14 +72,14 @@
         android:text="Долгопрудный"
         style="@style/CityTextView"
         app:layout_anchor="@id/app_bar"
-        app:layout_behavior=".behaviours.CityBechavior" />
+        app:layout_behavior=".behaviours.CityBehaviour" />
 
     <LinearLayout
         android:id="@+id/temp_min_max"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_anchor="@id/app_bar"
-        app:layout_behavior=".behaviours.MinMaxBechavior"
+        app:layout_behavior=".behaviours.MinMaxBehaviour"
         android:orientation="vertical">
 
         <TextView
@@ -127,7 +127,7 @@
         style="@style/AdditionalWeatherTextView"
         android:text="Ощущается как \u201232\u00B0"
         app:layout_anchor="@id/app_bar"
-        app:layout_behavior=".behaviours.FeelsLikeBechavior" />
+        app:layout_behavior=".behaviours.FeelsLikeBehaviour" />
 
     <ImageView
         android:id="@+id/current_weather_icon"
@@ -135,7 +135,7 @@
         android:layout_height="150dp"
         android:src="@drawable/ic_01d"
         app:layout_anchor="@id/app_bar"
-        app:layout_behavior=".behaviours.ImageBechavior"/>
+        app:layout_behavior=".behaviours.ImageBehaviour"/>
 
 
 

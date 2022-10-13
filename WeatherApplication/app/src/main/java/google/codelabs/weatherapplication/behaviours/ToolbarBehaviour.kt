@@ -3,23 +3,17 @@ package google.codelabs.weatherapplication.behaviours
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
-import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.widget.Toolbar
 import androidx.coordinatorlayout.widget.CoordinatorLayout
-import androidx.core.graphics.drawable.toDrawable
-import androidx.core.view.get
 import androidx.core.view.iterator
 import androidx.recyclerview.widget.RecyclerView
 import google.codelabs.weatherapplication.R
-import org.w3c.dom.Text
-import java.lang.Float.min
 
-class ToolbarBechavior(context: Context?, attrs: AttributeSet?) :
-    CommonBechavior(context, attrs) {
+class ToolbarBehaviour(context: Context?, attrs: AttributeSet?) :
+    CommonBehaviour(context, attrs) {
 
 
     override fun calculatePosition(avatar: View, progress: Float, parent: CoordinatorLayout) {

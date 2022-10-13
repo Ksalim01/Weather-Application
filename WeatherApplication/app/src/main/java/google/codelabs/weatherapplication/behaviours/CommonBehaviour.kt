@@ -1,14 +1,12 @@
 package google.codelabs.weatherapplication.behaviours
 
 import android.content.Context
-import android.content.res.Resources
 import android.util.AttributeSet
-import android.util.Log
 import android.view.View
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import google.codelabs.weatherapplication.R
 
-abstract class CommonBechavior(context: Context?, attrs: AttributeSet?) :
+abstract class CommonBehaviour(context: Context?, attrs: AttributeSet?) :
     CoordinatorLayout.Behavior<View?>(context, attrs) {
 
     override fun onDependentViewChanged(

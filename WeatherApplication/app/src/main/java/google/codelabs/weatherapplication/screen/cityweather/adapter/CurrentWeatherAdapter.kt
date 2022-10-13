@@ -1,12 +1,10 @@
 package google.codelabs.weatherapplication.screen.cityweather.adapter
 
 import android.content.Context
-import android.widget.Toast
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCityWeatherBinding
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 import google.codelabs.weatherapplication.screen.cityweather.utils.*
-import okhttp3.internal.applyConnectionSpec
 
 
 class CurrentWeatherAdapter(
@@ -27,12 +25,15 @@ class CurrentWeatherAdapter(
             humidityValue.text = toHumidity(data!!.humidity)
             windRate.text = toSpeed(data!!.wind_speed)
         }
+
         with(binding) {
             currentTemperature.text = toTemperature(data!!.temp)
             feelsLike.text = context.getString(R.string.feels_like) + " " + toTemperature(data!!.feels_like)
             currentTime.timeZone = offsetToGMT(data!!.timezone_offset)
             root.setBackgroundResource(mapBackground(data!!.icon))
-            currentWeatherIcon.setImageResource(map(data!!.icon))
+            currentWeatherIcon.setImageResource(mapIcon(data!!.icon))
+            cityName.text = data!!.city
+            toolCity.text = cityName.text
         }
     }
 }

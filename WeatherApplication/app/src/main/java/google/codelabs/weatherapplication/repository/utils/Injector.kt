@@ -19,18 +19,21 @@ private object DefaultViewModelProvider: ViewModelFactoryProvider {
         return ForecastRepository.getInstance(
             dailyDao(context),
             hourlyDao(context),
-            forecastNetworkService()
+            forecastNetworkService(),
+            geocoder(context)
         )
     }
 
     private fun forecastNetworkService() = ForecastNetworkService()
-
 
     private fun hourlyDao(context: Context) =
         HourlyForecastDB.getInstance(context.applicationContext).hourlyForecastDao()
 
     private fun dailyDao(context: Context) =
         DailyForecastDB.getInstance(context.applicationContext).dailyForecastDao()
+
+    private fun geocoder(context: Context) =
+        GeocoderProvider.getInstance(context.applicationContext)
 
 
     override fun provideForecastViewModelFactory(context: Context): ForecastViewModelFactory {

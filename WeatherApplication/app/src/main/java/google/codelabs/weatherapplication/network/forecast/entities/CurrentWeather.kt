@@ -9,6 +9,7 @@ data class CurrentWeatherEntity (
     @ColumnInfo(name = "humidity") val humidity: Long,
     @ColumnInfo(name = "wind_speed") val wind_speed: Float,
     @ColumnInfo(name = "icon") val icon: String,
+    @ColumnInfo(name = "city_name") var city: String,
 )
 //
 //import com.squareup.moshi.Json

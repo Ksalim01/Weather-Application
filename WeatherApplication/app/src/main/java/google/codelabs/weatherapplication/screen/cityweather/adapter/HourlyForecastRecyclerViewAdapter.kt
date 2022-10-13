@@ -4,11 +4,12 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.HourlyForecastEntity
-import google.codelabs.weatherapplication.databinding.RecycleViewItemDayForecastBinding
+import google.codelabs.weatherapplication.databinding.RecyclerViewItemDayForecastBinding
 import google.codelabs.weatherapplication.screen.cityweather.utils.*
 
 
-class DailyForecastRecyclerViewAdapter : RecyclerView.Adapter<DailyForecastRecyclerViewAdapter.TimeTemperatureViewHolder>() {
+class HourlyForecastRecyclerViewAdapter :
+    RecyclerView.Adapter<HourlyForecastRecyclerViewAdapter.TimeTemperatureViewHolder>() {
 
     var data: List<HourlyForecastEntity> = emptyList()
         set(value) {
@@ -27,12 +28,12 @@ class DailyForecastRecyclerViewAdapter : RecyclerView.Adapter<DailyForecastRecyc
         }
 
     class TimeTemperatureViewHolder (
-        val binding : RecycleViewItemDayForecastBinding
+        val binding : RecyclerViewItemDayForecastBinding
             ): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeTemperatureViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = RecycleViewItemDayForecastBinding.inflate(inflater, parent, false)
+        val binding = RecyclerViewItemDayForecastBinding.inflate(inflater, parent, false)
         return TimeTemperatureViewHolder(binding)
     }
 
@@ -41,7 +42,7 @@ class DailyForecastRecyclerViewAdapter : RecyclerView.Adapter<DailyForecastRecyc
         with(holder.binding) {
             temperature.text = toTemperature(item.temp)
             time.text = unixToCurrentTime(item.dt, item.timezone_offset)
-            hourlyWeatherIcon.setImageResource(map(item.icon))
+            hourlyWeatherIcon.setImageResource(mapIcon(item.icon))
         }
     }
 

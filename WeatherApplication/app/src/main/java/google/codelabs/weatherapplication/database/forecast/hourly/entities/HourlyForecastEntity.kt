@@ -5,11 +5,10 @@ import androidx.room.Entity
 
 @Entity(
     tableName = "hourly_forecast",
-    primaryKeys = ["lat", "lon", "dt"]
+    primaryKeys = ["city_name", "dt"]
 )
 data class HourlyForecastEntity (
-    @ColumnInfo(name = "lat") val lat: Float,
-    @ColumnInfo(name = "lon") val lon: Float,
+    @ColumnInfo(name = "city_name") val city: String,
     @ColumnInfo(name = "dt") val dt: Long,
     @ColumnInfo(name = "timezone_offset") val timezone_offset: Long,
 

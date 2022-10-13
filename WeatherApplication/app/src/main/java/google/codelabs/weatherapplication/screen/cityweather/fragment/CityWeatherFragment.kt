@@ -5,33 +5,24 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCityWeatherBinding
 import google.codelabs.weatherapplication.repository.forecast.ForecastRepository
 import google.codelabs.weatherapplication.repository.utils.Injector
 import google.codelabs.weatherapplication.screen.cityweather.adapter.CurrentWeatherAdapter
-import google.codelabs.weatherapplication.screen.cityweather.adapter.DailyForecastRecyclerViewAdapter
-import google.codelabs.weatherapplication.screen.cityweather.adapter.WeekForecastAdapter
+import google.codelabs.weatherapplication.screen.cityweather.adapter.HourlyForecastRecyclerViewAdapter
+import google.codelabs.weatherapplication.screen.cityweather.adapter.DailyForecastAdapter
 import google.codelabs.weatherapplication.screen.cityweather.viewmodels.ForecastViewModel
 
 class CityWeatherFragment : Fragment() {
     private lateinit var binding : FragmentCityWeatherBinding
 
-    private lateinit var dailyRecyclerView: RecyclerView
-    private var dayAdapter: DailyForecastRecyclerViewAdapter = DailyForecastRecyclerViewAdapter()
-
-    private lateinit var weekLinearLayout: LinearLayout
-    private lateinit var weekAdapter: WeekForecastAdapter
-
-    private lateinit var currentWeatherAdapter: CurrentWeatherAdapter
     private lateinit var cityParameters: CityParameters
 
     private val viewModel: ForecastViewModel by viewModels {
@@ -54,12 +45,15 @@ class CityWeatherFragment : Fragment() {
         binding = FragmentCityWeatherBinding.inflate(inflater, container, false)
 
         hide()
-        initHourlyForecastRecyclerView()
-        initCityViews()
-        initWeekForecastLinerLayout()
-        initCurrentWeather()
+        initAll()
 
         return binding.root
+    }
+
+    private fun initAll() {
+        initHourlyForecastRecyclerView()
+        initDailyForecastLinerLayout()
+        initCurrentWeather()
     }
 
     private fun hide() {
@@ -88,8 +82,8 @@ class CityWeatherFragment : Fragment() {
     }
 
     private fun initHourlyForecastRecyclerView() {
-        dailyRecyclerView = binding.nestedScroll.dayForecast!!
-        weekLinearLayout = binding.nestedScroll.weekForecast!!
+        val dailyRecyclerView = binding.nestedScroll.dayForecast
+        val dayAdapter: HourlyForecastRecyclerViewAdapter = HourlyForecastRecyclerViewAdapter()
 
         viewModel.hourlyForecastData.observe(viewLifecycleOwner) {
             dayAdapter.data = it
@@ -101,29 +95,22 @@ class CityWeatherFragment : Fragment() {
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         dailyRecyclerView.layoutManager = layoutManager
         dailyRecyclerView.adapter = dayAdapter
-        dailyRecyclerView.setNestedScrollingEnabled(false)
-
+        dailyRecyclerView.isNestedScrollingEnabled = false
     }
 
-    private fun initWeekForecastLinerLayout() {
+    private fun initDailyForecastLinerLayout() {
         val layoutInflater = LayoutInflater.from(requireContext())
-        weekAdapter = WeekForecastAdapter(requireContext(), binding, layoutInflater)
+        val weekAdapter = DailyForecastAdapter(requireContext(), binding, layoutInflater)
         viewModel.dailyForecastData.observe(viewLifecycleOwner, Observer {
             weekAdapter.data = it
         })
     }
 
-    private fun initCityViews() {
-        binding.cityName.text = cityParameters.city
-        binding.toolCity.text = cityParameters.city
-    }
-
     private fun initCurrentWeather() {
-        currentWeatherAdapter = CurrentWeatherAdapter(binding, requireContext())
+        val currentWeatherAdapter = CurrentWeatherAdapter(binding, requireContext())
         viewModel.currentForecastData.observe(viewLifecycleOwner, Observer {
             currentWeatherAdapter.data = it
         })
-
     }
 
 
