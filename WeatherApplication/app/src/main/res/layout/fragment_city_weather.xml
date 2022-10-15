@@ -6,16 +6,15 @@
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/background_sunny_day"
-    >
+    tools:context=".screen.cityweather.fragment.CityWeatherFragment"
+    android:background="@drawable/background_sunny_day">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="56dp"
         app:layout_anchor="@id/app_bar"
-        app:layout_behavior=".behaviours.ToolbarBehaviour"
+        app:layout_behavior="google.codelabs.weatherapplication.behaviours.ToolbarBehaviour"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0">
@@ -63,7 +62,7 @@
         android:layout_height="wrap_content"
         style="@style/CurrentWeatherTextView"
         app:layout_anchor="@id/app_bar"
-        app:layout_behavior=".behaviours.TemperatureBehaviour" />
+        app:layout_behavior="google.codelabs.weatherapplication.behaviours.TemperatureBehaviour" />
 
     <TextView
         android:id="@+id/city_name"
@@ -72,14 +71,14 @@
         android:text="Долгопрудный"
         style="@style/CityTextView"
         app:layout_anchor="@id/app_bar"
-        app:layout_behavior=".behaviours.CityBehaviour" />
+        app:layout_behavior="google.codelabs.weatherapplication.behaviours.CityBehaviour" />
 
     <LinearLayout
         android:id="@+id/temp_min_max"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_anchor="@id/app_bar"
-        app:layout_behavior=".behaviours.MinMaxBehaviour"
+        app:layout_behavior="google.codelabs.weatherapplication.behaviours.MinMaxBehaviour"
         android:orientation="vertical">
 
         <TextView
@@ -127,7 +126,7 @@
         style="@style/AdditionalWeatherTextView"
         android:text="Ощущается как \u201232\u00B0"
         app:layout_anchor="@id/app_bar"
-        app:layout_behavior=".behaviours.FeelsLikeBehaviour" />
+        app:layout_behavior="google.codelabs.weatherapplication.behaviours.FeelsLikeBehaviour" />
 
     <ImageView
         android:id="@+id/current_weather_icon"
@@ -135,15 +134,13 @@
         android:layout_height="150dp"
         android:src="@drawable/ic_01d"
         app:layout_anchor="@id/app_bar"
-        app:layout_behavior=".behaviours.ImageBehaviour"/>
+        app:layout_behavior="google.codelabs.weatherapplication.behaviours.ImageBehaviour"/>
 
 
 
     <include
         android:id="@+id/nested_scroll"
         layout="@layout/scrolling" />
-
-
 
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

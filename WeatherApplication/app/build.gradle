@@ -2,20 +2,20 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-parcelize'
+    id 'androidx.navigation.safeargs.kotlin'
+    id 'kotlin-kapt'
+    id 'kotlin-android'
 }
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
 
 android {
-    namespace 'google.codelabs.weatherapplication'
-    compileSdk 32
+    compileSdkVersion 31
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "google.codelabs.weatherapplication"
-        minSdk 26
-        targetSdk 32
+        minSdkVersion 23
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -31,16 +31,14 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
-
-        kotlinOptions {
-            jvmTarget = '1.8'
-        }
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
     }
     buildFeatures {
         viewBinding true
     }
 }
-
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.7.0'
@@ -84,4 +82,9 @@ dependencies {
 
     //Refresh Layout
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+    //Navigation
+    implementation "androidx.navigation:navigation-runtime-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
 }

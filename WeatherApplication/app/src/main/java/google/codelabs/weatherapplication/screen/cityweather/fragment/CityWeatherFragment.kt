@@ -3,6 +3,7 @@ package google.codelabs.weatherapplication.screen.cityweather.fragment
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -10,9 +11,12 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCityWeatherBinding
+import google.codelabs.weatherapplication.databinding.FragmentMainBinding
 import google.codelabs.weatherapplication.repository.forecast.ForecastRepository
 import google.codelabs.weatherapplication.repository.utils.Injector
 import google.codelabs.weatherapplication.screen.cityweather.adapter.CurrentWeatherAdapter
@@ -20,10 +24,10 @@ import google.codelabs.weatherapplication.screen.cityweather.adapter.HourlyForec
 import google.codelabs.weatherapplication.screen.cityweather.adapter.DailyForecastAdapter
 import google.codelabs.weatherapplication.screen.cityweather.viewmodels.ForecastViewModel
 
-class CityWeatherFragment : Fragment() {
+class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
     private lateinit var binding : FragmentCityWeatherBinding
 
-    private lateinit var cityParameters: CityParameters
+    private val args by navArgs<CityWeatherFragmentArgs>()
 
     private val viewModel: ForecastViewModel by viewModels {
         Injector.provideForecastViewModelFactory(requireContext())
@@ -31,24 +35,17 @@ class CityWeatherFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        cityParameters = requireArguments().getParcelable<CityParameters>(CITY_KEY)!!
-        viewModel.setCityParameters(cityParameters)
-        Log.d("cityWeatherFragment", "onCreate")
+        viewModel.setCityParameters(CityParameters(args.lat, args.lon))
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        setHasOptionsMenu(true)
-        binding = FragmentCityWeatherBinding.inflate(inflater, container, false)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding = FragmentCityWeatherBinding.bind(view)
+        
         hide()
         initAll()
-
-        return binding.root
     }
+
 
     private fun initAll() {
         initHourlyForecastRecyclerView()
@@ -76,13 +73,8 @@ class CityWeatherFragment : Fragment() {
         }
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding.toolbar.inflateMenu(R.menu.menu_scrolling)
-    }
-
     private fun initHourlyForecastRecyclerView() {
-        val dailyRecyclerView = binding.nestedScroll.dayForecast
+        val hourlyRecyclerView = binding.nestedScroll.dayForecast
         val dayAdapter: HourlyForecastRecyclerViewAdapter = HourlyForecastRecyclerViewAdapter()
 
         viewModel.hourlyForecastData.observe(viewLifecycleOwner) {
@@ -93,16 +85,16 @@ class CityWeatherFragment : Fragment() {
         }
 
         val layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        dailyRecyclerView.layoutManager = layoutManager
-        dailyRecyclerView.adapter = dayAdapter
-        dailyRecyclerView.isNestedScrollingEnabled = false
+        hourlyRecyclerView.layoutManager = layoutManager
+        hourlyRecyclerView.adapter = dayAdapter
+        hourlyRecyclerView.isNestedScrollingEnabled = false
     }
 
     private fun initDailyForecastLinerLayout() {
         val layoutInflater = LayoutInflater.from(requireContext())
-        val weekAdapter = DailyForecastAdapter(requireContext(), binding, layoutInflater)
+        val dailyForecastAdapter = DailyForecastAdapter(requireContext(), binding, layoutInflater)
         viewModel.dailyForecastData.observe(viewLifecycleOwner, Observer {
-            weekAdapter.data = it
+            dailyForecastAdapter.data = it
         })
     }
 
@@ -111,19 +103,6 @@ class CityWeatherFragment : Fragment() {
         viewModel.currentForecastData.observe(viewLifecycleOwner, Observer {
             currentWeatherAdapter.data = it
         })
-    }
-
-
-    companion object {
-        fun newInstance(cityParameters: CityParameters) : CityWeatherFragment {
-            val bundle = Bundle()
-            bundle.putParcelable(CITY_KEY, cityParameters)
-            val fragment = CityWeatherFragment()
-            fragment.arguments = bundle
-            return fragment
-        }
-
-        const val CITY_KEY = "CITY_KEY"
     }
 }
 

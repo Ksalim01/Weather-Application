@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="google.codelabs.weatherapplication.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+
+        <action
+            android:id="@+id/action_mainFragment_to_cityWeatherFragment"
+            app:destination="@id/cityWeatherFragment"
+            app:popUpTo="@id/mainFragment"
+            app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment
+        android:id="@+id/cityWeatherFragment"
+        android:name="google.codelabs.weatherapplication.screen.cityweather.fragment.CityWeatherFragment"
+        android:label="fragment_city_weather"
+        tools:layout="@layout/fragment_city_weather" >
+        <action
+            android:id="@+id/action_cityWeatherFragment_to_cityListFragment"
+            app:destination="@id/cityListFragment" />
+        <argument
+            android:name="lat"
+            app:argType="float" />
+        <argument
+            android:name="lon"
+            app:argType="float" />
+    </fragment>
+    <fragment
+        android:id="@+id/cityListFragment"
+        android:name="google.codelabs.weatherapplication.screen.weathercitylist.fragment.CityListFragment"
+        android:label="fragment_city_list"
+        tools:layout="@layout/fragment_city_list" />
+
+</navigation>
