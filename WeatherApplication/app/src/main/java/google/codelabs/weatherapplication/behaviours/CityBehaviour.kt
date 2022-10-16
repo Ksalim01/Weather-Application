@@ -9,8 +9,6 @@ import google.codelabs.weatherapplication.R
 class CityBehaviour (context: Context?, attrs: AttributeSet?) :
     CommonBehaviour(context, attrs) {
 
-    init {}
-
 
     override fun calculatePosition(avatar: View, progress: Float, parent: CoordinatorLayout) {
         avatar.y = parent.resources.getDimension(R.dimen.city_y)

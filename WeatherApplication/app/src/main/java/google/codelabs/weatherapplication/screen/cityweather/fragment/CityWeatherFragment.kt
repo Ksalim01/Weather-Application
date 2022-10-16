@@ -2,10 +2,7 @@ package google.codelabs.weatherapplication.screen.cityweather.fragment
 
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.MenuItem
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -14,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import google.codelabs.weatherapplication.MainActivity
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCityWeatherBinding
 import google.codelabs.weatherapplication.databinding.FragmentMainBinding
@@ -41,16 +39,29 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCityWeatherBinding.bind(view)
-        
+
         hide()
         initAll()
     }
 
-
     private fun initAll() {
+        initToolbar()
         initHourlyForecastRecyclerView()
         initDailyForecastLinerLayout()
         initCurrentWeather()
+    }
+
+    private fun initToolbar() {
+        binding.toolbar.inflateMenu(R.menu.menu_scrolling)
+        binding.toolbar.setOnMenuItemClickListener {
+            when(it.itemId) {
+                R.id.cityList -> {
+                    findNavController().navigate(R.id.action_cityWeatherFragment_to_cityListFragment)
+                    true
+                }
+                else -> super.onOptionsItemSelected(it)
+            }
+        }
     }
 
     private fun hide() {

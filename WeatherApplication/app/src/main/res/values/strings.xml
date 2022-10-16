@@ -9,4 +9,7 @@
     <string name="sunrise">Восход</string>
     <string name="feels_like">Ощущается как</string>
     <string name="degree">\u00B0</string>
+    <string name="favourite_place">Избранное место</string>
+    <string name="another_places">Другие места</string>
+    <string name="manage_places">Управлять местами</string>
 </resources>

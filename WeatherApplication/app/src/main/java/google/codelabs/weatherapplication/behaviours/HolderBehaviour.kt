@@ -21,9 +21,6 @@ class HolderBehaviour(context: Context?, attrs: AttributeSet?) :
 class SecondHolderBechavior(context: Context?, attrs: AttributeSet?) :
     CommonBehaviour(context, attrs) {
 
-    init {}
-
-
     override fun calculatePosition(avatar: View, progress: Float, parent: CoordinatorLayout) {
         avatar.y = parent.resources.getDimension(R.dimen.sholder_y)
         avatar.x = parent.resources.getDimension(R.dimen.sholder_x)
