@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.HourlyForecastEntity
-import google.codelabs.weatherapplication.databinding.RecyclerViewItemDayForecastBinding
+import google.codelabs.weatherapplication.databinding.ItemHourlyForecastBinding
 import google.codelabs.weatherapplication.screen.cityweather.utils.*
 
 
@@ -28,12 +28,12 @@ class HourlyForecastRecyclerViewAdapter :
         }
 
     class TimeTemperatureViewHolder (
-        val binding : RecyclerViewItemDayForecastBinding
+        val binding : ItemHourlyForecastBinding
             ): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TimeTemperatureViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val binding = RecyclerViewItemDayForecastBinding.inflate(inflater, parent, false)
+        val binding = ItemHourlyForecastBinding.inflate(inflater, parent, false)
         return TimeTemperatureViewHolder(binding)
     }
 
