@@ -1,34 +1,37 @@
 package google.codelabs.weatherapplication.screen.cityweather.fragment
 
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import google.codelabs.weatherapplication.MainActivity
+import google.codelabs.weatherapplication.App
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCityWeatherBinding
-import google.codelabs.weatherapplication.databinding.FragmentMainBinding
 import google.codelabs.weatherapplication.repository.forecast.ForecastRepository
-import google.codelabs.weatherapplication.repository.utils.Injector
 import google.codelabs.weatherapplication.screen.cityweather.adapter.CurrentWeatherAdapter
-import google.codelabs.weatherapplication.screen.cityweather.adapter.HourlyForecastRecyclerViewAdapter
 import google.codelabs.weatherapplication.screen.cityweather.adapter.DailyForecastAdapter
+import google.codelabs.weatherapplication.screen.cityweather.adapter.HourlyForecastRecyclerViewAdapter
 import google.codelabs.weatherapplication.screen.cityweather.viewmodels.ForecastViewModel
+import javax.inject.Inject
 
 class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
     private lateinit var binding : FragmentCityWeatherBinding
 
     private val args by navArgs<CityWeatherFragmentArgs>()
 
-    private val viewModel: ForecastViewModel by viewModels {
-        Injector.provideForecastViewModelFactory(requireContext())
+    @Inject
+    lateinit var viewModel: ForecastViewModel
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        (requireActivity().application as App).appComponent.inject(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -115,13 +118,4 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
             currentWeatherAdapter.data = it
         })
     }
-}
-
-class ForecastViewModelFactory(
-    private val repository: ForecastRepository
-) : ViewModelProvider.NewInstanceFactory() {
-
-    @Suppress("UNCHECKED_CAST")
-    override fun <T : ViewModel> create(modelClass: Class<T>) =
-        ForecastViewModel(repository) as T
 }

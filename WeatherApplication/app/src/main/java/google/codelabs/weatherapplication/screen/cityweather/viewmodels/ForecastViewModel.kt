@@ -2,7 +2,6 @@ package google.codelabs.weatherapplication.screen.cityweather.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import google.codelabs.weatherapplication.database.forecast.daily.entities.DailyForecastEntity
@@ -13,9 +12,10 @@ import google.codelabs.weatherapplication.screen.cityweather.fragment.CityParame
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ForecastViewModel internal constructor (
-    private val forecastRepository : ForecastRepository
+class ForecastViewModel @Inject constructor(
+    private val forecastRepository: ForecastRepository
 ) : ViewModel() {
     private lateinit var cityParameters: CityParameters
 

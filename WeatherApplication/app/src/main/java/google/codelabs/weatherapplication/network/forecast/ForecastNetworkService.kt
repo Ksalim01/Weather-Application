@@ -9,13 +9,16 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
+import javax.inject.Inject
 
-class ForecastNetworkService : BaseRetrofitService() {
+class ForecastNetworkService @Inject constructor(
+    private val retrofit: WeatherAPI,
+    private val geocoder: Geocoder
+) : BaseRetrofitService() {
 
-    private val retrofit = buildRetrofit()
    // private val defaultDispatcher = Dispatchers.IO
 
-    suspend fun fetchOneCallData(lat: Float, long: Float, geocoder: Geocoder) : OneCallData? = try {
+    suspend fun fetchOneCallData(lat: Float, long: Float) : OneCallData? = try {
         fetchOneCallDataWithException(lat, long, geocoder)
     } catch (e: Exception) {
         null
@@ -36,26 +39,8 @@ class ForecastNetworkService : BaseRetrofitService() {
         }
     }
 
-    private fun buildRetrofit() : WeatherAPI {
-        val httpLoggingInterceptor = HttpLoggingInterceptor();
-        httpLoggingInterceptor.level = okhttp3.logging.HttpLoggingInterceptor.Level.BODY;
-
-        val okHttpClient = OkHttpClient.Builder()
-            .addInterceptor(httpLoggingInterceptor)
-            .build()
-
-        val retrofit = Retrofit.Builder()
-            .client(okHttpClient)
-            .baseUrl(BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
-            .build()
-
-        return retrofit.create(WeatherAPI::class.java)
-    }
-
     companion object {
         private const val TAG = "ForecastNetworkService"
-        private const val BASE_URL = "https://api.openweathermap.org/data/2.5/"
         private const val WEATHER_TOKEN = "c655b94b8f4b74939315e693439f72b2"
     }
 }

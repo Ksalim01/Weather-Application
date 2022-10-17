@@ -18,13 +18,15 @@ import google.codelabs.weatherapplication.screen.cityweather.utils.currentTimeZo
 import google.codelabs.weatherapplication.screen.cityweather.utils.currentUnixTime
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class ForecastRepository private constructor(
+@Singleton
+class ForecastRepository @Inject constructor(
     private val dailyForecastDao: DailyForecastDao,
     private val hourlyForecastDao: HourlyForecastDao,
     private val forecastNetworkService: ForecastNetworkService,
     private val geocoder: Geocoder,
-    private val defaultDispatcher: CoroutineDispatcher = Dispatchers.Default
 ) {
 
     val dailyForecastData: MutableLiveData<List<DailyForecastEntity>> =
@@ -43,7 +45,7 @@ class ForecastRepository private constructor(
     }
 
     private suspend fun fetchForecast(lat: Float, long: Float) {
-        val oneCallData = forecastNetworkService.fetchOneCallData(lat, long, geocoder)
+        val oneCallData = forecastNetworkService.fetchOneCallData(lat, long)
         val city = cityName(lat, long, geocoder)
         Log.d(TAG, city.toString())
         if (oneCallData == null) {
@@ -85,21 +87,5 @@ class ForecastRepository private constructor(
 
     companion object {
         private const val TAG = "ForecastRepository"
-
-        // For Singleton instantiation
-        @Volatile private var instance: ForecastRepository? = null
-
-        fun getInstance(dailyForecastDao: DailyForecastDao,
-                        hourlyForecastDao: HourlyForecastDao,
-                        forecastNetworkService: ForecastNetworkService,
-                        geocoder: Geocoder) =
-            instance ?: synchronized(this) {
-                instance ?: ForecastRepository(
-                    dailyForecastDao,
-                    hourlyForecastDao,
-                    forecastNetworkService,
-                    geocoder)
-                    .also { instance = it }
-            }
     }
 }
