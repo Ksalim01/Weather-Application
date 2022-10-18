@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screen.citysearch.CitySearchFragment">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/black"
+        app:navigationIcon="@drawable/ic_back_arrow"
+        app:contentInsetStartWithNavigation="0dp"
+        app:titleMarginStart="0dp">
+
+        <EditText
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/search"
+            android:background="@null"
+            android:textColorHint="@color/gray"
+            android:textColor="@color/black_text"
+            android:inputType="text">
+
+        </EditText>
+
+    </com.google.android.material.appbar.MaterialToolbar>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/city_suggestions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_rectangle_white"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        tools:listitem="@layout/item_city_search">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+</LinearLayout>

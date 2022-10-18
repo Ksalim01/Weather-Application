@@ -6,15 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import google.codelabs.weatherapplication.App
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCityWeatherBinding
-import google.codelabs.weatherapplication.repository.forecast.ForecastRepository
 import google.codelabs.weatherapplication.screen.cityweather.adapter.CurrentWeatherAdapter
 import google.codelabs.weatherapplication.screen.cityweather.adapter.DailyForecastAdapter
 import google.codelabs.weatherapplication.screen.cityweather.adapter.HourlyForecastRecyclerViewAdapter
@@ -36,7 +33,7 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.setCityParameters(CityParameters(args.lat, args.lon))
+        viewModel.setCityParameters(args.city)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -2,9 +2,10 @@ package google.codelabs.weatherapplication.screen.cityweather.utils
 
 import android.location.Geocoder
 import google.codelabs.weatherapplication.R
+import google.codelabs.weatherapplication.screen.cityweather.fragment.Coordinates
 import java.util.*
 
-fun abbreviateDay(day: String) = when(day.lowercase()) {
+fun abbreviateDay(day: String) = when (day.lowercase()) {
     "понедельник" -> "ПН"
     "вторник" -> "ВТ"
     "среда" -> "СР"
@@ -15,7 +16,7 @@ fun abbreviateDay(day: String) = when(day.lowercase()) {
     else -> ""
 }
 
-fun cityName(lat: Float, long: Float, geocoder: Geocoder) : String? =
+fun cityName(lat: Float, long: Float, geocoder: Geocoder): String? =
     try {
         val res = geocoder.getFromLocation(lat.toDouble(), long.toDouble(), 1)
         res.get(0).locality.toString()
@@ -23,14 +24,22 @@ fun cityName(lat: Float, long: Float, geocoder: Geocoder) : String? =
         null
     }
 
-fun currentUnixTime() : Long {
+fun cityCoordinates(city: String, geocoder: Geocoder): Coordinates? {
+    val res = geocoder.getFromLocationName(city, 1)
+    return Coordinates(
+        res.get(0).latitude.toFloat(),
+        res.get(0).longitude.toFloat()
+    )
+}
+
+fun currentUnixTime(): Long {
     var time = System.currentTimeMillis() / 1000
     time -= unixToDate(time).subSequence(14, 16).toString().toLong() * 60 +
             unixToDate(time).subSequence(17, 19).toString().toLong()
     return time
 }
 
-fun currentDay(offset: Long) : String {
+fun currentDay(offset: Long): String {
     val time = Calendar.getInstance().timeInMillis / 1000 - currentTimeZoneOffset() + offset
     return dateToDay(unixToDate(time))
 }
@@ -39,7 +48,7 @@ fun currentDayOfWeek(offset: Long = currentTimeZoneOffset()) =
     unixToDayOfWeek(Calendar.getInstance().timeInMillis / 1000 - currentTimeZoneOffset() + offset)
 
 
-fun currentTime(offset: Long = currentTimeZoneOffset()) : Long {
+fun currentTime(offset: Long = currentTimeZoneOffset()): Long {
     val current = Calendar.getInstance().time
     return current.time / 1000 - currentTimeZoneOffset() + offset
 }
@@ -48,7 +57,7 @@ fun currentTimeZoneOffset() = GregorianCalendar().timeZone.rawOffset.toLong() / 
 
 fun dateToDay(date: String) = date.subSequence(0, 10).toString()
 
-fun mapIcon(icon: String) = when(icon) {
+fun mapIcon(icon: String) = when (icon) {
     "01d" -> R.drawable.ic_01d
     "02d" -> R.drawable.ic_02d
     "03d" -> R.drawable.ic_03d
@@ -68,7 +77,7 @@ fun mapIcon(icon: String) = when(icon) {
     else -> R.drawable.ic_04d
 }
 
-fun mapBackground(icon: String) = when(icon) {
+fun mapBackground(icon: String) = when (icon) {
     "01d" -> R.drawable.background_sunny_day
     "02d" -> R.drawable.background_sunny_day
     "03d" -> R.drawable.background_sunny_day
@@ -88,16 +97,16 @@ fun mapBackground(icon: String) = when(icon) {
     else -> R.drawable.background_sunny_day
 }
 
-fun kelvinToCelsius(temp: Float) =  (temp - 273.15F).toInt()
+fun kelvinToCelsius(temp: Float) = (temp - 273.15F).toInt()
 
 
-fun unixToDate(time: Long, offset: Long = currentTimeZoneOffset()) : String {
+fun unixToDate(time: Long, offset: Long = currentTimeZoneOffset()): String {
     val sdf = java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'")
     val date = java.util.Date((time - currentTimeZoneOffset() + offset) * 1000)
     return sdf.format(date)
 }
 
-fun unixToDayOfWeek(time: Long, offset: Long = currentTimeZoneOffset()) : String {
+fun unixToDayOfWeek(time: Long, offset: Long = currentTimeZoneOffset()): String {
     val sdf = java.text.SimpleDateFormat("EEEE")
     val date = java.util.Date((time - currentTimeZoneOffset() + offset) * 1000)
     return sdf.format(date)
@@ -106,14 +115,14 @@ fun unixToDayOfWeek(time: Long, offset: Long = currentTimeZoneOffset()) : String
 fun unixToHours(date: Long) = unixToDate(date).substring(11, 16)
 
 
-fun unixToCurrentTime(time: Long, offset: Long) : String =
+fun unixToCurrentTime(time: Long, offset: Long): String =
     unixToHours(time - currentTimeZoneOffset() + offset)
 
-fun offsetToGMT(seconds : Long) =
-    if (seconds >= 0) "GMT+${seconds/3600}"
-    else "GMT${seconds/3600}"
+fun offsetToGMT(seconds: Long) =
+    if (seconds >= 0) "GMT+${seconds / 3600}"
+    else "GMT${seconds / 3600}"
 
-fun uvToString(uv: Float) : String = when {
+fun uvToString(uv: Float): String = when {
     uv < 2.5F -> "Низкий"
     uv < 7.5F -> "Средний"
     else -> "Высокий"

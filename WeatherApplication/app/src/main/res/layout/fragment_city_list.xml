@@ -29,8 +29,9 @@
 
         app:title="@string/manage_places"
         app:titleTextColor="@color/black"
-        android:layout_marginBottom="8dp"/>
-
+        android:layout_marginBottom="8dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:titleMarginStart="0dp"/>
 
 
     <TextView

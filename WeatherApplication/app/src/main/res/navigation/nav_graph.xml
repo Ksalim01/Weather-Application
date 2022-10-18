@@ -32,16 +32,22 @@
             app:popEnterAnim="@anim/pop_enter"
             app:popExitAnim="@anim/pop_exit" />
         <argument
-            android:name="lat"
-            app:argType="float" />
-        <argument
-            android:name="lon"
-            app:argType="float" />
+            android:name="city"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/cityListFragment"
         android:name="google.codelabs.weatherapplication.screen.weathercitylist.fragment.CityListFragment"
         android:label="fragment_city_list"
-        tools:layout="@layout/fragment_city_list" />
+        tools:layout="@layout/fragment_city_list" >
+        <action
+            android:id="@+id/action_cityListFragment_to_citySearchFragment"
+            app:destination="@id/citySearchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/citySearchFragment"
+        android:name="google.codelabs.weatherapplication.screen.citysearch.CitySearchFragment"
+        android:label="fragment_city_search"
+        tools:layout="@layout/fragment_city_search" />
 
 </navigation>

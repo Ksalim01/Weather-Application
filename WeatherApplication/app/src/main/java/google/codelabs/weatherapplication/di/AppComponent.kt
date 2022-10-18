@@ -3,6 +3,7 @@ package google.codelabs.weatherapplication.di
 import android.content.Context
 import dagger.BindsInstance
 import dagger.Component
+import google.codelabs.weatherapplication.screen.citysearch.CitySearchFragment
 import google.codelabs.weatherapplication.screen.cityweather.fragment.CityWeatherFragment
 import google.codelabs.weatherapplication.screen.weathercitylist.fragment.CityListFragment
 import javax.inject.Singleton
@@ -12,7 +13,8 @@ import javax.inject.Singleton
     HourlyForecastDBModule::class,
     DailyForecastModule::class,
     GeocoderModule::class,
-    NetworkModule::class])
+    NetworkModule::class,
+    ForecastRepositoryModule::class])
 interface AppComponent {
 
     @Component.Factory
@@ -22,4 +24,5 @@ interface AppComponent {
 
     fun inject(fragment: CityWeatherFragment)
     fun inject(fragment: CityListFragment)
+    fun inject(fragment: CitySearchFragment)
 }

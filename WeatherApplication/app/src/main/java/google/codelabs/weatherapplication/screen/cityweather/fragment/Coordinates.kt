@@ -3,7 +3,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class CityParameters(
+data class Coordinates(
     val lat: Float,
-    val long: Float
+    val lon: Float
 ) : Parcelable

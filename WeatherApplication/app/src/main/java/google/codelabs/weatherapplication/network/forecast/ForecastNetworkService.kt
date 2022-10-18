@@ -1,14 +1,9 @@
 package google.codelabs.weatherapplication.network.forecast
 
 import android.location.Geocoder
-import android.util.Log
 import google.codelabs.weatherapplication.network.forecast.api.WeatherAPI
 import google.codelabs.weatherapplication.network.forecast.entities.OneCallData
-import google.codelabs.weatherapplication.screen.cityweather.utils.cityName
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
-import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import google.codelabs.weatherapplication.screen.cityweather.utils.cityCoordinates
 import javax.inject.Inject
 
 class ForecastNetworkService @Inject constructor(
@@ -16,23 +11,22 @@ class ForecastNetworkService @Inject constructor(
     private val geocoder: Geocoder
 ) : BaseRetrofitService() {
 
-   // private val defaultDispatcher = Dispatchers.IO
+    // private val defaultDispatcher = Dispatchers.IO
 
-    suspend fun fetchOneCallData(lat: Float, long: Float) : OneCallData? = try {
-        fetchOneCallDataWithException(lat, long, geocoder)
+    suspend fun fetchOneCallData(city: String): OneCallData? = try {
+        fetchOneCallDataWithException(city, geocoder)
     } catch (e: Exception) {
         null
     }
 
-    private suspend fun fetchOneCallDataWithException(lat: Float, long: Float, geocoder: Geocoder) :
+    private suspend fun fetchOneCallDataWithException(city: String, geocoder: Geocoder):
             OneCallData? = wrapRetrofitExceptions {
 
-        val response = retrofit.oneCallApi(lat, long, WEATHER_TOKEN)
-        val name = cityName(lat, long, geocoder)
+        val coordinates = cityCoordinates(city, geocoder)!!
+        val response = retrofit.oneCallApi(coordinates.lat, coordinates.lon, WEATHER_TOKEN)
         when {
-            response.isSuccessful && name != null -> {
-                response.body()!!.city = name
-                Log.d(TAG, response.body()!!.city)
+            response.isSuccessful -> {
+                response.body()!!.city = city
                 response.body()
             }
             else -> null

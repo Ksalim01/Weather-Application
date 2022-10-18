@@ -4,19 +4,18 @@ import android.Manifest
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.pm.PackageManager
+import android.location.Geocoder
 import android.os.Bundle
-import android.view.Display.Mode
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.location.LocationServices
 import google.codelabs.weatherapplication.databinding.FragmentMainBinding
-import google.codelabs.weatherapplication.screen.cityweather.fragment.CityParameters
+import google.codelabs.weatherapplication.screen.cityweather.fragment.Coordinates
+import google.codelabs.weatherapplication.screen.cityweather.utils.cityName
+import java.util.*
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -61,28 +60,28 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION)
             == PackageManager.PERMISSION_GRANTED) {
             fusedLocationClient.lastLocation.addOnSuccessListener {
-                citySharedPreferences.edit()
-                    .putFloat(CURRENT_CITY_LAT, it.latitude.toFloat())
-                    .putFloat(CURRENT_CITY_LONG, it.longitude.toFloat())
-                    .apply()
+                try {
+                    val geocoder = Geocoder(context, Locale.getDefault())
+                    val city = cityName(it.latitude.toFloat(), it.longitude.toFloat(), geocoder)!!
+                    citySharedPreferences.edit()
+                        .putString(CURRENT_CITY, city)
+                        .apply()
+                } catch (e: Exception) {
 
+                }
                 onStartDefaultCityWeatherFragment()
             }
         }
     }
 
     private fun onStartDefaultCityWeatherFragment() {
-        val city = CityParameters(
-            citySharedPreferences.getFloat(CURRENT_CITY_LAT, 0F),
-            citySharedPreferences.getFloat(CURRENT_CITY_LONG, 0F)
-        )
-
-        onStartCityWeatherFragment(city)
+        val city = citySharedPreferences.getString(CURRENT_CITY, "")
+        if (city != null) onStartCityWeatherFragment(city)
     }
 
-    private fun onStartCityWeatherFragment(cityParameters: CityParameters) {
+    private fun onStartCityWeatherFragment(city: String) {
         val directions = MainFragmentDirections
-            .actionMainFragmentToCityWeatherFragment(cityParameters.lat, cityParameters.long)
+            .actionMainFragmentToCityWeatherFragment(city)
         findNavController().navigate(directions)
     }
 
@@ -90,7 +89,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     private companion object {
         private const val TAG = "MainFragment"
         private const val CITY_PREFERENCES = "CITY_PREFERENCES"
-        private const val CURRENT_CITY_LAT = "CURRENT_CITY_LAT"
-        private const val CURRENT_CITY_LONG = "CURRENT_CITY_LONG"
+        private const val CURRENT_CITY = "CURRENT_CITY"
     }
 }

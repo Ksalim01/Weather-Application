@@ -19,7 +19,6 @@ class CityListFragment : Fragment(R.layout.fragment_city_list) {
         initAll()
     }
 
-
     private fun initAll() {
         initCityList()
         initToolbar()
@@ -27,17 +26,26 @@ class CityListFragment : Fragment(R.layout.fragment_city_list) {
 
     private fun initCityList() {
         with(binding.cityList) {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
+            layoutManager =
+                LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = CityListViewAdapter().also { it.data = listOf("Moscow", "Never", "Sleep") }
         }
-
     }
 
     private fun initToolbar() {
+        binding.toolbar.inflateMenu(R.menu.menu_city_list)
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
 
+        binding.toolbar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.addCity -> {
+                    findNavController().navigate(R.id.action_cityListFragment_to_citySearchFragment)
+                    true
+                }
+                else -> false
+            }
+        }
     }
-
 }
