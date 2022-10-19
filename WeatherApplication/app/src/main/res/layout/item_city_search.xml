@@ -8,7 +8,7 @@
     android:orientation="vertical"
     android:paddingHorizontal="8dp"
     android:gravity="center_vertical"
-    android:background="@drawable/background_rectangle_white"
+    android:background="@drawable/selectable_background_rectangle"
     android:paddingTop="8dp">
 
     <TextView

@@ -4,6 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import google.codelabs.weatherapplication.database.forecast.hourly.entities.AllCityCurrentWeather
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.HourlyForecastEntity
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 
@@ -19,12 +20,20 @@ interface HourlyForecastDao {
     suspend fun allCityForecast(): List<HourlyForecastEntity>
 
     @Query(
-        "SELECT timezone_offset, temp, feels_like, humidity, wind_speed, icon, city_name " +
+        "SELECT timezone_offset, dt, temp, feels_like, humidity, wind_speed, icon, city_name " +
                 "FROM hourly_forecast " +
                 "WHERE city_name = :city " +
                 "and dt = :dt"
     )
     suspend fun currentWeather(city: String, dt: Long): List<CurrentWeatherEntity>
+
+    @Query(
+        "SELECT city_name, dt, timezone_offset, temp, icon " +
+                "FROM hourly_forecast " +
+                "WHERE dt - timezone_offset = :dt"
+    )
+    suspend fun allCityCurrentWeather(dt: Long): List<AllCityCurrentWeather>
+
 
     @Query("SELECT min(dt) FROM hourly_forecast WHERE city_name = :city")
     suspend fun lastUpdate(city: String): List<Long>

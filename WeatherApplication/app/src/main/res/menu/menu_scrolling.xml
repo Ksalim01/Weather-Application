@@ -6,7 +6,6 @@
     <item
         android:id="@+id/cityList"
         android:icon="@drawable/ic_menu_city"
-        android:title="city_list"
+        android:title="city list"
         app:showAsAction="always"/>
-
 </menu>

@@ -1,26 +1,28 @@
 package google.codelabs.weatherapplication.repository.utils
 
+import google.codelabs.weatherapplication.database.forecast.daily.entities.AllCityForecastEntity
 import google.codelabs.weatherapplication.database.forecast.daily.entities.DailyForecastEntity
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.HourlyForecastEntity
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 import google.codelabs.weatherapplication.network.forecast.entities.OneCallData
+import google.codelabs.weatherapplication.repository.forecast.entities.CityListWeather
 import google.codelabs.weatherapplication.screen.cityweather.utils.cityName
 
 
 fun toHourlyForecastEntity(response: OneCallData) = response.hourly.map {
-        HourlyForecastEntity(
-            city = response.city,
-            dt = it.dt,
-            timezone_offset = response.timezone_offset,
-            temp = it.temp,
-            feels_like = it.feels_like,
-            humidity = it.humidity,
-            wind_speed = it.wind_speed,
-            wind_deg = it.wind_deg,
-            uvi = it.uvi,
-            icon = it.weather[0].icon,
-        )
-    }.toList()
+    HourlyForecastEntity(
+        city = response.city,
+        dt = it.dt,
+        timezone_offset = response.timezone_offset,
+        temp = it.temp,
+        feels_like = it.feels_like,
+        humidity = it.humidity,
+        wind_speed = it.wind_speed,
+        wind_deg = it.wind_deg,
+        uvi = it.uvi,
+        icon = it.weather[0].icon,
+    )
+}.toList()
 
 fun toDailyForecastEntity(response: OneCallData) = response.daily.map {
     DailyForecastEntity(
@@ -58,3 +60,16 @@ fun toCurrentWeatherEntity(response: OneCallData) = response.let {
         city = it.city
     )
 }
+
+fun allCityForecastEntity_to_CityListWEather(allCityForecastEntity: AllCityForecastEntity) =
+    allCityForecastEntity.let {
+        CityListWeather(
+            city = it.city,
+            timezone_offset = it.timezone_offset,
+            dt = it.dt,
+            temp_min = it.temp_min,
+            temp_max = it.temp_max,
+            current_temp = 0F,
+            icon = ""
+        )
+    }

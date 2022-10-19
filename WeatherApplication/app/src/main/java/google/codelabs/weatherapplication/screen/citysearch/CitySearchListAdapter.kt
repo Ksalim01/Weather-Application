@@ -5,18 +5,18 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import google.codelabs.weatherapplication.databinding.ItemCitySearchBinding
 
-class CitySearchListAdapter:
+class CitySearchListAdapter(private val citySearchViewModel: CitySearchViewModel) :
     RecyclerView.Adapter<CitySearchListAdapter.CitySearchListHolder>() {
 
     var data: List<CityAddress> = emptyList()
-        set(value)  {
+        set(value) {
             field = value
             notifyDataSetChanged()
         }
 
     class CitySearchListHolder(
         val binding: ItemCitySearchBinding
-    ): RecyclerView.ViewHolder(binding.root)
+    ) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CitySearchListHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -26,8 +26,9 @@ class CitySearchListAdapter:
 
     override fun onBindViewHolder(holder: CitySearchListHolder, position: Int) {
         val item = data[position]
-        with (holder.binding) {
-            city.text = item.city.lowercase().replaceFirstChar { it.uppercase() }
+        holder.binding.root.setOnClickListener { citySearchViewModel.addCity(item.city) }
+        with(holder.binding) {
+            city.text = item.city
             region.text = item.country
         }
     }

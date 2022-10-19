@@ -81,7 +81,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     private fun onStartCityWeatherFragment(city: String) {
         val directions = MainFragmentDirections
-            .actionMainFragmentToCityWeatherFragment(city)
+            .actionMainFragmentToCityWeatherFragment("Новосибирск")
         findNavController().navigate(directions)
     }
 

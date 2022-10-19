@@ -21,9 +21,15 @@ class CitySearchViewModel @Inject constructor(
     val response: LiveData<UpdateResult>
         get() = _response
 
+    fun checkCityExistence(city: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            _response.postValue(repository.checkCityExistence(city))
+        }
+    }
+
     fun addCity(city: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            _response.postValue(repository.addCity(city))
+            repository.addCity(city)
         }
     }
 }

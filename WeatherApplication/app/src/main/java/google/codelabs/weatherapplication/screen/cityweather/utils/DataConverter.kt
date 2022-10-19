@@ -44,8 +44,8 @@ fun currentDay(offset: Long): String {
     return dateToDay(unixToDate(time))
 }
 
-fun currentDayOfWeek(offset: Long = currentTimeZoneOffset()) =
-    unixToDayOfWeek(Calendar.getInstance().timeInMillis / 1000 - currentTimeZoneOffset() + offset)
+fun currentDayOfWeek(time: Long, offset: Long = currentTimeZoneOffset()) =
+    unixToDayOfWeek(time - currentTimeZoneOffset() + offset)
 
 
 fun currentTime(offset: Long = currentTimeZoneOffset()): Long {
@@ -106,6 +106,9 @@ fun unixToDate(time: Long, offset: Long = currentTimeZoneOffset()): String {
     return sdf.format(date)
 }
 
+fun dateWithoutHours(time: Long, offset: Long = currentTimeZoneOffset()): String =
+    unixToDate(time, offset).substring(0, 10)
+
 fun unixToDayOfWeek(time: Long, offset: Long = currentTimeZoneOffset()): String {
     val sdf = java.text.SimpleDateFormat("EEEE")
     val date = java.util.Date((time - currentTimeZoneOffset() + offset) * 1000)
@@ -113,6 +116,7 @@ fun unixToDayOfWeek(time: Long, offset: Long = currentTimeZoneOffset()): String 
 }
 
 fun unixToHours(date: Long) = unixToDate(date).substring(11, 16)
+
 
 
 fun unixToCurrentTime(time: Long, offset: Long): String =

@@ -9,11 +9,11 @@ import google.codelabs.weatherapplication.database.forecast.hourly.entities.Hour
 import google.codelabs.weatherapplication.network.forecast.ForecastNetworkService
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 import google.codelabs.weatherapplication.network.forecast.entities.OneCallData
+import google.codelabs.weatherapplication.repository.forecast.entities.CityListWeather
+import google.codelabs.weatherapplication.repository.utils.allCityForecastEntity_to_CityListWEather
 import google.codelabs.weatherapplication.repository.utils.toDailyForecastEntity
 import google.codelabs.weatherapplication.repository.utils.toHourlyForecastEntity
-import google.codelabs.weatherapplication.screen.cityweather.utils.cityCoordinates
-import google.codelabs.weatherapplication.screen.cityweather.utils.cityName
-import google.codelabs.weatherapplication.screen.cityweather.utils.currentUnixTime
+import google.codelabs.weatherapplication.screen.cityweather.utils.*
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -24,7 +24,7 @@ class ForecastRepository @Inject constructor(
     private val hourlyForecastDao: HourlyForecastDao,
     private val forecastNetworkService: ForecastNetworkService,
     private val geocoder: Geocoder,
-): CityForecastDataProvider, CityAdding {
+) : CityForecastDataProvider, CityAdding, CityListDataProvider {
 
     override suspend fun currentWeather(city: String): List<CurrentWeatherEntity> =
         hourlyForecastDao.currentWeather(
@@ -41,21 +41,47 @@ class ForecastRepository @Inject constructor(
     override suspend fun addCity(city: String): UpdateResult =
         updateData(city)
 
+    override suspend fun checkCityExistence(city: String): UpdateResult = fetchData(city).result
+
     override suspend fun updateData(city: String): UpdateResult {
-        val coordinates = try {
+        val response = fetchData(city)
+        if (response.result == UpdateResult.SUCCESSFUL) updateDBFrom(response.oneCallData!!)
+        return response.result
+    }
+
+    override suspend fun cityList(): List<CityListWeather> {
+        val time = currentTime(0)
+        val cityList = dailyForecastDao.allCityForecast(time)
+        val currentWeatherList =
+            hourlyForecastDao.allCityCurrentWeather(currentUnixTime() - currentTimeZoneOffset())
+
+        val cityMap = mutableMapOf<String, CityListWeather>()
+        cityList.filter {
+            dateWithoutHours(it.dt) == dateWithoutHours(currentUnixTime(), it.timezone_offset)
+        }.map {
+            cityMap.put(it.city, allCityForecastEntity_to_CityListWEather(it))
+        }
+
+        currentWeatherList.map {
+            cityMap[it.city] = cityMap[it.city]!!.copy(current_temp = it.temp, icon = it.icon)
+        }
+
+        return cityMap.values.toList()
+    }
+
+    private suspend fun fetchData(city: String): NetworkResponse {
+        try {
             cityCoordinates(city, geocoder)!!
         } catch (e: IOException) {
-            return UpdateResult.NO_INTERNET_CONNECTION
+            return NetworkResponse(null, UpdateResult.NO_INTERNET_CONNECTION)
         } catch (e: Exception) {
-            return UpdateResult.NO_RESPONSE
+            return NetworkResponse(null, UpdateResult.NO_RESPONSE)
         }
 
         val oneCallData = forecastNetworkService.fetchOneCallData(city)
-        if (oneCallData == null) return UpdateResult.NO_RESPONSE
-        Log.d(TAG, "city = ${oneCallData.city}, temp = ${oneCallData.current.temp}")
+        if (oneCallData == null) return NetworkResponse(null, UpdateResult.NO_RESPONSE)
 
-        updateDBFrom(oneCallData)
-        return UpdateResult.SUCCESSFUL
+        return NetworkResponse(oneCallData, UpdateResult.SUCCESSFUL)
     }
 
     private suspend fun updateDBFrom(oneCallData: OneCallData) {
@@ -64,6 +90,11 @@ class ForecastRepository @Inject constructor(
 
         hourlyForecastDao.deleteCity(oneCallData.city)
         hourlyForecastDao.insert(toHourlyForecastEntity(oneCallData))
+        val currentCityWeather =
+            hourlyForecastDao.allCityCurrentWeather(currentUnixTime() - currentTimeZoneOffset())
+        currentCityWeather.map {
+            Log.d(TAG, "${it.city}, ${unixToDate(it.dt)}")
+        }
     }
 
     private suspend fun isDataUpToDate(city: String): Boolean {

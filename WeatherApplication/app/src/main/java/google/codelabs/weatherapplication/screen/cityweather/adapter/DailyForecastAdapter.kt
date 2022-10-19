@@ -52,7 +52,7 @@ class DailyForecastAdapter(
                 binding.nestedScroll.sunsetSunrise.sunsetTime.text = unixToCurrentTime(day.sunset, day.timezone_offset)
                 binding.nestedScroll.uvWindHumidity.uvIndex.text = uvToString(day.uvi)
                 binding.tempMinMaxT.text = toTempMaxMin(day.temp_max, day.temp_min)
-                binding.currentDay.text = toDayOfWeek(day.timezone_offset)
+                binding.currentDay.text = toDayOfWeek(day.dt, day.timezone_offset)
             }
 
             items.add(item)

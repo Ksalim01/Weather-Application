@@ -5,6 +5,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import google.codelabs.weatherapplication.database.forecast.daily.entities.AllCityForecastEntity
 import google.codelabs.weatherapplication.database.forecast.daily.entities.DailyForecastEntity
 
 @Dao
@@ -13,10 +14,12 @@ interface DailyForecastDao {
     suspend fun deleteCity(city: String)
 
     @Query("SELECT * FROM daily_forecast WHERE city_name = :city ORDER BY dt")
-    suspend fun cityForecast(city: String) : List<DailyForecastEntity>
+    suspend fun cityForecast(city: String): List<DailyForecastEntity>
 
-    @Query("SELECT * FROM daily_forecast ORDER BY dt")
-    suspend fun allCityForecast() : List<DailyForecastEntity>
+    @Query("SELECT city_name, timezone_offset, dt, temp_min, temp_max " +
+            "FROM daily_forecast " +
+            "WHERE abs(dt - timezone_offset - :dt) <= 86400")
+    suspend fun allCityForecast(dt: Long): List<AllCityForecastEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(forecast: List<DailyForecastEntity>)
