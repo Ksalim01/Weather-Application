@@ -39,10 +39,9 @@ class ForecastViewModel @Inject constructor(
     val currentForecastData: LiveData<CurrentWeatherEntity>
         get() = _currentForecastData
 
-    fun setCityParameters(city: String) {
-        Log.d("viewModel", "launching data")
+    fun setCityParameters(city: String, update: Boolean) {
         launchDataLoad {
-            forecastRepository.updateData(city)
+            if (update) forecastRepository.updateData(city)
             _currentForecastData.postValue(forecastRepository.currentWeather(city)[0])
             _dailyForecastData.postValue(forecastRepository.dailyForecast(city))
             _hourlyForecastData.postValue(forecastRepository.hourlyForecast(city))
@@ -54,7 +53,6 @@ class ForecastViewModel @Inject constructor(
             try {
                 block()
             } catch (error: Throwable) {
-
             } finally {
 
             }

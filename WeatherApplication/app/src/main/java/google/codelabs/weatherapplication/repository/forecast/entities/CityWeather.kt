@@ -1,9 +1,8 @@
 package google.codelabs.weatherapplication.repository.forecast.entities
 
-import androidx.room.ColumnInfo
-
-data class CityListWeather(
+data class CityWeather(
     val city: String,
+    val country: String,
     val timezone_offset: Long,
     val dt: Long,
     val temp_min: Float,

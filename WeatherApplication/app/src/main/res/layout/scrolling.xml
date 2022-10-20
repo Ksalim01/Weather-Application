@@ -21,7 +21,6 @@
             android:orientation="horizontal"
             android:paddingHorizontal="16dp"
             android:paddingVertical="8dp"
-            style="@style/BackgroundRectangle"
             tools:listitem="@layout/item_hourly_forecast"
             android:requiresFadingEdge="horizontal"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"
@@ -39,8 +38,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
-            android:paddingVertical="8dp"
-            style="@style/BackgroundRectangle">
+            android:paddingVertical="8dp">
         </LinearLayout>
 
         <Space

@@ -9,7 +9,7 @@ import google.codelabs.weatherapplication.database.forecast.hourly.entities.Hour
 import google.codelabs.weatherapplication.network.forecast.ForecastNetworkService
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 import google.codelabs.weatherapplication.network.forecast.entities.OneCallData
-import google.codelabs.weatherapplication.repository.forecast.entities.CityListWeather
+import google.codelabs.weatherapplication.repository.forecast.entities.CityWeather
 import google.codelabs.weatherapplication.repository.utils.allCityForecastEntity_to_CityListWEather
 import google.codelabs.weatherapplication.repository.utils.toDailyForecastEntity
 import google.codelabs.weatherapplication.repository.utils.toHourlyForecastEntity
@@ -49,21 +49,25 @@ class ForecastRepository @Inject constructor(
         return response.result
     }
 
-    override suspend fun cityList(): List<CityListWeather> {
-        val time = currentTime(0)
-        val cityList = dailyForecastDao.allCityForecast(time)
+    override suspend fun allCityWeather(): List<CityWeather> {
+        val time = currentUnixTime()
+        val cityList = dailyForecastDao.allCityForecast(time - currentTimeZoneOffset())
         val currentWeatherList =
-            hourlyForecastDao.allCityCurrentWeather(currentUnixTime() - currentTimeZoneOffset())
+            hourlyForecastDao.allCityCurrentWeather(time)
 
-        val cityMap = mutableMapOf<String, CityListWeather>()
+        val cityMap = mutableMapOf<String, CityWeather>()
         cityList.filter {
-            dateWithoutHours(it.dt) == dateWithoutHours(currentUnixTime(), it.timezone_offset)
+            dateWithoutHours(it.dt) == dateWithoutHours(time, it.timezone_offset)
         }.map {
             cityMap.put(it.city, allCityForecastEntity_to_CityListWEather(it))
         }
 
         currentWeatherList.map {
-            cityMap[it.city] = cityMap[it.city]!!.copy(current_temp = it.temp, icon = it.icon)
+            cityMap[it.city] = cityMap[it.city]!!.copy(
+                current_temp = it.temp,
+                icon = it.icon,
+                country = country(it.city, geocoder)
+            )
         }
 
         return cityMap.values.toList()
@@ -90,11 +94,6 @@ class ForecastRepository @Inject constructor(
 
         hourlyForecastDao.deleteCity(oneCallData.city)
         hourlyForecastDao.insert(toHourlyForecastEntity(oneCallData))
-        val currentCityWeather =
-            hourlyForecastDao.allCityCurrentWeather(currentUnixTime() - currentTimeZoneOffset())
-        currentCityWeather.map {
-            Log.d(TAG, "${it.city}, ${unixToDate(it.dt)}")
-        }
     }
 
     private suspend fun isDataUpToDate(city: String): Boolean {

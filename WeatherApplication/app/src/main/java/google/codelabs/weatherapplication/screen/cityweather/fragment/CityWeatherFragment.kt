@@ -16,6 +16,7 @@ import google.codelabs.weatherapplication.screen.cityweather.adapter.CurrentWeat
 import google.codelabs.weatherapplication.screen.cityweather.adapter.DailyForecastAdapter
 import google.codelabs.weatherapplication.screen.cityweather.adapter.HourlyForecastRecyclerViewAdapter
 import google.codelabs.weatherapplication.screen.cityweather.viewmodels.ForecastViewModel
+import google.codelabs.weatherapplication.screen.listenResults
 import javax.inject.Inject
 
 class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
@@ -33,18 +34,22 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.setCityParameters(args.city)
+        viewModel.setCityParameters(args.city, true)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCityWeatherBinding.bind(view)
 
-        hide()
+        listenResults<String>(CITY_KEY) {
+            viewModel.setCityParameters(it, false)
+        }
+
         initAll()
     }
 
     private fun initAll() {
+        hide()
         initToolbar()
         initHourlyForecastRecyclerView()
         initDailyForecastLinerLayout()
@@ -65,22 +70,21 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
     }
 
     private fun hide() {
-        with(binding) {
-            nestedScroll.root.visibility = View.GONE
-            progressBar.visibility = View.VISIBLE
-            appBar.visibility = View.GONE
-            cityName.visibility = View.GONE
-            toolbar.visibility = View.GONE
-        }
+        changeVisibility(View.GONE)
+        binding.progressBar.visibility = View.VISIBLE
     }
 
     private fun showFragment() {
+        changeVisibility(View.VISIBLE)
+        binding.progressBar.visibility = View.GONE
+    }
+
+    private fun changeVisibility(v: Int) {
         with(binding) {
-            nestedScroll.root.visibility = View.VISIBLE
-            progressBar.visibility = View.GONE
-            appBar.visibility = View.VISIBLE
-            cityName.visibility = View.VISIBLE
-            toolbar.visibility = View.VISIBLE
+            nestedScroll.root.visibility = v
+            appBar.visibility = v
+            cityName.visibility = v
+            toolbar.visibility = v
         }
     }
 
@@ -114,5 +118,9 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
         viewModel.currentForecastData.observe(viewLifecycleOwner, Observer {
             currentWeatherAdapter.data = it
         })
+    }
+
+    companion object {
+        const val CITY_KEY = "CITY_KEY"
     }
 }

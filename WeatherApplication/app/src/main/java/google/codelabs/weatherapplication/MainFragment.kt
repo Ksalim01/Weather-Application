@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import android.content.pm.PackageManager
 import android.location.Geocoder
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
@@ -15,22 +16,17 @@ import com.google.android.gms.location.LocationServices
 import google.codelabs.weatherapplication.databinding.FragmentMainBinding
 import google.codelabs.weatherapplication.screen.cityweather.fragment.Coordinates
 import google.codelabs.weatherapplication.screen.cityweather.utils.cityName
+import google.codelabs.weatherapplication.screen.sharedPreferences
 import java.util.*
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
     private lateinit var binding: FragmentMainBinding
-    private lateinit var citySharedPreferences: SharedPreferences
 
     private val requestLocationPermissionLauncher = registerForActivityResult(
         ActivityResultContracts.RequestPermission(),
         ::onGotLocationPermissionResult
     )
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        citySharedPreferences = requireContext().getSharedPreferences(CITY_PREFERENCES, Context.MODE_PRIVATE)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,9 +59,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 try {
                     val geocoder = Geocoder(context, Locale.getDefault())
                     val city = cityName(it.latitude.toFloat(), it.longitude.toFloat(), geocoder)!!
-                    citySharedPreferences.edit()
-                        .putString(CURRENT_CITY, city)
-                        .apply()
+                    Log.d(TAG, city)
+                    sharedPreferences(requireContext()).setFavouritePlace(city)
                 } catch (e: Exception) {
 
                 }
@@ -75,20 +70,18 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun onStartDefaultCityWeatherFragment() {
-        val city = citySharedPreferences.getString(CURRENT_CITY, "")
+        val city = sharedPreferences(requireContext()).getFavouritePlace()
+        Log.d(TAG, "$city")
         if (city != null) onStartCityWeatherFragment(city)
     }
 
     private fun onStartCityWeatherFragment(city: String) {
         val directions = MainFragmentDirections
-            .actionMainFragmentToCityWeatherFragment("Новосибирск")
+            .actionMainFragmentToCityWeatherFragment(city)
         findNavController().navigate(directions)
     }
 
-
     private companion object {
-        private const val TAG = "MainFragment"
-        private const val CITY_PREFERENCES = "CITY_PREFERENCES"
-        private const val CURRENT_CITY = "CURRENT_CITY"
+        const val TAG = "MainFragment"
     }
 }

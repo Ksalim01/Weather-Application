@@ -6,7 +6,6 @@ import google.codelabs.weatherapplication.repository.forecast.CityAdding
 import google.codelabs.weatherapplication.repository.forecast.CityForecastDataProvider
 import google.codelabs.weatherapplication.repository.forecast.CityListDataProvider
 import google.codelabs.weatherapplication.repository.forecast.ForecastRepository
-import google.codelabs.weatherapplication.repository.forecast.entities.CityListWeather
 
 @Module
 interface ForecastRepositoryModule {

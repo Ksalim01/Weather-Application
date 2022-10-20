@@ -32,6 +32,13 @@ fun cityCoordinates(city: String, geocoder: Geocoder): Coordinates? {
     )
 }
 
+fun country(city: String, geocoder: Geocoder): String = try {
+    val res = geocoder.getFromLocationName(city, 1)
+    res.get(0).countryName
+} catch (e: Exception) {
+    ""
+}
+
 fun currentUnixTime(): Long {
     var time = System.currentTimeMillis() / 1000
     time -= unixToDate(time).subSequence(14, 16).toString().toLong() * 60 +
@@ -116,8 +123,6 @@ fun unixToDayOfWeek(time: Long, offset: Long = currentTimeZoneOffset()): String 
 }
 
 fun unixToHours(date: Long) = unixToDate(date).substring(11, 16)
-
-
 
 fun unixToCurrentTime(time: Long, offset: Long): String =
     unixToHours(time - currentTimeZoneOffset() + offset)

@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/favourite_city"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/selectable_background_rectangle"
@@ -39,7 +40,7 @@
     </TextView>
 
     <TextView
-        android:id="@+id/region"
+        android:id="@+id/country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Московская область, Россия"
@@ -54,14 +55,31 @@
         android:id="@+id/date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="вс, 16 октября 16:19"
+        android:text="вс, 16 октября, "
         android:textColor="@color/gray"
         android:textSize="12sp"
         app:layout_constraintLeft_toLeftOf="@id/beginGuideline"
-        app:layout_constraintTop_toBottomOf="@id/region"
+        app:layout_constraintTop_toBottomOf="@id/country"
         >
 
     </TextView>
+
+    <TextClock
+        android:id="@+id/current_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="16:19"
+        android:textColor="@color/gray"
+        android:format12Hour="hh:mm"
+        android:textAlignment="viewStart"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@id/date"
+        app:layout_constraintTop_toBottomOf="@id/country"
+        >
+
+    </TextClock>
+
+
 
 
 <!--        <ImageView-->

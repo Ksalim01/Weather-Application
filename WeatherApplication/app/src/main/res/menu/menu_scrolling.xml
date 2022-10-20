@@ -6,6 +6,6 @@
     <item
         android:id="@+id/cityList"
         android:icon="@drawable/ic_menu_city"
-        android:title="city list"
+        android:title="Управлять местами"
         app:showAsAction="always"/>
 </menu>

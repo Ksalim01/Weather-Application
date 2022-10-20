@@ -15,50 +15,16 @@
         app:navigationIcon="@drawable/ic_back_arrow"
         app:title="@string/manage_places"
         app:titleTextColor="@color/black"
-        android:layout_marginBottom="8dp"
         app:contentInsetStartWithNavigation="0dp"
         app:titleMarginStart="0dp"/>
 
-
-    <TextView
-        android:id="@+id/favourite_place"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="@string/favourite_place"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/gray"
-        android:layout_marginTop="10dp">
-    </TextView>
-
-    <include
-        android:id="@+id/favourite_card"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:paddingHorizontal="10dp"
-        android:layout_marginBottom="8dp"
-        layout="@layout/item_city_list" />
-
-
-    <TextView
-        android:id="@+id/another_places"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="@string/another_places"
-        android:fontFamily="sans-serif-medium"
-        android:textColor="@color/gray"
-        android:layout_marginTop="10dp">
-    </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/city_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/another_places"
-        android:layout_marginTop="8dp"
-        tools:listitem="@layout/item_city_list">
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        android:layout_marginTop="8dp">
     </androidx.recyclerview.widget.RecyclerView>
 
     <Space

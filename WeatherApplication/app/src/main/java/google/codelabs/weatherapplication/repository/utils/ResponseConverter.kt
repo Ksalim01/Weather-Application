@@ -5,8 +5,7 @@ import google.codelabs.weatherapplication.database.forecast.daily.entities.Daily
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.HourlyForecastEntity
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 import google.codelabs.weatherapplication.network.forecast.entities.OneCallData
-import google.codelabs.weatherapplication.repository.forecast.entities.CityListWeather
-import google.codelabs.weatherapplication.screen.cityweather.utils.cityName
+import google.codelabs.weatherapplication.repository.forecast.entities.CityWeather
 
 
 fun toHourlyForecastEntity(response: OneCallData) = response.hourly.map {
@@ -63,8 +62,9 @@ fun toCurrentWeatherEntity(response: OneCallData) = response.let {
 
 fun allCityForecastEntity_to_CityListWEather(allCityForecastEntity: AllCityForecastEntity) =
     allCityForecastEntity.let {
-        CityListWeather(
+        CityWeather(
             city = it.city,
+            country = "",
             timezone_offset = it.timezone_offset,
             dt = it.dt,
             temp_min = it.temp_min,

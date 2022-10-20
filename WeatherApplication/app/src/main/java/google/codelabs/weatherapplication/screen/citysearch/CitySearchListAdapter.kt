@@ -5,7 +5,9 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import google.codelabs.weatherapplication.databinding.ItemCitySearchBinding
 
-class CitySearchListAdapter(private val citySearchViewModel: CitySearchViewModel) :
+typealias CitySearchItemClickListener = (String) -> Unit
+
+class CitySearchListAdapter(private val onItemClickListener: CitySearchItemClickListener ) :
     RecyclerView.Adapter<CitySearchListAdapter.CitySearchListHolder>() {
 
     var data: List<CityAddress> = emptyList()
@@ -26,7 +28,7 @@ class CitySearchListAdapter(private val citySearchViewModel: CitySearchViewModel
 
     override fun onBindViewHolder(holder: CitySearchListHolder, position: Int) {
         val item = data[position]
-        holder.binding.root.setOnClickListener { citySearchViewModel.addCity(item.city) }
+        holder.binding.root.setOnClickListener { onItemClickListener(item.city) }
         with(holder.binding) {
             city.text = item.city
             region.text = item.country

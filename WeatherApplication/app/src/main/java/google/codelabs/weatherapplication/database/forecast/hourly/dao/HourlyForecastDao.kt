@@ -30,7 +30,7 @@ interface HourlyForecastDao {
     @Query(
         "SELECT city_name, dt, timezone_offset, temp, icon " +
                 "FROM hourly_forecast " +
-                "WHERE dt - timezone_offset = :dt"
+                "WHERE dt = :dt"
     )
     suspend fun allCityCurrentWeather(dt: Long): List<AllCityCurrentWeather>
 

@@ -48,7 +48,10 @@ class CitySearchFragment : Fragment(R.layout.fragment_city_search) {
         with(binding.citySuggestions) {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            adapter = CitySearchListAdapter(citySearchViewModel)
+            adapter = CitySearchListAdapter {
+                citySearchViewModel.addCity(it)
+                findNavController().navigateUp()
+            }
         }
     }
 
@@ -69,6 +72,8 @@ class CitySearchFragment : Fragment(R.layout.fragment_city_search) {
         binding.toolbar.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
+
+        showSoftKeyboard(binding.searchBar)
     }
 
     private fun showSoftKeyboard(view: View) {

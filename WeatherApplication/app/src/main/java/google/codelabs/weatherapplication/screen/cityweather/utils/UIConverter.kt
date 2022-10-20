@@ -10,7 +10,7 @@ fun toTempMaxMin(max: Float, min: Float) : String {
 fun toDayOfWeek(time: Long, offset: Long) : String = abbreviateDay(currentDayOfWeek(time, offset)).lowercase() + ", "
 
 fun dateFormat(time: Long, offset: Long) : String {
-    val sdf = java.text.SimpleDateFormat("EEE, d MMM hh:mm")
+    val sdf = java.text.SimpleDateFormat("EEE, d MMMM, ")
     val date = java.util.Date((time - currentTimeZoneOffset() + offset) * 1000)
     return sdf.format(date)
 }

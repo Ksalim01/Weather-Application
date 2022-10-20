@@ -14,9 +14,8 @@
         android:layout_height="wrap_content"
         app:title="@string/app_name"
         app:titleTextColor="@color/black"
-        android:background="@drawable/background_rectangle_white"
         app:navigationIcon="@drawable/ic_back_arrow"
-        android:layout_margin="8dp"
+        android:layout_marginBottom="8dp"
         app:contentInsetStartWithNavigation="0dp"
         app:titleMarginStart="0dp">
 
@@ -39,7 +38,6 @@
         android:id="@+id/city_suggestions"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/selectable_background_rectangle"
         android:padding="8dp"
         android:layout_margin="8dp"
         tools:listitem="@layout/item_city_search">
