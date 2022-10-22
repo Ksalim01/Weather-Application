@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.HourlyForecastEntity
 import google.codelabs.weatherapplication.databinding.ItemHourlyForecastBinding
 import google.codelabs.weatherapplication.screen.cityweather.utils.*
+import java.lang.Integer.min
 
 
 class HourlyForecastRecyclerViewAdapter :
@@ -15,12 +16,7 @@ class HourlyForecastRecyclerViewAdapter :
         set(value) {
             for (i in value.indices) {
                 if (value[i].dt >= currentTime()) {
-                    field =
-                    if (i + NUMBER_OF_DISPLAYING_HOURS < value.size) {
-                        value.subList(i, i + NUMBER_OF_DISPLAYING_HOURS)
-                    } else {
-                        value
-                    }
+                    field = value.subList(i, min(i + NUMBER_OF_DISPLAYING_HOURS, value.size))
                     break
                 }
             }

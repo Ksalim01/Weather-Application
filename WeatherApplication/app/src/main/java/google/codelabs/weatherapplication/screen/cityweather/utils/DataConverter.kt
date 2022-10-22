@@ -40,7 +40,7 @@ fun country(city: String, geocoder: Geocoder): String = try {
 }
 
 fun currentUnixTime(): Long {
-    var time = System.currentTimeMillis() / 1000
+    var time = Calendar.getInstance().timeInMillis / 1000
     time -= unixToDate(time).subSequence(14, 16).toString().toLong() * 60 +
             unixToDate(time).subSequence(17, 19).toString().toLong()
     return time
@@ -49,6 +49,14 @@ fun currentUnixTime(): Long {
 fun currentDay(offset: Long): String {
     val time = Calendar.getInstance().timeInMillis / 1000 - currentTimeZoneOffset() + offset
     return dateToDay(unixToDate(time))
+}
+
+fun currentUnixDay(offset: Long): Long {
+    var time = Calendar.getInstance().timeInMillis / 1000
+    time -= unixToDate(time).subSequence(14, 16).toString().toLong() * 60 +
+            unixToDate(time).subSequence(17, 19).toString().toLong() +
+            unixToDate(time).subSequence(11, 13).toString().toLong() * 3600
+    return time - currentTimeZoneOffset() + offset
 }
 
 fun currentDayOfWeek(time: Long, offset: Long = currentTimeZoneOffset()) =

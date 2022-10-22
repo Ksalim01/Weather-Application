@@ -14,14 +14,12 @@ import google.codelabs.weatherapplication.App
 import google.codelabs.weatherapplication.MainFragment
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCityListBinding
-import google.codelabs.weatherapplication.screen.BounceEdgeEffectFactory
+import google.codelabs.weatherapplication.screen.*
 import google.codelabs.weatherapplication.screen.cityweather.fragment.CityWeatherFragment.Companion.CITY_KEY
 import google.codelabs.weatherapplication.screen.cityweather.utils.dateFormat
 import google.codelabs.weatherapplication.screen.cityweather.utils.offsetToGMT
 import google.codelabs.weatherapplication.screen.cityweather.utils.toTempMaxMin
 import google.codelabs.weatherapplication.screen.cityweather.utils.toTemperature
-import google.codelabs.weatherapplication.screen.sendResultToPreviousFragment
-import google.codelabs.weatherapplication.screen.sharedPreferences
 import google.codelabs.weatherapplication.screen.weathercitylist.adapters.CityListViewAdapter
 import google.codelabs.weatherapplication.screen.weathercitylist.viewmodels.CityListViewModel
 import javax.inject.Inject
@@ -39,13 +37,13 @@ class CityListFragment : Fragment(R.layout.fragment_city_list) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        cityListViewModel.launchCityListData(sharedPreferences(requireContext()).getFavouritePlace()!!)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentCityListBinding.bind(view)
 
-        cityListViewModel.launchCityListData(sharedPreferences(requireContext()).getFavouritePlace()!!)
         initAll()
     }
 
@@ -62,23 +60,12 @@ class CityListFragment : Fragment(R.layout.fragment_city_list) {
     }
 
     private fun initCityList() {
-
-        val cityListViewAdapter = CityListViewAdapter(requireContext()) {
-            sendResultToPreviousFragment(CITY_KEY, it)
-            findNavController().navigateUp()
+        listenResults<String>(CITY_KEY) {
+            cityListViewModel.launchCityListDataWithNewCity(it)
         }
 
-        cityListViewModel.otherCitiesWeather.observe(viewLifecycleOwner) {
-            cityListViewAdapter.anotherCitiesWeather = it
-            cityListViewAdapter.notifyDataSetChanged()
-            showAll()
-        }
-
-        cityListViewModel.favouriteCityWeather.observe(viewLifecycleOwner) {
-            cityListViewAdapter.favouriteCityWeather = it
-            cityListViewAdapter.notifyDataSetChanged()
-            showAll()
-        }
+        val cityListViewAdapter = createCityListAdapter()
+        subscribeToUpdates(cityListViewAdapter)
 
         with(binding.cityList) {
             layoutManager =
@@ -87,7 +74,6 @@ class CityListFragment : Fragment(R.layout.fragment_city_list) {
             edgeEffectFactory = BounceEdgeEffectFactory()
         }
     }
-
 
     private fun initToolbar() {
         binding.toolbar.inflateMenu(R.menu.menu_city_list)
@@ -106,6 +92,32 @@ class CityListFragment : Fragment(R.layout.fragment_city_list) {
         }
     }
 
+    private fun createCityListAdapter(): CityListViewAdapter =
+        CityListViewAdapter(requireContext()) {
+            onItemClickListener(it)
+        }
+
+    private fun onItemClickListener(city: String) {
+        sendResultToPreviousFragment(CITY_KEY, city)
+        findNavController().navigateUp()
+    }
+
+    private fun subscribeToUpdates(cityListViewAdapter: CityListViewAdapter) {
+        cityListViewModel.otherCitiesWeather.observe(viewLifecycleOwner) {
+            cityListViewAdapter.anotherCitiesWeather = it
+            cityListViewAdapter.notifyDataSetChanged()
+            showAll()
+        }
+
+        cityListViewModel.favouriteCityWeather.observe(viewLifecycleOwner) {
+            binding.favouriteCityItem.bind(it)
+            binding.favouriteCityItem.root.setOnClickListener {
+                onItemClickListener(binding.favouriteCityItem.city.text.toString())
+            }
+            showAll()
+        }
+    }
+
     private fun hideAll() {
         changeVisibility(View.GONE)
     }
@@ -117,6 +129,9 @@ class CityListFragment : Fragment(R.layout.fragment_city_list) {
     private fun changeVisibility(visibility: Int) {
         with(binding) {
             cityList.visibility = visibility
+            favouriteCityItem.root.visibility = visibility
+            favouriteCity.visibility = visibility
+            anotherCities.visibility = visibility
         }
     }
 }

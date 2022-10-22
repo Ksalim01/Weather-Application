@@ -13,12 +13,15 @@ interface DailyForecastDao {
     @Query("DELETE FROM daily_forecast WHERE city_name = :city")
     suspend fun deleteCity(city: String)
 
-    @Query("SELECT * FROM daily_forecast WHERE city_name = :city ORDER BY dt")
-    suspend fun cityForecast(city: String): List<DailyForecastEntity>
+    @Query("SELECT * FROM daily_forecast " +
+            "WHERE city_name = :city and dt - timezone_offset >= :dt " +
+            "ORDER BY dt")
+    suspend fun cityForecast(city: String, dt: Long): List<DailyForecastEntity>
 
-    @Query("SELECT city_name, timezone_offset, dt, temp_min, temp_max " +
+    @Query("SELECT city_name, country, timezone_offset, dt, temp_min, temp_max " +
             "FROM daily_forecast " +
-            "WHERE abs(dt - timezone_offset - :dt) <= 86400")
+            "WHERE abs(dt - timezone_offset - :dt) <= 86400 " +
+            "ORDER BY dt")
     suspend fun allCityForecast(dt: Long): List<AllCityForecastEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

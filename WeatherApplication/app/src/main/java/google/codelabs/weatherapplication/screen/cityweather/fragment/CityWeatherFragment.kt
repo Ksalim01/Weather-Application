@@ -90,7 +90,7 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
 
     private fun initHourlyForecastRecyclerView() {
         val hourlyRecyclerView = binding.nestedScroll.dayForecast
-        val dayAdapter: HourlyForecastRecyclerViewAdapter = HourlyForecastRecyclerViewAdapter()
+        val dayAdapter = HourlyForecastRecyclerViewAdapter()
 
         viewModel.hourlyForecastData.observe(viewLifecycleOwner) {
             dayAdapter.data = it

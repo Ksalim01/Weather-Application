@@ -9,6 +9,7 @@ import androidx.room.Entity
 )
 data class HourlyForecastEntity (
     @ColumnInfo(name = "city_name") val city: String,
+    @ColumnInfo(name = "country") val country: String,
     @ColumnInfo(name = "dt") val dt: Long,
     @ColumnInfo(name = "timezone_offset") val timezone_offset: Long,
 

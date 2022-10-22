@@ -14,4 +14,5 @@
     <string name="manage_places">Управлять местами</string>
     <string name="lost_connection">Ошибка подключения сети</string>
     <string name="search">Поиск</string>
+    <string name="no_response">Результатов нет</string>
 </resources>

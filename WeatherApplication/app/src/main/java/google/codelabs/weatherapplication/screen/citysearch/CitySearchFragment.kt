@@ -3,8 +3,6 @@ package google.codelabs.weatherapplication.screen.citysearch
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
-import android.view.Menu
-import android.view.MenuInflater
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
@@ -15,12 +13,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import google.codelabs.weatherapplication.App
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCitySearchBinding
-import google.codelabs.weatherapplication.repository.forecast.UpdateResult
+import google.codelabs.weatherapplication.repository.forecast.entities.CityAddress
+import google.codelabs.weatherapplication.repository.forecast.entities.UpdateResult
+import google.codelabs.weatherapplication.screen.BounceEdgeEffectFactory
 import google.codelabs.weatherapplication.screen.citysearch.utils.correctCityName
+import google.codelabs.weatherapplication.screen.cityweather.fragment.CityWeatherFragment.Companion.CITY_KEY
+import google.codelabs.weatherapplication.screen.sendResultToPreviousFragment
 import javax.inject.Inject
 
 class CitySearchFragment : Fragment(R.layout.fragment_city_search) {
     private lateinit var binding: FragmentCitySearchBinding
+
+    private lateinit var citySearchListAdapter: CitySearchListAdapter
 
     @Inject
     lateinit var citySearchViewModel: CitySearchViewModel
@@ -37,22 +41,32 @@ class CitySearchFragment : Fragment(R.layout.fragment_city_search) {
         initAll()
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        citySearchViewModel.response.removeObservers(viewLifecycleOwner)
+    }
+
     private fun initAll() {
+        hideAll()
         initCityListSearch()
         initSearchBar()
         initToolbar()
     }
 
     private fun initCityListSearch() {
-        binding.citySuggestions.visibility = View.GONE
+        citySearchListAdapter = CitySearchListAdapter {
+            sendResultToPreviousFragment(CITY_KEY, it)
+            findNavController().navigateUp()
+        }
+
         with(binding.citySuggestions) {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-            adapter = CitySearchListAdapter {
-                citySearchViewModel.addCity(it)
-                findNavController().navigateUp()
-            }
+            adapter = citySearchListAdapter
+            edgeEffectFactory = BounceEdgeEffectFactory()
         }
+
+        subscribeToUpdates()
     }
 
     private fun initToolbar() {
@@ -97,33 +111,45 @@ class CitySearchFragment : Fragment(R.layout.fragment_city_search) {
     }
 
     private fun handleSearchRequest(text: String?) {
-        Log.d(TAG, "handleSearchRequest with text = $text")
         if (text == null || text.isEmpty()) return
-        citySearchViewModel.checkCityExistence(text.lowercase())
+        hideAll()
+        binding.progressBar.visibility = View.VISIBLE
+        citySearchViewModel.checkCityExistence(correctCityName(text))
+    }
+
+    private fun showSearchResult(cityAddress: CityAddress) {
+        citySearchListAdapter.data = listOf(cityAddress)
+        binding.citySuggestions.visibility = View.VISIBLE
+    }
+
+    private fun clearSearchResult() {
+        hideAll()
+        citySearchListAdapter.data = emptyList()
+    }
+
+    private fun showResponseText(text: String) {
+        binding.responseResult.text = text
+        binding.responseResult.visibility = View.VISIBLE
+    }
+
+    private fun subscribeToUpdates() {
         citySearchViewModel.response.observe(viewLifecycleOwner) {
-            when (it) {
-                UpdateResult.NO_INTERNET_CONNECTION -> Toast.makeText(
-                    requireContext(),
-                    resources.getString(R.string.lost_connection),
-                    Toast.LENGTH_SHORT
-                ).show()
-                UpdateResult.SUCCESSFUL -> showSearchResult(correctCityName(text))
-                else -> {
-                    Log.d(TAG, "No response")
-                }
+            Log.d(TAG, "${it.cityAddress?.city}")
+            hideAll()
+            when (it.result) {
+                UpdateResult.NO_INTERNET_CONNECTION -> showResponseText(getString(R.string.lost_connection))
+                UpdateResult.NO_RESPONSE -> showResponseText(getString(R.string.no_response))
+                UpdateResult.SUCCESSFUL -> showSearchResult(it.cityAddress!!)
             }
         }
     }
 
-    private fun showSearchResult(city: String) {
-        binding.citySuggestions.visibility = View.VISIBLE
-        (binding.citySuggestions.adapter as CitySearchListAdapter).data =
-            listOf(CityAddress(city, ""))
-    }
-
-    private fun clearSearchResult() {
-        (binding.citySuggestions.adapter as CitySearchListAdapter).data = listOf()
-        binding.citySuggestions.visibility = View.GONE
+    private fun hideAll() {
+        with(binding) {
+            citySuggestions.visibility = View.GONE
+            progressBar.visibility = View.GONE
+            responseResult.visibility = View.GONE
+        }
     }
 
     private companion object {

@@ -4,32 +4,26 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import google.codelabs.weatherapplication.repository.forecast.CityAdding
-import google.codelabs.weatherapplication.repository.forecast.UpdateResult
+import google.codelabs.weatherapplication.repository.forecast.CityExistence
+import google.codelabs.weatherapplication.repository.forecast.entities.CityAddressResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class CitySearchViewModel @Inject constructor(
-    val repository: CityAdding
+    val repository: CityExistence
 ) : ViewModel() {
 
-    private val _response: MutableLiveData<UpdateResult> by lazy {
+    private val _response: MutableLiveData<CityAddressResult> by lazy {
         MutableLiveData()
     }
 
-    val response: LiveData<UpdateResult>
+    val response: LiveData<CityAddressResult>
         get() = _response
 
     fun checkCityExistence(city: String) {
         viewModelScope.launch(Dispatchers.IO) {
             _response.postValue(repository.checkCityExistence(city))
-        }
-    }
-
-    fun addCity(city: String) {
-        viewModelScope.launch(Dispatchers.IO) {
-            repository.addCity(city)
         }
     }
 }

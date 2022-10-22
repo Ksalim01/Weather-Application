@@ -13,24 +13,26 @@ interface HourlyForecastDao {
     @Query("DELETE FROM hourly_forecast WHERE city_name = :city")
     suspend fun deleteCity(city: String)
 
-    @Query("SELECT * FROM hourly_forecast WHERE city_name = :city ORDER BY dt")
-    suspend fun cityForecast(city: String): List<HourlyForecastEntity>
+    @Query("SELECT * FROM hourly_forecast " +
+            "WHERE city_name = :city and dt >= :dt " +
+            "ORDER BY dt")
+    suspend fun cityForecast(city: String, dt: Long): List<HourlyForecastEntity>
 
-    @Query("SELECT * FROM hourly_forecast ORDER BY dt")
-    suspend fun allCityForecast(): List<HourlyForecastEntity>
 
     @Query(
         "SELECT timezone_offset, dt, temp, feels_like, humidity, wind_speed, icon, city_name " +
                 "FROM hourly_forecast " +
                 "WHERE city_name = :city " +
-                "and dt = :dt"
+                "and dt = :dt " +
+                "ORDER BY dt"
     )
     suspend fun currentWeather(city: String, dt: Long): List<CurrentWeatherEntity>
 
     @Query(
         "SELECT city_name, dt, timezone_offset, temp, icon " +
                 "FROM hourly_forecast " +
-                "WHERE dt = :dt"
+                "WHERE dt = :dt " +
+                "ORDER BY dt"
     )
     suspend fun allCityCurrentWeather(dt: Long): List<AllCityCurrentWeather>
 

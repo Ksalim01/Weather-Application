@@ -2,10 +2,7 @@ package google.codelabs.weatherapplication.di
 
 import dagger.Binds
 import dagger.Module
-import google.codelabs.weatherapplication.repository.forecast.CityAdding
-import google.codelabs.weatherapplication.repository.forecast.CityForecastDataProvider
-import google.codelabs.weatherapplication.repository.forecast.CityListDataProvider
-import google.codelabs.weatherapplication.repository.forecast.ForecastRepository
+import google.codelabs.weatherapplication.repository.forecast.*
 
 @Module
 interface ForecastRepositoryModule {
@@ -18,4 +15,7 @@ interface ForecastRepositoryModule {
 
     @Binds
     fun provideCityListDataProvider(repo: ForecastRepository): CityListDataProvider
+
+    @Binds
+    fun provideCityExistence(repo: ForecastRepository): CityExistence
 }

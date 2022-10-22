@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import google.codelabs.weatherapplication.databinding.ItemCitySearchBinding
+import google.codelabs.weatherapplication.repository.forecast.entities.CityAddress
 
 typealias CitySearchItemClickListener = (String) -> Unit
 

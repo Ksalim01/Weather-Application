@@ -11,6 +11,7 @@ import google.codelabs.weatherapplication.repository.forecast.entities.CityWeath
 fun toHourlyForecastEntity(response: OneCallData) = response.hourly.map {
     HourlyForecastEntity(
         city = response.city,
+        country = response.country,
         dt = it.dt,
         timezone_offset = response.timezone_offset,
         temp = it.temp,
@@ -26,6 +27,7 @@ fun toHourlyForecastEntity(response: OneCallData) = response.hourly.map {
 fun toDailyForecastEntity(response: OneCallData) = response.daily.map {
     DailyForecastEntity(
         city = response.city,
+        country = response.country,
         dt = it.dt,
         timezone_offset = response.timezone_offset,
         sunrise = it.sunrise,
@@ -64,7 +66,7 @@ fun allCityForecastEntity_to_CityListWEather(allCityForecastEntity: AllCityForec
     allCityForecastEntity.let {
         CityWeather(
             city = it.city,
-            country = "",
+            country = it.country,
             timezone_offset = it.timezone_offset,
             dt = it.dt,
             temp_min = it.temp_min,

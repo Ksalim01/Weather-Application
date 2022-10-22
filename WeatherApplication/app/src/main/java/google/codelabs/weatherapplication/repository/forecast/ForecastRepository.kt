@@ -9,7 +9,7 @@ import google.codelabs.weatherapplication.database.forecast.hourly.entities.Hour
 import google.codelabs.weatherapplication.network.forecast.ForecastNetworkService
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 import google.codelabs.weatherapplication.network.forecast.entities.OneCallData
-import google.codelabs.weatherapplication.repository.forecast.entities.CityWeather
+import google.codelabs.weatherapplication.repository.forecast.entities.*
 import google.codelabs.weatherapplication.repository.utils.allCityForecastEntity_to_CityListWEather
 import google.codelabs.weatherapplication.repository.utils.toDailyForecastEntity
 import google.codelabs.weatherapplication.repository.utils.toHourlyForecastEntity
@@ -24,7 +24,7 @@ class ForecastRepository @Inject constructor(
     private val hourlyForecastDao: HourlyForecastDao,
     private val forecastNetworkService: ForecastNetworkService,
     private val geocoder: Geocoder,
-) : CityForecastDataProvider, CityAdding, CityListDataProvider {
+) : CityForecastDataProvider, CityExistence, CityListDataProvider {
 
     override suspend fun currentWeather(city: String): List<CurrentWeatherEntity> =
         hourlyForecastDao.currentWeather(
@@ -33,15 +33,28 @@ class ForecastRepository @Inject constructor(
         )
 
     override suspend fun hourlyForecast(city: String): List<HourlyForecastEntity> =
-        hourlyForecastDao.cityForecast(city)
+        hourlyForecastDao.cityForecast(city, currentUnixTime())
 
     override suspend fun dailyForecast(city: String): List<DailyForecastEntity> =
-        dailyForecastDao.cityForecast(city)
+        dailyForecastDao.cityForecast(city, currentUnixDay(0))
 
     override suspend fun addCity(city: String): UpdateResult =
         updateData(city)
 
-    override suspend fun checkCityExistence(city: String): UpdateResult = fetchData(city).result
+    override suspend fun checkCityExistence(city: String): CityAddressResult {
+        val responseResult = fetchData(city)
+        val cityAddress = responseResult.oneCallData?.let {
+            CityAddress(
+                city = it.city,
+                country = it.country
+            )
+        }
+
+        return CityAddressResult(
+            result = responseResult.result,
+            cityAddress = cityAddress
+        )
+    }
 
     override suspend fun updateData(city: String): UpdateResult {
         val response = fetchData(city)
@@ -59,33 +72,35 @@ class ForecastRepository @Inject constructor(
         cityList.filter {
             dateWithoutHours(it.dt) == dateWithoutHours(time, it.timezone_offset)
         }.map {
+            Log.d(TAG, "${dateWithoutHours(it.dt)}, ${dateWithoutHours(time, it.timezone_offset)}")
             cityMap.put(it.city, allCityForecastEntity_to_CityListWEather(it))
         }
 
         currentWeatherList.map {
-            cityMap[it.city] = cityMap[it.city]!!.copy(
-                current_temp = it.temp,
-                icon = it.icon,
-                country = country(it.city, geocoder)
-            )
+            if (cityMap.containsKey(it.city)) {
+                cityMap[it.city] = cityMap[it.city]!!.copy(
+                    current_temp = it.temp,
+                    icon = it.icon,
+                )
+            }
         }
 
         return cityMap.values.toList()
     }
 
-    private suspend fun fetchData(city: String): NetworkResponse {
+    private suspend fun fetchData(city: String): NetworkResponseResult {
         try {
             cityCoordinates(city, geocoder)!!
         } catch (e: IOException) {
-            return NetworkResponse(null, UpdateResult.NO_INTERNET_CONNECTION)
+            return NetworkResponseResult(null, UpdateResult.NO_INTERNET_CONNECTION)
         } catch (e: Exception) {
-            return NetworkResponse(null, UpdateResult.NO_RESPONSE)
+            return NetworkResponseResult(null, UpdateResult.NO_RESPONSE)
         }
 
         val oneCallData = forecastNetworkService.fetchOneCallData(city)
-        if (oneCallData == null) return NetworkResponse(null, UpdateResult.NO_RESPONSE)
+        if (oneCallData == null) return NetworkResponseResult(null, UpdateResult.NO_RESPONSE)
 
-        return NetworkResponse(oneCallData, UpdateResult.SUCCESSFUL)
+        return NetworkResponseResult(oneCallData, UpdateResult.SUCCESSFUL)
     }
 
     private suspend fun updateDBFrom(oneCallData: OneCallData) {

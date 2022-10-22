@@ -1,4 +1,4 @@
-package google.codelabs.weatherapplication.screen.citysearch
+package google.codelabs.weatherapplication.repository.forecast.entities
 
 data class CityAddress(
     val city: String,

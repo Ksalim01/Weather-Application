@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import google.codelabs.weatherapplication.repository.forecast.CityAdding
 import google.codelabs.weatherapplication.repository.forecast.CityListDataProvider
 import google.codelabs.weatherapplication.repository.forecast.entities.CityWeather
 import kotlinx.coroutines.Dispatchers
@@ -30,8 +31,15 @@ class CityListViewModel @Inject constructor(
         get() = _favouriteCityWeather
 
     fun launchCityListData(favouriteCity: String) {
-        viewModelScope.launch(Dispatchers.IO) {
+        launch {
             divideCityListWeather(repository.allCityWeather(), favouriteCity)
+        }
+    }
+
+    fun launchCityListDataWithNewCity(newCity: String) {
+        launch {
+            repository.addCity(newCity)
+            divideCityListWeather(repository.allCityWeather(), _favouriteCityWeather.value!!.city)
         }
     }
 
@@ -39,5 +47,11 @@ class CityListViewModel @Inject constructor(
         val favouriteCityIndex = cityWeather.indexOfFirst { it.city == favouriteCity }
         _favouriteCityWeather.postValue(cityWeather[favouriteCityIndex])
         _otherCitiesWeather.postValue(cityWeather.filter { it.city != favouriteCity })
+    }
+
+    private fun launch(block: suspend () -> Unit) {
+        viewModelScope.launch(Dispatchers.IO) {
+            block()
+        }
     }
 }

@@ -4,6 +4,7 @@ import android.location.Geocoder
 import google.codelabs.weatherapplication.network.forecast.api.WeatherAPI
 import google.codelabs.weatherapplication.network.forecast.entities.OneCallData
 import google.codelabs.weatherapplication.screen.cityweather.utils.cityCoordinates
+import google.codelabs.weatherapplication.screen.cityweather.utils.country
 import javax.inject.Inject
 
 class ForecastNetworkService @Inject constructor(
@@ -24,9 +25,11 @@ class ForecastNetworkService @Inject constructor(
 
         val coordinates = cityCoordinates(city, geocoder)!!
         val response = retrofit.oneCallApi(coordinates.lat, coordinates.lon, WEATHER_TOKEN)
+        val country = country(city, geocoder)
         when {
             response.isSuccessful -> {
                 response.body()!!.city = city
+                response.body()!!.country = country
                 response.body()
             }
             else -> null

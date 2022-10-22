@@ -18,13 +18,40 @@
         app:contentInsetStartWithNavigation="0dp"
         app:titleMarginStart="0dp"/>
 
+    <TextView
+        android:id="@+id/favourite_city"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/favourite_place"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/gray"
+        android:layout_marginTop="10dp">
+    </TextView>
+
+    <include
+        android:id="@+id/favourite_city_item"
+        layout="@layout/item_city_list">
+
+    </include>
+
+    <TextView
+        android:id="@+id/another_cities"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="4dp"
+        android:text="@string/another_places"
+        android:fontFamily="sans-serif-medium"
+        android:textColor="@color/gray"
+        android:layout_marginTop="10dp">
+    </TextView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/city_list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/toolbar"
-        android:layout_marginTop="8dp">
+        android:layout_height="wrap_content">
     </androidx.recyclerview.widget.RecyclerView>
 
     <Space

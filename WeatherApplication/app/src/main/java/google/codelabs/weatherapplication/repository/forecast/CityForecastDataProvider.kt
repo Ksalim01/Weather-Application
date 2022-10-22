@@ -1,21 +1,9 @@
 package google.codelabs.weatherapplication.repository.forecast
 
-import androidx.lifecycle.MutableLiveData
 import google.codelabs.weatherapplication.database.forecast.daily.entities.DailyForecastEntity
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.HourlyForecastEntity
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
-import google.codelabs.weatherapplication.network.forecast.entities.OneCallData
-
-data class NetworkResponse(
-    val oneCallData: OneCallData?,
-    val result: UpdateResult
-)
-
-enum class UpdateResult() {
-    SUCCESSFUL,
-    NO_INTERNET_CONNECTION,
-    NO_RESPONSE
-}
+import google.codelabs.weatherapplication.repository.forecast.entities.UpdateResult
 
 
 interface CityForecastDataProvider {
