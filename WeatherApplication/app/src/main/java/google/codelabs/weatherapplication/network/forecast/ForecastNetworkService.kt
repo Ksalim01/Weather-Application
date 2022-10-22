@@ -38,6 +38,6 @@ class ForecastNetworkService @Inject constructor(
 
     companion object {
         private const val TAG = "ForecastNetworkService"
-        private const val WEATHER_TOKEN = "c655b94b8f4b74939315e693439f72b2"
+        private const val WEATHER_TOKEN = "b56d20a251f31d5b793420704b6909b6"
     }
 }

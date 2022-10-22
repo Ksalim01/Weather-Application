@@ -3,6 +3,7 @@ package google.codelabs.weatherapplication.behaviours
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
+import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -11,7 +12,6 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.iterator
 import androidx.recyclerview.widget.RecyclerView
 import google.codelabs.weatherapplication.R
-import org.w3c.dom.Text
 
 class ToolbarBehaviour(context: Context?, attrs: AttributeSet?) :
     CommonBehaviour(context, attrs) {

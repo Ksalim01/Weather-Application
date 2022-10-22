@@ -4,8 +4,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/refresh"
+        android:icon="@drawable/ic_refresh"
+        android:title="Управлять местами"
+        app:showAsAction="always"/>
+
+    <item
         android:id="@+id/cityList"
         android:icon="@drawable/ic_menu_city"
         android:title="Управлять местами"
         app:showAsAction="always"/>
+
 </menu>

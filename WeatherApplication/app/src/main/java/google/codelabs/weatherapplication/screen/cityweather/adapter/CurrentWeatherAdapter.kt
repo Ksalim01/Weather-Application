@@ -1,9 +1,11 @@
 package google.codelabs.weatherapplication.screen.cityweather.adapter
 
 import android.content.Context
+import google.codelabs.weatherapplication.App
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCityWeatherBinding
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
+import google.codelabs.weatherapplication.screen.cityweather.fragment.CityWeatherFragment
 import google.codelabs.weatherapplication.screen.cityweather.utils.*
 
 
@@ -34,6 +36,12 @@ class CurrentWeatherAdapter(
             currentWeatherIcon.setImageResource(mapIcon(data!!.icon))
             cityName.text = data!!.city
             toolCity.text = cityName.text
+        }
+
+        if ((context.applicationContext as App).getFavouritePlace() == data!!.city) {
+            binding.cityName.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, R.drawable.ic_location_white, 0)
+        } else {
+            binding.cityName.setCompoundDrawablesRelativeWithIntrinsicBounds(0, 0, 0, 0)
         }
     }
 }

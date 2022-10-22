@@ -46,7 +46,6 @@ class CityListViewAdapter(
     override fun onBindViewHolder(holder: CityItemViewHolder, position: Int) {
         val binding = holder.binding
         val item = anotherCitiesWeather[position]
-
         binding.bind(item)
 
         binding.root.setOnClickListener {

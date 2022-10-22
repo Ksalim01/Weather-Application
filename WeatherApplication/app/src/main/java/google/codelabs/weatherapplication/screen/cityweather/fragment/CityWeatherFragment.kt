@@ -27,6 +27,8 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
     @Inject
     lateinit var viewModel: ForecastViewModel
 
+    private var city: String = ""
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         (requireActivity().application as App).appComponent.inject(this)
@@ -34,7 +36,8 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel.setCityParameters(args.city, true)
+        city = args.city
+        viewModel.setCityParameters(city, true)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -42,7 +45,8 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
         binding = FragmentCityWeatherBinding.bind(view)
 
         listenResults<String>(CITY_KEY) {
-            viewModel.setCityParameters(it, false)
+            city = it
+            viewModel.setCityParameters(city, false)
         }
 
         initAll()
@@ -62,6 +66,11 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
             when(it.itemId) {
                 R.id.cityList -> {
                     findNavController().navigate(R.id.action_cityWeatherFragment_to_cityListFragment)
+                    true
+                }
+                R.id.refresh -> {
+                    hide()
+                    viewModel.setCityParameters(city, true)
                     true
                 }
                 else -> super.onOptionsItemSelected(it)
@@ -84,7 +93,10 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
             nestedScroll.root.visibility = v
             appBar.visibility = v
             cityName.visibility = v
-            toolbar.visibility = v
+            currentTemperature.visibility = v
+            tempMinMax.visibility = v
+            feelsLike.visibility = v
+            currentWeatherIcon.visibility = v
         }
     }
 

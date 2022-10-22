@@ -111,6 +111,12 @@ class CityListFragment : Fragment(R.layout.fragment_city_list) {
 
         cityListViewModel.favouriteCityWeather.observe(viewLifecycleOwner) {
             binding.favouriteCityItem.bind(it)
+            binding.favouriteCityItem.city.setCompoundDrawablesRelativeWithIntrinsicBounds(
+                R.drawable.ic_location,
+                0,
+                0,
+                0
+            )
             binding.favouriteCityItem.root.setOnClickListener {
                 onItemClickListener(binding.favouriteCityItem.city.text.toString())
             }
