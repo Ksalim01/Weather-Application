@@ -2,6 +2,7 @@ package google.codelabs.weatherapplication.screen.weathercitylist.adapters
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.DiffUtil.DiffResult
@@ -50,6 +51,11 @@ class CityListViewAdapter(
 
         binding.root.setOnClickListener {
             onClickListener(item.city)
+        }
+
+        binding.root.setOnLongClickListener {
+            binding.checkbox.visibility = View.VISIBLE
+            true
         }
     }
 
