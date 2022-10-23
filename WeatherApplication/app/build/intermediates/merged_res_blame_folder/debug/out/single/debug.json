@@ -1,0 +1,362 @@
+[
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_02n.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_02n.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/layout_uv_wind_humidity.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/layout/uv_wind_humidity.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_10d.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_10d.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_sunset.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_sunset.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_background_rectangle.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/background_rectangle.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_clear.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_clear.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_refresh.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_refresh.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_background_rain.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/background_rain.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/layout_item_city_search.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/layout/item_city_search.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_13d.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_13d.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_sunrise.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_sunrise.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher.webp.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/layout_fragment_city_list.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/layout/fragment_city_list.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_sunrise.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-mdpi/ic_sunrise.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_example_weather_icon.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/example_weather_icon.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_background_sunny_day.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/background_sunny_day.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_03d.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_03d.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_sunset.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_sunset.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/mipmap-hdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_add.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_add.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-mdpi_ic_sunset.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-mdpi/ic_sunset.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_background_light_rain.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/background_light_rain.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher.webp.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/mipmap-mdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_09d.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_09d.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/layout_fragment_city_weather.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/layout/fragment_city_weather.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_background_sunny_day.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_background_sunny_day.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/navigation_nav_graph.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/navigation/nav_graph.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_02d.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_02d.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_10n.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_10n.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_snowy_1.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_snowy_1.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_sunset.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_sunset.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_sunrise.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-ldpi/ic_sunrise.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_cloudy_night_1.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_cloudy_night_1.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_background_rectangle_city_menu.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/background_rectangle_city_menu.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_sunrise.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_sunrise.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_launcher_background.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/mipmap-mdpi_ic_launcher_round.webp.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-xhdpi_ic_sunrise.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-xhdpi/ic_sunrise.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_01n.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_01n.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-anydpi-v24_ic_launcher_foreground.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-anydpi-v24/ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_wind.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_wind.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_11d.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_11d.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_11n.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_11n.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-xxhdpi_ic_sunset.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-xxhdpi/ic_sunset.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_01d.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_01d.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/menu_menu_city_list.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/menu/menu_city_list.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/menu_menu_scrolling.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/menu/menu_scrolling.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_09n.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_09n.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/mipmap-xxhdpi_ic_launcher_round.webp.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/layout_sunset_sunrise.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/layout/sunset_sunrise.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_04d.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_04d.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/anim_pop_enter.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/anim/pop_enter.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/anim_exit.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/anim/exit.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-xxxhdpi_ic_sunrise.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-xxxhdpi/ic_sunrise.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/layout_week_list_item.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/layout/week_list_item.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-ldpi_ic_sunset.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-ldpi/ic_sunset.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_recycle_view_item_background.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/recycle_view_item_background.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_background_rectangle_selected.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/background_rectangle_selected.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/layout_item_city_list.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/layout/item_city_list.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/layout_fragment_city_search.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/layout/fragment_city_search.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_background_night.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/background_night.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_03n.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_03n.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/layout_item_hourly_forecast.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/layout/item_hourly_forecast.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/menu_menu_city_search.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/menu/menu_city_search.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_sunset.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-hdpi/ic_sunset.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_location_white.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_location_white.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/anim_fade_out.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/anim/fade_out.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_location.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_location.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_back_arrow.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_back_arrow.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_13n.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_13n.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_background_rectangle_white.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/background_rectangle_white.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/layout_activity_main.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/layout/activity_main.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-hdpi_ic_sunrise.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/generated/res/pngs/debug/drawable-hdpi/ic_sunrise.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/layout_fragment_main.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/layout/fragment_main.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/mipmap-xhdpi_ic_launcher.webp.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/mipmap-xhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_04n.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_04n.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_menu_city.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_menu_city.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable-v24_ic_uv_index.png.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable-v24/ic_uv_index.png"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/anim_pop_exit.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/anim/pop_exit.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/mipmap-hdpi_ic_launcher_round.webp.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_selectable_background_rectangle.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/selectable_background_rectangle.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/anim_fade_in.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/anim/fade_in.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/layout_scrolling.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/layout/scrolling.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/drawable_ic_water_drop.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/drawable/ic_water_drop.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/anim_enter.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/anim/enter.xml"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/mipmap-xxxhdpi_ic_launcher.webp.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp"
+    },
+    {
+        "merged": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/build/intermediates/res/merged/debug/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "/home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml"
+    }
+]

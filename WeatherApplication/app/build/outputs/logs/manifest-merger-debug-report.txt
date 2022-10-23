@@ -1,0 +1,446 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:2:1-29:12
+MERGED from [com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2] /home/salim/.gradle/caches/transforms-3/571e7a4ff91fc1b026fc3bbe5bc2d788/transformed/adapterdelegates4-kotlin-dsl-viewbinding-4.3.2/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.databinding:viewbinding:7.0.3] /home/salim/.gradle/caches/transforms-3/85521f4dd9f16c4674fbe6bb98aafec8/transformed/viewbinding-7.0.3/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-dynamic-features-fragment:2.3.5] /home/salim/.gradle/caches/transforms-3/39181e8817acd147db876032a9c92cd5/transformed/navigation-dynamic-features-fragment-2.3.5/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.3.5] /home/salim/.gradle/caches/transforms-3/51cc4abe78c637db3890e27dad28f3c1/transformed/navigation-fragment-ktx-2.3.5/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment-ktx:1.4.1] /home/salim/.gradle/caches/transforms-3/f8ff826854ee1fc66b992e0421328d2f/transformed/fragment-ktx-1.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui-ktx:2.3.5] /home/salim/.gradle/caches/transforms-3/80559bd15bbea2b9c339ba7e7da4665d/transformed/navigation-ui-ktx-2.3.5/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-dynamic-features-runtime:2.3.5] /home/salim/.gradle/caches/transforms-3/aafb31dee1f5a6b9259c17b64c9456ee/transformed/navigation-dynamic-features-runtime-2.3.5/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.3.5] /home/salim/.gradle/caches/transforms-3/28ae5ca7cfd8ad3712f35ae008ba325a/transformed/navigation-runtime-ktx-2.3.5/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity-ktx:1.2.3] /home/salim/.gradle/caches/transforms-3/775337084ff611bc04adf4e9b01f6543/transformed/activity-ktx-1.2.3/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.4.1] /home/salim/.gradle/caches/transforms-3/9b26fe02017a4c25390869dd7337fe4a/transformed/lifecycle-runtime-ktx-2.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.room:room-ktx:2.4.2] /home/salim/.gradle/caches/transforms-3/a73ef66f275074db5777898001805312/transformed/room-ktx-2.4.2/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.compose.ui:ui-unit:1.0.0-rc01] /home/salim/.gradle/caches/transforms-3/438bf4470768cc8bb682432900da208c/transformed/ui-unit-1.0.0-rc01/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.compose.ui:ui-geometry:1.0.0-rc01] /home/salim/.gradle/caches/transforms-3/06b84f6a43f0df5ce878f82dfca4b106/transformed/ui-geometry-1.0.0-rc01/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.compose.runtime:runtime:1.0.0-rc01] /home/salim/.gradle/caches/transforms-3/2756277facbd4a37bbb898a1b20c9636/transformed/runtime-1.0.0-rc01/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] /home/salim/.gradle/caches/transforms-3/6fdeff8616d5744e9c55c0a7009290bc/transformed/lifecycle-viewmodel-ktx-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-ui:2.3.5] /home/salim/.gradle/caches/transforms-3/7acd5c03522a676a3cf475c08f335851/transformed/navigation-ui-2.3.5/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.material:material:1.6.0] /home/salim/.gradle/caches/transforms-3/1556f20398378a58cd4262d5e7df5eab/transformed/material-1.6.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] /home/salim/.gradle/caches/transforms-3/e753d574edab60a30393e54d5a753088/transformed/constraintlayout-2.1.3/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.4.1] /home/salim/.gradle/caches/transforms-3/848a178e33f3dd407663e04d64272122/transformed/appcompat-1.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/salim/.gradle/caches/transforms-3/93a7d8b1a273f35fc0553c7afd0a639a/transformed/viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-location:19.0.1] /home/salim/.gradle/caches/transforms-3/52f239161134567c29e219455c1df69d/transformed/play-services-location-19.0.1/AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/salim/.gradle/caches/transforms-3/58fd37430423d4a14de4239e4bfb1e88/transformed/play-services-base-18.0.1/AndroidManifest.xml:16:1-24:12
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /home/salim/.gradle/caches/transforms-3/d18a9738c87bd1a98ef4e44791ac1105/transformed/play-services-places-placereport-17.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /home/salim/.gradle/caches/transforms-3/b49cfc25c6464aaf9c61d2944877573f/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:2:1-6:12
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /home/salim/.gradle/caches/transforms-3/99175bf0e37bac74540e866c89a94185/transformed/play-services-basement-18.0.0/AndroidManifest.xml:16:1-26:12
+MERGED from [androidx.navigation:navigation-fragment:2.3.5] /home/salim/.gradle/caches/transforms-3/e1d1818973f3814fe4cd6d8e88c4b429/transformed/navigation-fragment-2.3.5/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.4.1] /home/salim/.gradle/caches/transforms-3/fae08b2675492a2871f2d06fff8dec7c/transformed/fragment-1.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-common-ktx:2.3.5] /home/salim/.gradle/caches/transforms-3/2ed0ea93a2859e951c9639ccaae5abd5/transformed/navigation-common-ktx-2.3.5/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core-ktx:1.7.0] /home/salim/.gradle/caches/transforms-3/67f045584385cd845f1a0517005af8ca/transformed/core-ktx-1.7.0/AndroidManifest.xml:2:1-9:12
+MERGED from [androidx.room:room-runtime:2.4.2] /home/salim/.gradle/caches/transforms-3/e3009a745b0626cb650141b55938c1aa/transformed/room-runtime-2.4.2/AndroidManifest.xml:17:1-31:12
+MERGED from [androidx.recyclerview:recyclerview-selection:1.1.0] /home/salim/.gradle/caches/transforms-3/04fd2b18b557c4f2ff6b887d76d80a37/transformed/recyclerview-selection-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.2] /home/salim/.gradle/caches/transforms-3/e0dda1493398ba49ce3f6fde07326e8f/transformed/adapterdelegates4-kotlin-dsl-4.3.2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.hannesdorfmann:adapterdelegates4-kotlin-dsl-layoutcontainer:4.3.2] /home/salim/.gradle/caches/transforms-3/e723e9379097b29cb18515b307ebc1ab/transformed/adapterdelegates4-kotlin-dsl-layoutcontainer-4.3.2/AndroidManifest.xml:2:1-9:12
+MERGED from [com.hannesdorfmann:adapterdelegates4:4.3.2] /home/salim/.gradle/caches/transforms-3/2977d9351306a796930b36f97d7e3a96/transformed/adapterdelegates4-4.3.2/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.recyclerview:recyclerview:1.3.0-alpha01] /home/salim/.gradle/caches/transforms-3/131342e518a78670241e3e2f25b54bd4/transformed/recyclerview-1.3.0-alpha01/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /home/salim/.gradle/caches/transforms-3/0996327a220ed1acf55aa3efb193ee88/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.navigation:navigation-runtime:2.3.5] /home/salim/.gradle/caches/transforms-3/4fbb6f6b77f66ee4a7502760332f18df/transformed/navigation-runtime-2.3.5/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.2.4] /home/salim/.gradle/caches/transforms-3/6d277f162633cc53f3e0a09a994460f3/transformed/activity-1.2.4/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.4.1] /home/salim/.gradle/caches/transforms-3/98854ec03c2619f50e3c402127e8e671/transformed/appcompat-resources-1.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] /home/salim/.gradle/caches/transforms-3/4b39cb2dd56da5bb3bac1e1217dd0ec5/transformed/emoji2-views-helper-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/salim/.gradle/caches/transforms-3/6c5fe0634f75519e11162d947c99efbf/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/salim/.gradle/caches/transforms-3/504151afd4af5f0355a4b9c8ef62bcb2/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/salim/.gradle/caches/transforms-3/0631479689f39785c60d9b598c3bb2b2/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/salim/.gradle/caches/transforms-3/fdc6ef4efd0da1654e55ddeb68ca6352/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/salim/.gradle/caches/transforms-3/cafb038b249da6903a5e03a43204c295/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/salim/.gradle/caches/transforms-3/11a3aeff54ff680c1cbc9e8d775c49bc/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] /home/salim/.gradle/caches/transforms-3/d2118df3106fe39699e5331ebe1e19d1/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/salim/.gradle/caches/transforms-3/2a33c2c59165322ecf21b380391f1621/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /home/salim/.gradle/caches/transforms-3/d9a1939c23950d00e856e6b45d3f00c2/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.navigation:navigation-common:2.3.5] /home/salim/.gradle/caches/transforms-3/80583fcc85b2de4febc425f07a0046c3/transformed/navigation-common-2.3.5/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.3.0] /home/salim/.gradle/caches/transforms-3/a03759748259485fab94a7d764ab2507/transformed/transition-1.3.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.7.0] /home/salim/.gradle/caches/transforms-3/c2264a7e69f63835f3947db39bcccefd/transformed/core-1.7.0/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/salim/.gradle/caches/transforms-3/b6fa5e1266a97e45434d9b867cf2ad04/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] /home/salim/.gradle/caches/transforms-3/b1d34afdb3d1413d09ab64f9233a437c/transformed/savedstate-ktx-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] /home/salim/.gradle/caches/transforms-3/e6e4ed31fd100ee2104bed6f45f86578/transformed/lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.1.0] /home/salim/.gradle/caches/transforms-3/7d2338df87acd60c18f998586c7e8866/transformed/savedstate-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /home/salim/.gradle/caches/transforms-3/365cd7f41348052875a456c6b811bee2/transformed/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.cardview:cardview:1.0.0] /home/salim/.gradle/caches/transforms-3/d8bfba02767c504de705d7f43e2ff5e7/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /home/salim/.gradle/caches/transforms-3/5e49ef9366fa0b886a0373ac77b7641d/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.1] /home/salim/.gradle/caches/transforms-3/c80337799ee22797cbb9012194b88d32/transformed/lifecycle-runtime-2.4.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.sqlite:sqlite-framework:2.2.0] /home/salim/.gradle/caches/transforms-3/c424f2c827cb9deee8bc99b06df08d48/transformed/sqlite-framework-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.sqlite:sqlite:2.2.0] /home/salim/.gradle/caches/transforms-3/228c044eab306dd46e1ee7c146414cca/transformed/sqlite-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/salim/.gradle/caches/transforms-3/ffc3c4b472d6136448731733d7fb728b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/salim/.gradle/caches/transforms-3/a7fdd19e2a15fa8f49caf9b52e5bd7fc/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.startup:startup-runtime:1.0.0] /home/salim/.gradle/caches/transforms-3/c8631354693033b1fd513dd80dc52793/transformed/startup-runtime-1.0.0/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.0.0] /home/salim/.gradle/caches/transforms-3/307e3c4d7bcc849d26749e2d2b94e74e/transformed/tracing-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] /home/salim/.gradle/caches/transforms-3/63c97d1d04aa641c4aff763b38ce9097/transformed/lifecycle-livedata-core-ktx-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/salim/.gradle/caches/transforms-3/3073e55303a8f1120d45e9521f24452b/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /home/salim/.gradle/caches/transforms-3/f0d6e51009581398fe241f0ba0d40f9e/transformed/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/salim/.gradle/caches/transforms-3/6d2496b1a28e46074a23c8a68c5e291e/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/salim/.gradle/caches/transforms-3/b457c25773b133f8e63af3e5e7a3084a/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/salim/.gradle/caches/transforms-3/bf4c8e012980a9336d1fcc8a89b304fe/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /home/salim/.gradle/caches/transforms-3/a7f5b9abdf2dfc3edf36aa47caca3675/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.compose.ui:ui-util:1.0.0-rc01] /home/salim/.gradle/caches/transforms-3/92a9d63735b6d39e60015192f1a73758/transformed/ui-util-1.0.0-rc01/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/salim/.gradle/caches/transforms-3/6329ac9d178a02c7ce25721bbe13e15b/transformed/annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:2:1-23:12
+INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:2:1-29:12
+INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:2:1-29:12
+	package
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:3:5-49
+		INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+		INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:2:1-29:12
+		INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+	android:versionCode
+		INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:2:1-29:12
+		INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:2:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:5:5-66
+	android:name
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:5:22-64
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:6:5-78
+	android:name
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:6:22-76
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:7:5-80
+	android:name
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:7:22-78
+application
+ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:9:5-27:19
+MERGED from [com.google.android.material:material:1.6.0] /home/salim/.gradle/caches/transforms-3/1556f20398378a58cd4262d5e7df5eab/transformed/material-1.6.0/AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.material:material:1.6.0] /home/salim/.gradle/caches/transforms-3/1556f20398378a58cd4262d5e7df5eab/transformed/material-1.6.0/AndroidManifest.xml:24:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] /home/salim/.gradle/caches/transforms-3/e753d574edab60a30393e54d5a753088/transformed/constraintlayout-2.1.3/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] /home/salim/.gradle/caches/transforms-3/e753d574edab60a30393e54d5a753088/transformed/constraintlayout-2.1.3/AndroidManifest.xml:9:5-20
+MERGED from [com.google.android.gms:play-services-location:19.0.1] /home/salim/.gradle/caches/transforms-3/52f239161134567c29e219455c1df69d/transformed/play-services-location-19.0.1/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:19.0.1] /home/salim/.gradle/caches/transforms-3/52f239161134567c29e219455c1df69d/transformed/play-services-location-19.0.1/AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/salim/.gradle/caches/transforms-3/58fd37430423d4a14de4239e4bfb1e88/transformed/play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/salim/.gradle/caches/transforms-3/58fd37430423d4a14de4239e4bfb1e88/transformed/play-services-base-18.0.1/AndroidManifest.xml:19:5-23:19
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /home/salim/.gradle/caches/transforms-3/d18a9738c87bd1a98ef4e44791ac1105/transformed/play-services-places-placereport-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /home/salim/.gradle/caches/transforms-3/d18a9738c87bd1a98ef4e44791ac1105/transformed/play-services-places-placereport-17.0.0/AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /home/salim/.gradle/caches/transforms-3/b49cfc25c6464aaf9c61d2944877573f/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /home/salim/.gradle/caches/transforms-3/b49cfc25c6464aaf9c61d2944877573f/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:5:5-20
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /home/salim/.gradle/caches/transforms-3/99175bf0e37bac74540e866c89a94185/transformed/play-services-basement-18.0.0/AndroidManifest.xml:20:5-24:19
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /home/salim/.gradle/caches/transforms-3/99175bf0e37bac74540e866c89a94185/transformed/play-services-basement-18.0.0/AndroidManifest.xml:20:5-24:19
+MERGED from [androidx.room:room-runtime:2.4.2] /home/salim/.gradle/caches/transforms-3/e3009a745b0626cb650141b55938c1aa/transformed/room-runtime-2.4.2/AndroidManifest.xml:24:5-29:19
+MERGED from [androidx.room:room-runtime:2.4.2] /home/salim/.gradle/caches/transforms-3/e3009a745b0626cb650141b55938c1aa/transformed/room-runtime-2.4.2/AndroidManifest.xml:24:5-29:19
+MERGED from [com.hannesdorfmann:adapterdelegates4:4.3.2] /home/salim/.gradle/caches/transforms-3/2977d9351306a796930b36f97d7e3a96/transformed/adapterdelegates4-4.3.2/AndroidManifest.xml:9:5-20
+MERGED from [com.hannesdorfmann:adapterdelegates4:4.3.2] /home/salim/.gradle/caches/transforms-3/2977d9351306a796930b36f97d7e3a96/transformed/adapterdelegates4-4.3.2/AndroidManifest.xml:9:5-20
+MERGED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.core:core:1.7.0] /home/salim/.gradle/caches/transforms-3/c2264a7e69f63835f3947db39bcccefd/transformed/core-1.7.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.7.0] /home/salim/.gradle/caches/transforms-3/c2264a7e69f63835f3947db39bcccefd/transformed/core-1.7.0/AndroidManifest.xml:24:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /home/salim/.gradle/caches/transforms-3/5e49ef9366fa0b886a0373ac77b7641d/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /home/salim/.gradle/caches/transforms-3/5e49ef9366fa0b886a0373ac77b7641d/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/salim/.gradle/caches/transforms-3/ffc3c4b472d6136448731733d7fb728b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/salim/.gradle/caches/transforms-3/ffc3c4b472d6136448731733d7fb728b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.startup:startup-runtime:1.0.0] /home/salim/.gradle/caches/transforms-3/c8631354693033b1fd513dd80dc52793/transformed/startup-runtime-1.0.0/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.0.0] /home/salim/.gradle/caches/transforms-3/c8631354693033b1fd513dd80dc52793/transformed/startup-runtime-1.0.0/AndroidManifest.xml:25:5-31:19
+MERGED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:10:3-21:17
+MERGED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:10:3-21:17
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.7.0] /home/salim/.gradle/caches/transforms-3/c2264a7e69f63835f3947db39bcccefd/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
+	android:supportsRtl
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:15:9-35
+	android:label
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:13:9-41
+	android:roundIcon
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:14:9-54
+	android:icon
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:12:9-43
+	android:allowBackup
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:11:9-35
+	android:theme
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:16:9-43
+	android:name
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:10:9-28
+activity#google.codelabs.weatherapplication.MainActivity
+ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:17:9-26:20
+	android:label
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:20:13-45
+	android:exported
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:19:13-36
+	android:name
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:18:13-41
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:21:13-25:29
+action#android.intent.action.MAIN
+ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:22:17-69
+	android:name
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:22:25-66
+category#android.intent.category.LAUNCHER
+ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:24:17-77
+	android:name
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml:24:27-74
+uses-sdk
+INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+MERGED from [com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2] /home/salim/.gradle/caches/transforms-3/571e7a4ff91fc1b026fc3bbe5bc2d788/transformed/adapterdelegates4-kotlin-dsl-viewbinding-4.3.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.hannesdorfmann:adapterdelegates4-kotlin-dsl-viewbinding:4.3.2] /home/salim/.gradle/caches/transforms-3/571e7a4ff91fc1b026fc3bbe5bc2d788/transformed/adapterdelegates4-kotlin-dsl-viewbinding-4.3.2/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.databinding:viewbinding:7.0.3] /home/salim/.gradle/caches/transforms-3/85521f4dd9f16c4674fbe6bb98aafec8/transformed/viewbinding-7.0.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.databinding:viewbinding:7.0.3] /home/salim/.gradle/caches/transforms-3/85521f4dd9f16c4674fbe6bb98aafec8/transformed/viewbinding-7.0.3/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-dynamic-features-fragment:2.3.5] /home/salim/.gradle/caches/transforms-3/39181e8817acd147db876032a9c92cd5/transformed/navigation-dynamic-features-fragment-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-dynamic-features-fragment:2.3.5] /home/salim/.gradle/caches/transforms-3/39181e8817acd147db876032a9c92cd5/transformed/navigation-dynamic-features-fragment-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.3.5] /home/salim/.gradle/caches/transforms-3/51cc4abe78c637db3890e27dad28f3c1/transformed/navigation-fragment-ktx-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment-ktx:2.3.5] /home/salim/.gradle/caches/transforms-3/51cc4abe78c637db3890e27dad28f3c1/transformed/navigation-fragment-ktx-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.4.1] /home/salim/.gradle/caches/transforms-3/f8ff826854ee1fc66b992e0421328d2f/transformed/fragment-ktx-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment-ktx:1.4.1] /home/salim/.gradle/caches/transforms-3/f8ff826854ee1fc66b992e0421328d2f/transformed/fragment-ktx-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.3.5] /home/salim/.gradle/caches/transforms-3/80559bd15bbea2b9c339ba7e7da4665d/transformed/navigation-ui-ktx-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui-ktx:2.3.5] /home/salim/.gradle/caches/transforms-3/80559bd15bbea2b9c339ba7e7da4665d/transformed/navigation-ui-ktx-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-dynamic-features-runtime:2.3.5] /home/salim/.gradle/caches/transforms-3/aafb31dee1f5a6b9259c17b64c9456ee/transformed/navigation-dynamic-features-runtime-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-dynamic-features-runtime:2.3.5] /home/salim/.gradle/caches/transforms-3/aafb31dee1f5a6b9259c17b64c9456ee/transformed/navigation-dynamic-features-runtime-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.3.5] /home/salim/.gradle/caches/transforms-3/28ae5ca7cfd8ad3712f35ae008ba325a/transformed/navigation-runtime-ktx-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime-ktx:2.3.5] /home/salim/.gradle/caches/transforms-3/28ae5ca7cfd8ad3712f35ae008ba325a/transformed/navigation-runtime-ktx-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.2.3] /home/salim/.gradle/caches/transforms-3/775337084ff611bc04adf4e9b01f6543/transformed/activity-ktx-1.2.3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity-ktx:1.2.3] /home/salim/.gradle/caches/transforms-3/775337084ff611bc04adf4e9b01f6543/transformed/activity-ktx-1.2.3/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.4.1] /home/salim/.gradle/caches/transforms-3/9b26fe02017a4c25390869dd7337fe4a/transformed/lifecycle-runtime-ktx-2.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime-ktx:2.4.1] /home/salim/.gradle/caches/transforms-3/9b26fe02017a4c25390869dd7337fe4a/transformed/lifecycle-runtime-ktx-2.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-ktx:2.4.2] /home/salim/.gradle/caches/transforms-3/a73ef66f275074db5777898001805312/transformed/room-ktx-2.4.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-ktx:2.4.2] /home/salim/.gradle/caches/transforms-3/a73ef66f275074db5777898001805312/transformed/room-ktx-2.4.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.ui:ui-unit:1.0.0-rc01] /home/salim/.gradle/caches/transforms-3/438bf4470768cc8bb682432900da208c/transformed/ui-unit-1.0.0-rc01/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.ui:ui-unit:1.0.0-rc01] /home/salim/.gradle/caches/transforms-3/438bf4470768cc8bb682432900da208c/transformed/ui-unit-1.0.0-rc01/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.ui:ui-geometry:1.0.0-rc01] /home/salim/.gradle/caches/transforms-3/06b84f6a43f0df5ce878f82dfca4b106/transformed/ui-geometry-1.0.0-rc01/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.ui:ui-geometry:1.0.0-rc01] /home/salim/.gradle/caches/transforms-3/06b84f6a43f0df5ce878f82dfca4b106/transformed/ui-geometry-1.0.0-rc01/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.runtime:runtime:1.0.0-rc01] /home/salim/.gradle/caches/transforms-3/2756277facbd4a37bbb898a1b20c9636/transformed/runtime-1.0.0-rc01/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.runtime:runtime:1.0.0-rc01] /home/salim/.gradle/caches/transforms-3/2756277facbd4a37bbb898a1b20c9636/transformed/runtime-1.0.0-rc01/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] /home/salim/.gradle/caches/transforms-3/6fdeff8616d5744e9c55c0a7009290bc/transformed/lifecycle-viewmodel-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1] /home/salim/.gradle/caches/transforms-3/6fdeff8616d5744e9c55c0a7009290bc/transformed/lifecycle-viewmodel-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.3.5] /home/salim/.gradle/caches/transforms-3/7acd5c03522a676a3cf475c08f335851/transformed/navigation-ui-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-ui:2.3.5] /home/salim/.gradle/caches/transforms-3/7acd5c03522a676a3cf475c08f335851/transformed/navigation-ui-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.6.0] /home/salim/.gradle/caches/transforms-3/1556f20398378a58cd4262d5e7df5eab/transformed/material-1.6.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.6.0] /home/salim/.gradle/caches/transforms-3/1556f20398378a58cd4262d5e7df5eab/transformed/material-1.6.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] /home/salim/.gradle/caches/transforms-3/e753d574edab60a30393e54d5a753088/transformed/constraintlayout-2.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.1.3] /home/salim/.gradle/caches/transforms-3/e753d574edab60a30393e54d5a753088/transformed/constraintlayout-2.1.3/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.4.1] /home/salim/.gradle/caches/transforms-3/848a178e33f3dd407663e04d64272122/transformed/appcompat-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.4.1] /home/salim/.gradle/caches/transforms-3/848a178e33f3dd407663e04d64272122/transformed/appcompat-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/salim/.gradle/caches/transforms-3/93a7d8b1a273f35fc0553c7afd0a639a/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/salim/.gradle/caches/transforms-3/93a7d8b1a273f35fc0553c7afd0a639a/transformed/viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-location:19.0.1] /home/salim/.gradle/caches/transforms-3/52f239161134567c29e219455c1df69d/transformed/play-services-location-19.0.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:19.0.1] /home/salim/.gradle/caches/transforms-3/52f239161134567c29e219455c1df69d/transformed/play-services-location-19.0.1/AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/salim/.gradle/caches/transforms-3/58fd37430423d4a14de4239e4bfb1e88/transformed/play-services-base-18.0.1/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-base:18.0.1] /home/salim/.gradle/caches/transforms-3/58fd37430423d4a14de4239e4bfb1e88/transformed/play-services-base-18.0.1/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /home/salim/.gradle/caches/transforms-3/d18a9738c87bd1a98ef4e44791ac1105/transformed/play-services-places-placereport-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:17.0.0] /home/salim/.gradle/caches/transforms-3/d18a9738c87bd1a98ef4e44791ac1105/transformed/play-services-places-placereport-17.0.0/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /home/salim/.gradle/caches/transforms-3/b49cfc25c6464aaf9c61d2944877573f/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-tasks:18.0.1] /home/salim/.gradle/caches/transforms-3/b49cfc25c6464aaf9c61d2944877573f/transformed/play-services-tasks-18.0.1/AndroidManifest.xml:4:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /home/salim/.gradle/caches/transforms-3/99175bf0e37bac74540e866c89a94185/transformed/play-services-basement-18.0.0/AndroidManifest.xml:18:5-43
+MERGED from [com.google.android.gms:play-services-basement:18.0.0] /home/salim/.gradle/caches/transforms-3/99175bf0e37bac74540e866c89a94185/transformed/play-services-basement-18.0.0/AndroidManifest.xml:18:5-43
+MERGED from [androidx.navigation:navigation-fragment:2.3.5] /home/salim/.gradle/caches/transforms-3/e1d1818973f3814fe4cd6d8e88c4b429/transformed/navigation-fragment-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-fragment:2.3.5] /home/salim/.gradle/caches/transforms-3/e1d1818973f3814fe4cd6d8e88c4b429/transformed/navigation-fragment-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.4.1] /home/salim/.gradle/caches/transforms-3/fae08b2675492a2871f2d06fff8dec7c/transformed/fragment-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.4.1] /home/salim/.gradle/caches/transforms-3/fae08b2675492a2871f2d06fff8dec7c/transformed/fragment-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.3.5] /home/salim/.gradle/caches/transforms-3/2ed0ea93a2859e951c9639ccaae5abd5/transformed/navigation-common-ktx-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common-ktx:2.3.5] /home/salim/.gradle/caches/transforms-3/2ed0ea93a2859e951c9639ccaae5abd5/transformed/navigation-common-ktx-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core-ktx:1.7.0] /home/salim/.gradle/caches/transforms-3/67f045584385cd845f1a0517005af8ca/transformed/core-ktx-1.7.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.core:core-ktx:1.7.0] /home/salim/.gradle/caches/transforms-3/67f045584385cd845f1a0517005af8ca/transformed/core-ktx-1.7.0/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.room:room-runtime:2.4.2] /home/salim/.gradle/caches/transforms-3/e3009a745b0626cb650141b55938c1aa/transformed/room-runtime-2.4.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.room:room-runtime:2.4.2] /home/salim/.gradle/caches/transforms-3/e3009a745b0626cb650141b55938c1aa/transformed/room-runtime-2.4.2/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview-selection:1.1.0] /home/salim/.gradle/caches/transforms-3/04fd2b18b557c4f2ff6b887d76d80a37/transformed/recyclerview-selection-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview-selection:1.1.0] /home/salim/.gradle/caches/transforms-3/04fd2b18b557c4f2ff6b887d76d80a37/transformed/recyclerview-selection-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.2] /home/salim/.gradle/caches/transforms-3/e0dda1493398ba49ce3f6fde07326e8f/transformed/adapterdelegates4-kotlin-dsl-4.3.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.2] /home/salim/.gradle/caches/transforms-3/e0dda1493398ba49ce3f6fde07326e8f/transformed/adapterdelegates4-kotlin-dsl-4.3.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.hannesdorfmann:adapterdelegates4-kotlin-dsl-layoutcontainer:4.3.2] /home/salim/.gradle/caches/transforms-3/e723e9379097b29cb18515b307ebc1ab/transformed/adapterdelegates4-kotlin-dsl-layoutcontainer-4.3.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.hannesdorfmann:adapterdelegates4-kotlin-dsl-layoutcontainer:4.3.2] /home/salim/.gradle/caches/transforms-3/e723e9379097b29cb18515b307ebc1ab/transformed/adapterdelegates4-kotlin-dsl-layoutcontainer-4.3.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.hannesdorfmann:adapterdelegates4:4.3.2] /home/salim/.gradle/caches/transforms-3/2977d9351306a796930b36f97d7e3a96/transformed/adapterdelegates4-4.3.2/AndroidManifest.xml:5:5-7:41
+MERGED from [com.hannesdorfmann:adapterdelegates4:4.3.2] /home/salim/.gradle/caches/transforms-3/2977d9351306a796930b36f97d7e3a96/transformed/adapterdelegates4-4.3.2/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.recyclerview:recyclerview:1.3.0-alpha01] /home/salim/.gradle/caches/transforms-3/131342e518a78670241e3e2f25b54bd4/transformed/recyclerview-1.3.0-alpha01/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.3.0-alpha01] /home/salim/.gradle/caches/transforms-3/131342e518a78670241e3e2f25b54bd4/transformed/recyclerview-1.3.0-alpha01/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /home/salim/.gradle/caches/transforms-3/0996327a220ed1acf55aa3efb193ee88/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /home/salim/.gradle/caches/transforms-3/0996327a220ed1acf55aa3efb193ee88/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.3.5] /home/salim/.gradle/caches/transforms-3/4fbb6f6b77f66ee4a7502760332f18df/transformed/navigation-runtime-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-runtime:2.3.5] /home/salim/.gradle/caches/transforms-3/4fbb6f6b77f66ee4a7502760332f18df/transformed/navigation-runtime-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.4] /home/salim/.gradle/caches/transforms-3/6d277f162633cc53f3e0a09a994460f3/transformed/activity-1.2.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.2.4] /home/salim/.gradle/caches/transforms-3/6d277f162633cc53f3e0a09a994460f3/transformed/activity-1.2.4/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.4.1] /home/salim/.gradle/caches/transforms-3/98854ec03c2619f50e3c402127e8e671/transformed/appcompat-resources-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.4.1] /home/salim/.gradle/caches/transforms-3/98854ec03c2619f50e3c402127e8e671/transformed/appcompat-resources-1.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] /home/salim/.gradle/caches/transforms-3/4b39cb2dd56da5bb3bac1e1217dd0ec5/transformed/emoji2-views-helper-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.0.0] /home/salim/.gradle/caches/transforms-3/4b39cb2dd56da5bb3bac1e1217dd0ec5/transformed/emoji2-views-helper-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/salim/.gradle/caches/transforms-3/6c5fe0634f75519e11162d947c99efbf/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/salim/.gradle/caches/transforms-3/6c5fe0634f75519e11162d947c99efbf/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/salim/.gradle/caches/transforms-3/504151afd4af5f0355a4b9c8ef62bcb2/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.1.0] /home/salim/.gradle/caches/transforms-3/504151afd4af5f0355a4b9c8ef62bcb2/transformed/coordinatorlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/salim/.gradle/caches/transforms-3/0631479689f39785c60d9b598c3bb2b2/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/salim/.gradle/caches/transforms-3/0631479689f39785c60d9b598c3bb2b2/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/salim/.gradle/caches/transforms-3/fdc6ef4efd0da1654e55ddeb68ca6352/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/salim/.gradle/caches/transforms-3/fdc6ef4efd0da1654e55ddeb68ca6352/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/salim/.gradle/caches/transforms-3/cafb038b249da6903a5e03a43204c295/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/salim/.gradle/caches/transforms-3/cafb038b249da6903a5e03a43204c295/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/salim/.gradle/caches/transforms-3/11a3aeff54ff680c1cbc9e8d775c49bc/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/salim/.gradle/caches/transforms-3/11a3aeff54ff680c1cbc9e8d775c49bc/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] /home/salim/.gradle/caches/transforms-3/d2118df3106fe39699e5331ebe1e19d1/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /home/salim/.gradle/caches/transforms-3/d2118df3106fe39699e5331ebe1e19d1/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/salim/.gradle/caches/transforms-3/2a33c2c59165322ecf21b380391f1621/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/salim/.gradle/caches/transforms-3/2a33c2c59165322ecf21b380391f1621/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/salim/.gradle/caches/transforms-3/d9a1939c23950d00e856e6b45d3f00c2/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/salim/.gradle/caches/transforms-3/d9a1939c23950d00e856e6b45d3f00c2/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.navigation:navigation-common:2.3.5] /home/salim/.gradle/caches/transforms-3/80583fcc85b2de4febc425f07a0046c3/transformed/navigation-common-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.navigation:navigation-common:2.3.5] /home/salim/.gradle/caches/transforms-3/80583fcc85b2de4febc425f07a0046c3/transformed/navigation-common-2.3.5/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.3.0] /home/salim/.gradle/caches/transforms-3/a03759748259485fab94a7d764ab2507/transformed/transition-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.3.0] /home/salim/.gradle/caches/transforms-3/a03759748259485fab94a7d764ab2507/transformed/transition-1.3.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.7.0] /home/salim/.gradle/caches/transforms-3/c2264a7e69f63835f3947db39bcccefd/transformed/core-1.7.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.7.0] /home/salim/.gradle/caches/transforms-3/c2264a7e69f63835f3947db39bcccefd/transformed/core-1.7.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/salim/.gradle/caches/transforms-3/b6fa5e1266a97e45434d9b867cf2ad04/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/salim/.gradle/caches/transforms-3/b6fa5e1266a97e45434d9b867cf2ad04/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] /home/salim/.gradle/caches/transforms-3/b1d34afdb3d1413d09ab64f9233a437c/transformed/savedstate-ktx-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate-ktx:1.1.0] /home/salim/.gradle/caches/transforms-3/b1d34afdb3d1413d09ab64f9233a437c/transformed/savedstate-ktx-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] /home/salim/.gradle/caches/transforms-3/e6e4ed31fd100ee2104bed6f45f86578/transformed/lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.3.1] /home/salim/.gradle/caches/transforms-3/e6e4ed31fd100ee2104bed6f45f86578/transformed/lifecycle-viewmodel-savedstate-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] /home/salim/.gradle/caches/transforms-3/7d2338df87acd60c18f998586c7e8866/transformed/savedstate-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.1.0] /home/salim/.gradle/caches/transforms-3/7d2338df87acd60c18f998586c7e8866/transformed/savedstate-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /home/salim/.gradle/caches/transforms-3/365cd7f41348052875a456c6b811bee2/transformed/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.3.1] /home/salim/.gradle/caches/transforms-3/365cd7f41348052875a456c6b811bee2/transformed/lifecycle-viewmodel-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] /home/salim/.gradle/caches/transforms-3/d8bfba02767c504de705d7f43e2ff5e7/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/salim/.gradle/caches/transforms-3/d8bfba02767c504de705d7f43e2ff5e7/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /home/salim/.gradle/caches/transforms-3/5e49ef9366fa0b886a0373ac77b7641d/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /home/salim/.gradle/caches/transforms-3/5e49ef9366fa0b886a0373ac77b7641d/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.1] /home/salim/.gradle/caches/transforms-3/c80337799ee22797cbb9012194b88d32/transformed/lifecycle-runtime-2.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.4.1] /home/salim/.gradle/caches/transforms-3/c80337799ee22797cbb9012194b88d32/transformed/lifecycle-runtime-2.4.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.2.0] /home/salim/.gradle/caches/transforms-3/c424f2c827cb9deee8bc99b06df08d48/transformed/sqlite-framework-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite-framework:2.2.0] /home/salim/.gradle/caches/transforms-3/c424f2c827cb9deee8bc99b06df08d48/transformed/sqlite-framework-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite:2.2.0] /home/salim/.gradle/caches/transforms-3/228c044eab306dd46e1ee7c146414cca/transformed/sqlite-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.sqlite:sqlite:2.2.0] /home/salim/.gradle/caches/transforms-3/228c044eab306dd46e1ee7c146414cca/transformed/sqlite-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/salim/.gradle/caches/transforms-3/ffc3c4b472d6136448731733d7fb728b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/salim/.gradle/caches/transforms-3/ffc3c4b472d6136448731733d7fb728b/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/salim/.gradle/caches/transforms-3/a7fdd19e2a15fa8f49caf9b52e5bd7fc/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/salim/.gradle/caches/transforms-3/a7fdd19e2a15fa8f49caf9b52e5bd7fc/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.startup:startup-runtime:1.0.0] /home/salim/.gradle/caches/transforms-3/c8631354693033b1fd513dd80dc52793/transformed/startup-runtime-1.0.0/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.0.0] /home/salim/.gradle/caches/transforms-3/c8631354693033b1fd513dd80dc52793/transformed/startup-runtime-1.0.0/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/salim/.gradle/caches/transforms-3/307e3c4d7bcc849d26749e2d2b94e74e/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.tracing:tracing:1.0.0] /home/salim/.gradle/caches/transforms-3/307e3c4d7bcc849d26749e2d2b94e74e/transformed/tracing-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] /home/salim/.gradle/caches/transforms-3/63c97d1d04aa641c4aff763b38ce9097/transformed/lifecycle-livedata-core-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core-ktx:2.3.1] /home/salim/.gradle/caches/transforms-3/63c97d1d04aa641c4aff763b38ce9097/transformed/lifecycle-livedata-core-ktx-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/salim/.gradle/caches/transforms-3/3073e55303a8f1120d45e9521f24452b/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] /home/salim/.gradle/caches/transforms-3/3073e55303a8f1120d45e9521f24452b/transformed/lifecycle-livedata-2.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /home/salim/.gradle/caches/transforms-3/f0d6e51009581398fe241f0ba0d40f9e/transformed/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.3.1] /home/salim/.gradle/caches/transforms-3/f0d6e51009581398fe241f0ba0d40f9e/transformed/lifecycle-livedata-core-2.3.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/salim/.gradle/caches/transforms-3/6d2496b1a28e46074a23c8a68c5e291e/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/salim/.gradle/caches/transforms-3/6d2496b1a28e46074a23c8a68c5e291e/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/salim/.gradle/caches/transforms-3/b457c25773b133f8e63af3e5e7a3084a/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/salim/.gradle/caches/transforms-3/b457c25773b133f8e63af3e5e7a3084a/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/salim/.gradle/caches/transforms-3/bf4c8e012980a9336d1fcc8a89b304fe/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/salim/.gradle/caches/transforms-3/bf4c8e012980a9336d1fcc8a89b304fe/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/salim/.gradle/caches/transforms-3/a7f5b9abdf2dfc3edf36aa47caca3675/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/salim/.gradle/caches/transforms-3/a7f5b9abdf2dfc3edf36aa47caca3675/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.compose.ui:ui-util:1.0.0-rc01] /home/salim/.gradle/caches/transforms-3/92a9d63735b6d39e60015192f1a73758/transformed/ui-util-1.0.0-rc01/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.compose.ui:ui-util:1.0.0-rc01] /home/salim/.gradle/caches/transforms-3/92a9d63735b6d39e60015192f1a73758/transformed/ui-util-1.0.0-rc01/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/salim/.gradle/caches/transforms-3/6329ac9d178a02c7ce25721bbe13e15b/transformed/annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/salim/.gradle/caches/transforms-3/6329ac9d178a02c7ce25721bbe13e15b/transformed/annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:4:3-70
+MERGED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:4:3-70
+INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+		INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+		ADDED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+		INJECTED from /home/salim/AndroidProjects/Weather-Application/WeatherApplication/app/src/main/AndroidManifest.xml
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:18.0.1] /home/salim/.gradle/caches/transforms-3/58fd37430423d4a14de4239e4bfb1e88/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /home/salim/.gradle/caches/transforms-3/58fd37430423d4a14de4239e4bfb1e88/transformed/play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /home/salim/.gradle/caches/transforms-3/58fd37430423d4a14de4239e4bfb1e88/transformed/play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:18.0.1] /home/salim/.gradle/caches/transforms-3/58fd37430423d4a14de4239e4bfb1e88/transformed/play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:18.0.0] /home/salim/.gradle/caches/transforms-3/99175bf0e37bac74540e866c89a94185/transformed/play-services-basement-18.0.0/AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:18.0.0] /home/salim/.gradle/caches/transforms-3/99175bf0e37bac74540e866c89a94185/transformed/play-services-basement-18.0.0/AndroidManifest.xml:23:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:18.0.0] /home/salim/.gradle/caches/transforms-3/99175bf0e37bac74540e866c89a94185/transformed/play-services-basement-18.0.0/AndroidManifest.xml:22:13-58
+service#androidx.room.MultiInstanceInvalidationService
+ADDED from [androidx.room:room-runtime:2.4.2] /home/salim/.gradle/caches/transforms-3/e3009a745b0626cb650141b55938c1aa/transformed/room-runtime-2.4.2/AndroidManifest.xml:25:9-28:40
+	android:exported
+		ADDED from [androidx.room:room-runtime:2.4.2] /home/salim/.gradle/caches/transforms-3/e3009a745b0626cb650141b55938c1aa/transformed/room-runtime-2.4.2/AndroidManifest.xml:28:13-37
+	android:directBootAware
+		ADDED from [androidx.room:room-runtime:2.4.2] /home/salim/.gradle/caches/transforms-3/e3009a745b0626cb650141b55938c1aa/transformed/room-runtime-2.4.2/AndroidManifest.xml:27:13-43
+	android:name
+		ADDED from [androidx.room:room-runtime:2.4.2] /home/salim/.gradle/caches/transforms-3/e3009a745b0626cb650141b55938c1aa/transformed/room-runtime-2.4.2/AndroidManifest.xml:26:13-74
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /home/salim/.gradle/caches/transforms-3/5e49ef9366fa0b886a0373ac77b7641d/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.0] /home/salim/.gradle/caches/transforms-3/5e49ef9366fa0b886a0373ac77b7641d/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.startup:startup-runtime:1.0.0] /home/salim/.gradle/caches/transforms-3/c8631354693033b1fd513dd80dc52793/transformed/startup-runtime-1.0.0/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.0.0] /home/salim/.gradle/caches/transforms-3/c8631354693033b1fd513dd80dc52793/transformed/startup-runtime-1.0.0/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:30:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:28:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:29:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:27:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:33:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.0.0] /home/salim/.gradle/caches/transforms-3/9104d94634037d124497e29cbb63bc41/transformed/emoji2-1.0.0/AndroidManifest.xml:32:17-75
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] /home/salim/.gradle/caches/transforms-3/5e49ef9366fa0b886a0373ac77b7641d/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] /home/salim/.gradle/caches/transforms-3/5e49ef9366fa0b886a0373ac77b7641d/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.0] /home/salim/.gradle/caches/transforms-3/5e49ef9366fa0b886a0373ac77b7641d/transformed/lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:8:3-74
+	android:name
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:8:20-72
+activity#com.google.android.play.core.missingsplits.PlayCoreMissingSplitsActivity
+ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:12:5-271
+	android:process
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:12:152-203
+	android:enabled
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:12:103-126
+	android:stateNotNeeded
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:12:240-269
+	android:launchMode
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:12:204-239
+	android:exported
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:12:127-151
+	android:name
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:12:15-102
+activity#com.google.android.play.core.common.PlayCoreDialogWrapperActivity
+ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:13:5-226
+	android:enabled
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:13:96-119
+	android:stateNotNeeded
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:13:145-174
+	android:exported
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:13:120-144
+	android:theme
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:13:175-224
+	android:name
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:13:15-95
+service#com.google.android.play.core.assetpacks.AssetPackExtractionService
+ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:16:5-18:15
+	android:enabled
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:16:96-119
+	android:exported
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:16:120-143
+	android:name
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:16:14-95
+meta-data#com.google.android.play.core.assetpacks.versionCode
+ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:17:7-108
+	android:value
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:17:85-106
+	android:name
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:17:18-84
+service#com.google.android.play.core.assetpacks.ExtractionForegroundService
+ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:19:5-147
+	android:enabled
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:19:97-120
+	android:exported
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:19:121-145
+	android:name
+		ADDED from [com.google.android.play:core:1.9.1] /home/salim/.gradle/caches/transforms-3/6f28b2b63c7865587fa8a58f7e064bea/transformed/core-1.9.1/AndroidManifest.xml:19:14-96
