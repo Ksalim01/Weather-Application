@@ -1,25 +1,15 @@
 package google.codelabs.weatherapplication.screen.weathercitylist.fragment
 
 import android.content.Context
-import android.opengl.Visibility
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import google.codelabs.weatherapplication.App
-import google.codelabs.weatherapplication.MainFragment
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCityListBinding
 import google.codelabs.weatherapplication.screen.*
 import google.codelabs.weatherapplication.screen.cityweather.fragment.CityWeatherFragment.Companion.CITY_KEY
-import google.codelabs.weatherapplication.screen.cityweather.utils.dateFormat
-import google.codelabs.weatherapplication.screen.cityweather.utils.offsetToGMT
-import google.codelabs.weatherapplication.screen.cityweather.utils.toTempMaxMin
-import google.codelabs.weatherapplication.screen.cityweather.utils.toTemperature
 import google.codelabs.weatherapplication.screen.weathercitylist.adapters.CityListViewAdapter
 import google.codelabs.weatherapplication.screen.weathercitylist.viewmodels.CityListViewModel
 import javax.inject.Inject
@@ -32,7 +22,7 @@ class CityListFragment : Fragment(R.layout.fragment_city_list) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (requireContext().applicationContext as App).appComponent.inject(this)
+        (activity as MainActivity).mainActivityComponent.inject(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -71,7 +61,6 @@ class CityListFragment : Fragment(R.layout.fragment_city_list) {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = cityListViewAdapter
-            edgeEffectFactory = BounceEdgeEffectFactory()
         }
     }
 

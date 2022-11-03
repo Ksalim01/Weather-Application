@@ -6,16 +6,14 @@ import android.util.Log
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import google.codelabs.weatherapplication.App
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCitySearchBinding
 import google.codelabs.weatherapplication.repository.forecast.entities.CityAddress
 import google.codelabs.weatherapplication.repository.forecast.entities.UpdateResult
-import google.codelabs.weatherapplication.screen.BounceEdgeEffectFactory
+import google.codelabs.weatherapplication.screen.MainActivity
 import google.codelabs.weatherapplication.screen.citysearch.utils.correctCityName
 import google.codelabs.weatherapplication.screen.cityweather.fragment.CityWeatherFragment.Companion.CITY_KEY
 import google.codelabs.weatherapplication.screen.sendResultToPreviousFragment
@@ -31,7 +29,7 @@ class CitySearchFragment : Fragment(R.layout.fragment_city_search) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (context.applicationContext as App).appComponent.inject(this)
+        (activity as MainActivity).mainActivityComponent.inject(this)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -63,7 +61,6 @@ class CitySearchFragment : Fragment(R.layout.fragment_city_search) {
             layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
             adapter = citySearchListAdapter
-            edgeEffectFactory = BounceEdgeEffectFactory()
         }
 
         subscribeToUpdates()

@@ -6,6 +6,7 @@ import google.codelabs.weatherapplication.database.forecast.daily.dao.DailyForec
 import google.codelabs.weatherapplication.database.forecast.daily.entities.DailyForecastEntity
 import google.codelabs.weatherapplication.database.forecast.hourly.dao.HourlyForecastDao
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.HourlyForecastEntity
+import google.codelabs.weatherapplication.di.ApplicationScope
 import google.codelabs.weatherapplication.network.forecast.ForecastNetworkService
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 import google.codelabs.weatherapplication.network.forecast.entities.OneCallData
@@ -18,7 +19,7 @@ import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
+@ApplicationScope
 class ForecastRepository @Inject constructor(
     private val dailyForecastDao: DailyForecastDao,
     private val hourlyForecastDao: HourlyForecastDao,

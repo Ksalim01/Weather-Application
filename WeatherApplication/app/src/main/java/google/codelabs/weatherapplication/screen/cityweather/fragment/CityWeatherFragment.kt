@@ -9,9 +9,9 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import google.codelabs.weatherapplication.App
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCityWeatherBinding
+import google.codelabs.weatherapplication.screen.MainActivity
 import google.codelabs.weatherapplication.screen.cityweather.adapter.CurrentWeatherAdapter
 import google.codelabs.weatherapplication.screen.cityweather.adapter.DailyForecastAdapter
 import google.codelabs.weatherapplication.screen.cityweather.adapter.HourlyForecastRecyclerViewAdapter
@@ -31,7 +31,7 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        (requireActivity().application as App).appComponent.inject(this)
+        (activity as MainActivity).mainActivityComponent.inject(this)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

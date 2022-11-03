@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import google.codelabs.weatherapplication.repository.forecast.CityExistence
 import google.codelabs.weatherapplication.repository.forecast.entities.CityAddressResult
+import google.codelabs.weatherapplication.screen.MainActivityScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject

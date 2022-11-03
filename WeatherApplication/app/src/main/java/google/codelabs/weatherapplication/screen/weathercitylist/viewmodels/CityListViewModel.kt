@@ -7,13 +7,13 @@ import androidx.lifecycle.viewModelScope
 import google.codelabs.weatherapplication.repository.forecast.CityAdding
 import google.codelabs.weatherapplication.repository.forecast.CityListDataProvider
 import google.codelabs.weatherapplication.repository.forecast.entities.CityWeather
+import google.codelabs.weatherapplication.screen.MainActivityScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 
-
-@Singleton
+@MainActivityScope
 class CityListViewModel @Inject constructor(
     private val repository: CityListDataProvider
 ) : ViewModel() {

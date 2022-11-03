@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="google.codelabs.weatherapplication.MainFragment"
+        android:name="google.codelabs.weatherapplication.screen.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
 

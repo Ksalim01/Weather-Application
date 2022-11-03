@@ -10,12 +10,14 @@ import google.codelabs.weatherapplication.database.forecast.hourly.entities.Hour
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 import google.codelabs.weatherapplication.repository.forecast.CityForecastDataProvider
 import google.codelabs.weatherapplication.repository.forecast.ForecastRepository
+import google.codelabs.weatherapplication.screen.MainActivityScope
 import google.codelabs.weatherapplication.screen.cityweather.fragment.Coordinates
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@MainActivityScope
 class ForecastViewModel @Inject constructor(
     private val forecastRepository: CityForecastDataProvider
 ) : ViewModel() {

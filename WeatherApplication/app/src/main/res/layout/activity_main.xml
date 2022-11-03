@@ -8,7 +8,7 @@
     android:layout_height="match_parent"
     android:background="@color/default_background_color"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".screen.MainActivity">
 
 
 
@@ -20,7 +20,7 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_graph"
         android:background="@color/default_background_color"
-        tools:context=".MainActivity">
+        tools:context=".screen.MainActivity">
 
 
     </androidx.fragment.app.FragmentContainerView>

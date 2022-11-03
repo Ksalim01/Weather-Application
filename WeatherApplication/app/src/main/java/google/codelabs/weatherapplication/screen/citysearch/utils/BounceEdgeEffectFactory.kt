@@ -1,4 +1,4 @@
-package google.codelabs.weatherapplication.screen
+package google.codelabs.weatherapplication.screen.citysearch.utils
 
 import android.graphics.Canvas
 import android.widget.EdgeEffect
