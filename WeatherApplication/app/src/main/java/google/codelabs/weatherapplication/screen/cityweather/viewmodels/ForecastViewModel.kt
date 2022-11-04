@@ -1,63 +1,54 @@
 package google.codelabs.weatherapplication.screen.cityweather.viewmodels
 
-import android.util.Log
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import google.codelabs.weatherapplication.database.forecast.daily.entities.DailyForecastEntity
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.HourlyForecastEntity
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 import google.codelabs.weatherapplication.repository.forecast.CityForecastDataProvider
-import google.codelabs.weatherapplication.repository.forecast.ForecastRepository
 import google.codelabs.weatherapplication.screen.MainActivityScope
-import google.codelabs.weatherapplication.screen.cityweather.fragment.Coordinates
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @MainActivityScope
+@ExperimentalCoroutinesApi
 class ForecastViewModel @Inject constructor(
     private val forecastRepository: CityForecastDataProvider
 ) : ViewModel() {
-    private lateinit var cityParameters: Coordinates
 
-    private val _dailyForecastData: MutableLiveData<List<DailyForecastEntity>> by lazy {
-        MutableLiveData()
-    }
-    val dailyForecastData: LiveData<List<DailyForecastEntity>>
-        get() = _dailyForecastData
+    private val dispatcher = Dispatchers.IO
 
-    private val _hourlyForecastData: MutableLiveData<List<HourlyForecastEntity>> by lazy {
-        MutableLiveData()
-    }
-    val hourlyForecastData: LiveData<List<HourlyForecastEntity>>
-        get() = _hourlyForecastData
+    private val _cityFlow = MutableStateFlow<String>("")
+    val dailyForecastData: LiveData<List<DailyForecastEntity>> =
+        _cityFlow.flatMapLatest { city ->
+            forecastRepository.dailyForecast(city)
+        }.flowOn(dispatcher).asLiveData()
 
-    private val _currentForecastData: MutableLiveData<CurrentWeatherEntity> by lazy {
-        MutableLiveData()
-    }
-    val currentForecastData: LiveData<CurrentWeatherEntity>
-        get() = _currentForecastData
+    val hourlyForecastData: LiveData<List<HourlyForecastEntity>> = _cityFlow.flatMapLatest { city ->
+        forecastRepository.hourlyForecast(city)
+    }.flowOn(dispatcher).asLiveData()
 
-    fun setCityParameters(city: String, update: Boolean) {
-        launchDataLoad {
-            if (update) forecastRepository.updateData(city)
-            _currentForecastData.postValue(forecastRepository.currentWeather(city)[0])
-            _dailyForecastData.postValue(forecastRepository.dailyForecast(city))
-            _hourlyForecastData.postValue(forecastRepository.hourlyForecast(city))
-        }
+    val currentForecastData: LiveData<List<CurrentWeatherEntity>> =
+        _cityFlow.flatMapLatest { city ->
+            forecastRepository.currentWeather(city)
+        }.flowOn(dispatcher).asLiveData()
+
+    fun setCity(city: String) {
+        _cityFlow.value = city
+
+        viewModelScope.launch {  }
     }
 
-    private fun launchDataLoad(block: suspend () -> Unit): Job {
-        return viewModelScope.launch(Dispatchers.IO) {
-            try {
-                block()
-            } catch (error: Throwable) {
-            } finally {
-
-            }
+    fun updateData() {
+        viewModelScope.launch(dispatcher) {
+            forecastRepository.updateData(_cityFlow.value)
         }
     }
 }

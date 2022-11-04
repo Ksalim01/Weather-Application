@@ -1,7 +1,6 @@
 package google.codelabs.weatherapplication.repository.forecast
 
 import android.location.Geocoder
-import android.util.Log
 import google.codelabs.weatherapplication.database.forecast.daily.dao.DailyForecastDao
 import google.codelabs.weatherapplication.database.forecast.daily.entities.DailyForecastEntity
 import google.codelabs.weatherapplication.database.forecast.hourly.dao.HourlyForecastDao
@@ -11,13 +10,13 @@ import google.codelabs.weatherapplication.network.forecast.ForecastNetworkServic
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 import google.codelabs.weatherapplication.network.forecast.entities.OneCallData
 import google.codelabs.weatherapplication.repository.forecast.entities.*
-import google.codelabs.weatherapplication.repository.utils.allCityForecastEntity_to_CityListWEather
+import google.codelabs.weatherapplication.repository.utils.allCityForecastEntity_to_CityListWeather
 import google.codelabs.weatherapplication.repository.utils.toDailyForecastEntity
 import google.codelabs.weatherapplication.repository.utils.toHourlyForecastEntity
 import google.codelabs.weatherapplication.screen.cityweather.utils.*
+import kotlinx.coroutines.flow.*
 import java.io.IOException
 import javax.inject.Inject
-import javax.inject.Singleton
 
 @ApplicationScope
 class ForecastRepository @Inject constructor(
@@ -27,16 +26,16 @@ class ForecastRepository @Inject constructor(
     private val geocoder: Geocoder,
 ) : CityForecastDataProvider, CityExistence, CityListDataProvider {
 
-    override suspend fun currentWeather(city: String): List<CurrentWeatherEntity> =
+    override fun currentWeather(city: String): Flow<List<CurrentWeatherEntity>> =
         hourlyForecastDao.currentWeather(
             city,
             currentUnixTime()
         )
 
-    override suspend fun hourlyForecast(city: String): List<HourlyForecastEntity> =
+    override fun hourlyForecast(city: String): Flow<List<HourlyForecastEntity>> =
         hourlyForecastDao.cityForecast(city, currentUnixTime())
 
-    override suspend fun dailyForecast(city: String): List<DailyForecastEntity> =
+    override fun dailyForecast(city: String): Flow<List<DailyForecastEntity>> =
         dailyForecastDao.cityForecast(city, currentUnixDay(0))
 
     override suspend fun addCity(city: String): UpdateResult =
@@ -63,30 +62,25 @@ class ForecastRepository @Inject constructor(
         return response.result
     }
 
-    override suspend fun allCityWeather(): List<CityWeather> {
+    override fun allCityWeather(): Flow<List<CityWeather>> {
         val time = currentUnixTime()
         val cityList = dailyForecastDao.allCityForecast(time - currentTimeZoneOffset())
         val currentWeatherList =
             hourlyForecastDao.allCityCurrentWeather(time)
 
-        val cityMap = mutableMapOf<String, CityWeather>()
-        cityList.filter {
-            dateWithoutHours(it.dt) == dateWithoutHours(time, it.timezone_offset)
-        }.map {
-            Log.d(TAG, "${dateWithoutHours(it.dt)}, ${dateWithoutHours(time, it.timezone_offset)}")
-            cityMap.put(it.city, allCityForecastEntity_to_CityListWEather(it))
-        }
 
-        currentWeatherList.map {
-            if (cityMap.containsKey(it.city)) {
-                cityMap[it.city] = cityMap[it.city]!!.copy(
-                    current_temp = it.temp,
-                    icon = it.icon,
-                )
+        return cityList.map { allCityForecast ->
+            allCityForecast.filter {
+                dateWithoutHours(it.dt) == dateWithoutHours(time, it.timezone_offset)
+            }.map(::allCityForecastEntity_to_CityListWeather)
+//          Log.d(TAG, "${dateWithoutHours(it.dt)}, ${dateWithoutHours(time, it.timezone_offset)}")
+
+        }.combine(currentWeatherList) { allCityWeather, currentWeather ->
+            currentWeather.mapNotNull {
+                allCityWeather.find { cityWeather -> cityWeather.city == it.city }
+                    ?.copy(current_temp = it.temp, icon = it.icon)
             }
         }
-
-        return cityMap.values.toList()
     }
 
     private suspend fun fetchData(city: String): NetworkResponseResult {
@@ -98,8 +92,11 @@ class ForecastRepository @Inject constructor(
             return NetworkResponseResult(null, UpdateResult.NO_RESPONSE)
         }
 
-        val oneCallData = forecastNetworkService.fetchOneCallData(city)
-        if (oneCallData == null) return NetworkResponseResult(null, UpdateResult.NO_RESPONSE)
+        val oneCallData =
+            forecastNetworkService.fetchOneCallData(city) ?: return NetworkResponseResult(
+                null,
+                UpdateResult.NO_RESPONSE
+            )
 
         return NetworkResponseResult(oneCallData, UpdateResult.SUCCESSFUL)
     }

@@ -62,7 +62,7 @@ fun toCurrentWeatherEntity(response: OneCallData) = response.let {
     )
 }
 
-fun allCityForecastEntity_to_CityListWEather(allCityForecastEntity: AllCityForecastEntity) =
+fun allCityForecastEntity_to_CityListWeather(allCityForecastEntity: AllCityForecastEntity) =
     allCityForecastEntity.let {
         CityWeather(
             city = it.city,

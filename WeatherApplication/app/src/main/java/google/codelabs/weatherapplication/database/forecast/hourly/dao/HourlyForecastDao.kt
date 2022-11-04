@@ -7,6 +7,7 @@ import androidx.room.Query
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.AllCityCurrentWeather
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.HourlyForecastEntity
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface HourlyForecastDao {
@@ -16,7 +17,7 @@ interface HourlyForecastDao {
     @Query("SELECT * FROM hourly_forecast " +
             "WHERE city_name = :city and dt >= :dt " +
             "ORDER BY dt")
-    suspend fun cityForecast(city: String, dt: Long): List<HourlyForecastEntity>
+    fun cityForecast(city: String, dt: Long): Flow<List<HourlyForecastEntity>>
 
 
     @Query(
@@ -26,7 +27,7 @@ interface HourlyForecastDao {
                 "and dt = :dt " +
                 "ORDER BY dt"
     )
-    suspend fun currentWeather(city: String, dt: Long): List<CurrentWeatherEntity>
+    fun currentWeather(city: String, dt: Long): Flow<List<CurrentWeatherEntity>>
 
     @Query(
         "SELECT city_name, dt, timezone_offset, temp, icon " +
@@ -34,7 +35,7 @@ interface HourlyForecastDao {
                 "WHERE dt = :dt " +
                 "ORDER BY dt"
     )
-    suspend fun allCityCurrentWeather(dt: Long): List<AllCityCurrentWeather>
+    fun allCityCurrentWeather(dt: Long): Flow<List<AllCityCurrentWeather>>
 
 
     @Query("SELECT min(dt) FROM hourly_forecast WHERE city_name = :city")

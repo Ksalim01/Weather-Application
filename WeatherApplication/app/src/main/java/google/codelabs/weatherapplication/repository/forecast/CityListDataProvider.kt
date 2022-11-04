@@ -1,8 +1,9 @@
 package google.codelabs.weatherapplication.repository.forecast
 
 import google.codelabs.weatherapplication.repository.forecast.entities.CityWeather
+import kotlinx.coroutines.flow.Flow
 
-interface CityListDataProvider: CityAdding {
+interface CityListDataProvider {
 
-    suspend fun allCityWeather(): List<CityWeather>
+    fun allCityWeather(): Flow<List<CityWeather>>
 }

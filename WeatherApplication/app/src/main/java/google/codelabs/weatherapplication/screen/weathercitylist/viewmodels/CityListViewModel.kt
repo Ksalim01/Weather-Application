@@ -1,57 +1,39 @@
 package google.codelabs.weatherapplication.screen.weathercitylist.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import google.codelabs.weatherapplication.repository.forecast.CityAdding
 import google.codelabs.weatherapplication.repository.forecast.CityListDataProvider
 import google.codelabs.weatherapplication.repository.forecast.entities.CityWeather
 import google.codelabs.weatherapplication.screen.MainActivityScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @MainActivityScope
+@ExperimentalCoroutinesApi
 class CityListViewModel @Inject constructor(
     private val repository: CityListDataProvider
 ) : ViewModel() {
 
-    private val _otherCitiesWeather: MutableLiveData<List<CityWeather>> by lazy {
-        MutableLiveData()
-    }
-    val otherCitiesWeather: LiveData<List<CityWeather>>
-        get() = _otherCitiesWeather
+    private val _allCityWeatherFlow = repository.allCityWeather()
+    private val _favouriteCityStateFlow = MutableStateFlow("")
+    private val dispatcher = Dispatchers.IO
 
-    private val _favouriteCityWeather: MutableLiveData<CityWeather> by lazy {
-        MutableLiveData()
-    }
-    val favouriteCityWeather: LiveData<CityWeather>
-        get() = _favouriteCityWeather
+    val favouriteCityWeather = _favouriteCityStateFlow.flatMapLatest { city->
+        _allCityWeatherFlow.map { allCityWeather -> allCityWeather.find { it.city == city } }
+    }.flowOn(dispatcher).asLiveData()
+
+    val otherCitiesWeather = _favouriteCityStateFlow.flatMapLatest { city->
+        _allCityWeatherFlow.map { allCityWeather -> allCityWeather.filter { it.city != city } }
+    }.flowOn(dispatcher).asLiveData()
 
     fun launchCityListData(favouriteCity: String) {
-        launch {
-            divideCityListWeather(repository.allCityWeather(), favouriteCity)
-        }
-    }
-
-    fun launchCityListDataWithNewCity(newCity: String) {
-        launch {
-            repository.addCity(newCity)
-            divideCityListWeather(repository.allCityWeather(), _favouriteCityWeather.value!!.city)
-        }
-    }
-
-    private fun divideCityListWeather(cityWeather: List<CityWeather>, favouriteCity: String) {
-        val favouriteCityIndex = cityWeather.indexOfFirst { it.city == favouriteCity }
-        _favouriteCityWeather.postValue(cityWeather[favouriteCityIndex])
-        _otherCitiesWeather.postValue(cityWeather.filter { it.city != favouriteCity })
-    }
-
-    private fun launch(block: suspend () -> Unit) {
-        viewModelScope.launch(Dispatchers.IO) {
-            block()
-        }
+        _favouriteCityStateFlow.value = favouriteCity
     }
 }

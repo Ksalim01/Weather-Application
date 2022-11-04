@@ -53,7 +53,7 @@ class CitySearchFragment : Fragment(R.layout.fragment_city_search) {
 
     private fun initCityListSearch() {
         citySearchListAdapter = CitySearchListAdapter {
-            sendResultToPreviousFragment(CITY_KEY, it)
+            citySearchViewModel.addCity(it)
             findNavController().navigateUp()
         }
 

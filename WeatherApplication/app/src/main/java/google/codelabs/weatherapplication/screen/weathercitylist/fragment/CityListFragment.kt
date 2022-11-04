@@ -12,8 +12,10 @@ import google.codelabs.weatherapplication.screen.*
 import google.codelabs.weatherapplication.screen.cityweather.fragment.CityWeatherFragment.Companion.CITY_KEY
 import google.codelabs.weatherapplication.screen.weathercitylist.adapters.CityListViewAdapter
 import google.codelabs.weatherapplication.screen.weathercitylist.viewmodels.CityListViewModel
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
+@ExperimentalCoroutinesApi
 class CityListFragment : Fragment(R.layout.fragment_city_list) {
     private lateinit var binding: FragmentCityListBinding
 
@@ -50,10 +52,6 @@ class CityListFragment : Fragment(R.layout.fragment_city_list) {
     }
 
     private fun initCityList() {
-        listenResults<String>(CITY_KEY) {
-            cityListViewModel.launchCityListDataWithNewCity(it)
-        }
-
         val cityListViewAdapter = createCityListAdapter()
         subscribeToUpdates(cityListViewAdapter)
 
@@ -99,6 +97,7 @@ class CityListFragment : Fragment(R.layout.fragment_city_list) {
         }
 
         cityListViewModel.favouriteCityWeather.observe(viewLifecycleOwner) {
+            if (it == null) return@observe
             binding.favouriteCityItem.bind(it)
             binding.favouriteCityItem.city.setCompoundDrawablesRelativeWithIntrinsicBounds(
                 R.drawable.ic_location,

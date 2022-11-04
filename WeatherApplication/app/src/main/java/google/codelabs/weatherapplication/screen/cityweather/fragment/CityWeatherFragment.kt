@@ -17,8 +17,10 @@ import google.codelabs.weatherapplication.screen.cityweather.adapter.DailyForeca
 import google.codelabs.weatherapplication.screen.cityweather.adapter.HourlyForecastRecyclerViewAdapter
 import google.codelabs.weatherapplication.screen.cityweather.viewmodels.ForecastViewModel
 import google.codelabs.weatherapplication.screen.listenResults
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import javax.inject.Inject
 
+@ExperimentalCoroutinesApi
 class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
     private lateinit var binding : FragmentCityWeatherBinding
 
@@ -37,7 +39,8 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         city = args.city
-        viewModel.setCityParameters(city, true)
+        viewModel.setCity(city)
+        viewModel.updateData()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -46,7 +49,8 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
 
         listenResults<String>(CITY_KEY) {
             city = it
-            viewModel.setCityParameters(city, false)
+            viewModel.setCity(city)
+            viewModel.updateData()
         }
 
         initAll()
@@ -70,7 +74,7 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
                 }
                 R.id.refresh -> {
                     hide()
-                    viewModel.setCityParameters(city, true)
+                    viewModel.updateData()
                     true
                 }
                 else -> super.onOptionsItemSelected(it)
@@ -129,7 +133,7 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
     private fun initCurrentWeather() {
         val currentWeatherAdapter = CurrentWeatherAdapter(binding, requireContext())
         viewModel.currentForecastData.observe(viewLifecycleOwner, Observer {
-            currentWeatherAdapter.data = it
+            if (it.isNotEmpty()) currentWeatherAdapter.data = it[0]
         })
     }
 

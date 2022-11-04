@@ -27,4 +27,10 @@ class CitySearchViewModel @Inject constructor(
             _response.postValue(repository.checkCityExistence(city))
         }
     }
+
+    fun addCity(city: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.addCity(city)
+        }
+    }
 }
