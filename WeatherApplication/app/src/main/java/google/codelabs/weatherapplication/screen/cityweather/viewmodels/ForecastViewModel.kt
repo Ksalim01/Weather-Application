@@ -1,6 +1,7 @@
 package google.codelabs.weatherapplication.screen.cityweather.viewmodels
 
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
@@ -8,6 +9,7 @@ import google.codelabs.weatherapplication.database.forecast.daily.entities.Daily
 import google.codelabs.weatherapplication.database.forecast.hourly.entities.HourlyForecastEntity
 import google.codelabs.weatherapplication.network.forecast.entities.CurrentWeatherEntity
 import google.codelabs.weatherapplication.repository.forecast.CityForecastDataProvider
+import google.codelabs.weatherapplication.repository.forecast.entities.UpdateResult
 import google.codelabs.weatherapplication.screen.MainActivityScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -40,15 +42,16 @@ class ForecastViewModel @Inject constructor(
             forecastRepository.currentWeather(city)
         }.flowOn(dispatcher).asLiveData()
 
+    private val _lastUpdateResult = MutableLiveData<UpdateResult>()
+    val lastUpdateResult : LiveData<UpdateResult> = _lastUpdateResult
+
     fun setCity(city: String) {
         _cityFlow.value = city
-
-        viewModelScope.launch {  }
     }
 
     fun updateData() {
         viewModelScope.launch(dispatcher) {
-            forecastRepository.updateData(_cityFlow.value)
+            _lastUpdateResult.postValue(forecastRepository.updateData(_cityFlow.value))
         }
     }
 }

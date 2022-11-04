@@ -9,6 +9,17 @@
     tools:context=".screen.cityweather.fragment.CityWeatherFragment"
     android:background="@drawable/background_sunny_day">
 
+    <ProgressBar
+        android:id="@+id/refreshBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center_horizontal"
+        android:indeterminateTint="@color/white"
+        android:visibility="gone"
+        >
+    </ProgressBar>
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"

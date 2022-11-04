@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
@@ -11,6 +12,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import google.codelabs.weatherapplication.R
 import google.codelabs.weatherapplication.databinding.FragmentCityWeatherBinding
+import google.codelabs.weatherapplication.repository.forecast.entities.UpdateResult
 import google.codelabs.weatherapplication.screen.MainActivity
 import google.codelabs.weatherapplication.screen.cityweather.adapter.CurrentWeatherAdapter
 import google.codelabs.weatherapplication.screen.cityweather.adapter.DailyForecastAdapter
@@ -22,7 +24,7 @@ import javax.inject.Inject
 
 @ExperimentalCoroutinesApi
 class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
-    private lateinit var binding : FragmentCityWeatherBinding
+    private lateinit var binding: FragmentCityWeatherBinding
 
     private val args by navArgs<CityWeatherFragmentArgs>()
 
@@ -65,15 +67,16 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
     }
 
     private fun initToolbar() {
+        subscribeOnUpdateResult()
         binding.toolbar.inflateMenu(R.menu.menu_scrolling)
         binding.toolbar.setOnMenuItemClickListener {
-            when(it.itemId) {
+            when (it.itemId) {
                 R.id.cityList -> {
                     findNavController().navigate(R.id.action_cityWeatherFragment_to_cityListFragment)
                     true
                 }
                 R.id.refresh -> {
-                    hide()
+                    binding.refreshBar.visibility = View.VISIBLE
                     viewModel.updateData()
                     true
                 }
@@ -102,6 +105,27 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
             feelsLike.visibility = v
             currentWeatherIcon.visibility = v
             toolbar.visibility = v
+        }
+    }
+
+    private fun subscribeOnUpdateResult() {
+        viewModel.lastUpdateResult.observe(viewLifecycleOwner) { result ->
+            when (result) {
+                UpdateResult.NO_INTERNET_CONNECTION -> Toast.makeText(
+                    requireContext(),
+                    resources.getString(R.string.lost_connection),
+                    Toast.LENGTH_SHORT
+                ).show()
+
+                UpdateResult.NO_RESPONSE -> Toast.makeText(
+                    requireContext(),
+                    resources.getString(R.string.something_went_wrong),
+                    Toast.LENGTH_SHORT
+                ).show()
+                else -> {}
+            }
+
+            binding.refreshBar.visibility = View.GONE
         }
     }
 
