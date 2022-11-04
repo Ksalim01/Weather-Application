@@ -97,6 +97,7 @@ class CityWeatherFragment : Fragment(R.layout.fragment_city_weather) {
             tempMinMax.visibility = v
             feelsLike.visibility = v
             currentWeatherIcon.visibility = v
+            toolbar.visibility = v
         }
     }
 
